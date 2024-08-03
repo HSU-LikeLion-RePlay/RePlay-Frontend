@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function MyPage() {
   const [userData, setUserData] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -14,11 +16,7 @@ export default function MyPage() {
       }
 
       try {
-<<<<<<< HEAD
-        const response = await axios.get('http://43.201.176.194/api/user/getMyPage', {
-=======
         const response = await axios.get('https://43.201.176.194.nip.io/api/user/getMyPage', {
->>>>>>> 5fe2862 (.)
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -47,7 +45,7 @@ export default function MyPage() {
       <div>
         <div>
           {userData.nickName}님의 회원 정보
-          <button>수정하기</button>
+          <button onClick={() => navigate('/editProfil')}>수정하기</button>
         </div>
         <div>
           <img src={userData.profileImage} alt="프로필 사진" style={{ width: '150px', height: '150px', borderRadius: '50%' }} />
@@ -60,23 +58,22 @@ export default function MyPage() {
         </div>
       </div>
 
-      <div>
+      <div className='movePage'>
         <h3>나의 배움터</h3>
-        <p>내가 참여한 배움터</p>
-        <p>스크랩한 배움터</p>
+        <button onClick={() => navigate('/myStudy')}>내가 참여한 배움터</button>
+        <button onClick={() => navigate('/myScrapStudy')}>스크랩한 배움터</button>
       </div>
 
       <div>
         <h3>나의 놀이터</h3>
-        <p>내가 참여한 놀이터</p>
-        <p>스크랩한 놀이터</p>
-        <p>내가 만든 놀이터</p>
+        <button onClick={() => navigate('/myPlay')}>내가 참여한 놀이터</button>
+        <button onClick={() => navigate('/myScrapPlay')}>스크랩한 놀이터</button>
+        <button onClick={() => navigate('/myCreatedPlay')}>내가 만든 놀이터</button>
       </div>
 
       <div>
         <h3>나의 생생정보터</h3>
-        <p>내가 참여한 배움터</p>
-        <p>스크랩한 배움터</p>
+        <button onClick={() => navigate('/myInfo')}>스크랩한 정보터</button>
       </div>
     </>
   );

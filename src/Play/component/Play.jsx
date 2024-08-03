@@ -6,8 +6,6 @@ import SelectDate from './SelectDate';
 import Location from './Location';
 import { useNavigate } from 'react-router-dom';
 import LoginHeader from '../../Header/components/LoginHeader';
-
-import LoginHeader from '../../Header/components/LoginHeader';
 export default function Play() {
   const [selectedDates, setSelectedDates] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState([]);
