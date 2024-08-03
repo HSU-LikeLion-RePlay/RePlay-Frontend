@@ -23,7 +23,7 @@ import MyInfo from './MyPage/component/MyInfo';
 import MyPlay from './MyPage/component/MyPlay';
 import MyStudy from './MyPage/component/MyStudy';
 import MyScrapPlay from './MyPage/component/MyScrapPlay';
-
+import AdvertisementSupporter from './Main/components/AdvertisementSupporter';
 
 const App = () => {
   return (
@@ -56,6 +56,7 @@ const App = () => {
           <Route path="/InformationPost" element={<InformationPost />} />
           <Route path="/InformationPost" element={<InformationPost />} />
           <Route path="/bookmarks" element={<BookmarkPage />} />
+          <Route path='/AdvertisementSupporter' element={<AdvertisementSupporter/>}/>
 
           <Route path="/post/:id" element={<Post />} />
 

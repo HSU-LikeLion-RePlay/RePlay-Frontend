@@ -40,21 +40,6 @@ const MainLogin = () => {
     <div>
       <LoginHeader />
       <MainSlider className="main-login-slider" slides={slides} />
-      {/* <div className="main-advertisement-container">
-        <div className="main-advertisement-image">
-          <img
-            className="main-advertisement-logo-image"
-            src={logoimage}
-            alt="Logo"
-          />
-          <img
-            className="main-advertisement-slogan-image"
-            src={sloganimage}
-            alt="Slogan"
-          />
-        </div>
-        <div className="main-advertisement-text">임시광고입니다.</div>
-      </div> */}
       <div className="main-help-container">
         <div className="main-help-text-container">
           <div className="main-help-text-container-large">
@@ -65,7 +50,9 @@ const MainLogin = () => {
             멘토입니다.
           </div>
         </div>
-        <button className="main-help-button">자세히 보기</button>
+        <Link to="/AdvertisementSupporter" className="main-help-button">
+          자세히 보기
+        </Link>
       </div>
       <div className="main-study-container">
         <div className="main-study-title">배움터</div>

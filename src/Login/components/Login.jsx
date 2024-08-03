@@ -76,12 +76,16 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <div className="logo-container">
-        <img src={require("../image/logo.jpg")} alt="Logo" className="logo" />
+      <div className="login-logo-container">
+        <img
+          src={require("../image/logo.jpg")}
+          alt="Logo"
+          className="login-logo"
+        />
         <img
           src={require("../image/slogan.jpg")}
           alt="Slogan"
-          className="slogan"
+          className="login-slogan"
         />
       </div>
       <form className="login-form" onSubmit={handleLogin}>
@@ -89,7 +93,7 @@ const Login = () => {
           <div className="login-phone">휴대폰번호</div>
           <input
             type="text"
-            id="phone"
+            id="gray-phone-number"
             value={phoneId}
             onChange={handlePhoneIdChange}
             placeholder="01012345678"
@@ -99,7 +103,7 @@ const Login = () => {
           <div className="login-password">비밀번호</div>
           <input
             type="password"
-            id="password"
+            id="gray-password"
             value={password}
             onChange={handlePasswordChange}
             placeholder="비밀번호를 입력해주세요."
@@ -110,34 +114,13 @@ const Login = () => {
           로그인
         </button>
       </form>
-      <div className="kakao-login-footer">
-        <div className="kakao-first">
-          <div className="kakao-first-text">
-            리플레이가 처음이신가요?{" "}
-            <a href="/SignUpNickName" className="signup-link">
-              회원가입
-            </a>
-            {/* 링크확인 */}
-            <a href="/Category" className="signup-link">
-              Category
-            </a>
-            <a href="/InformationPost" className="signup-link">
-              InformationPost
-            </a>
-            <a href="/Post" className="signup-link">
-              Post
-            </a>
-          </div>
+      <div className="first-replay-container">
+        <div className="first-replay-text">
+          리플레이가 처음이신가요?{" "}
+          <a href="/SignUpNickName" className="signup-link">
+            회원가입
+          </a>
         </div>
-
-        <button className="start-kakao-button">
-          <img
-            src={require("../image/kakao_logo.png")}
-            alt="Kakao"
-            className="start-kakao-logo"
-          />
-          카카오로 시작하기
-        </button>
       </div>
     </div>
   );
