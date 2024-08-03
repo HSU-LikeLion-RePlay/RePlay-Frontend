@@ -1,0 +1,84 @@
+.modalcontainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  width: 50rem;
+  height: 32.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40);
+}
+
+.modal-content .conflict {
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 9rem;
+  margin-top: 14rem;
+}
+
+.modal-button {
+  display: flex;
+  width: 22.5rem;
+  height: 5.125rem;
+  padding: 0.75rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #F2F0EF;
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border-radius: 4px;
+  margin: 0 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 1rem;
+  
+
+}
+
+.modal-button:hover {
+  background-color: #FF7331;
+  color: #ffffff;
+}
+
+.modal-close-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: black;
+  cursor: pointer;
+}
+
+.modal-close-button:hover {
+  background-color: #ffffff;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

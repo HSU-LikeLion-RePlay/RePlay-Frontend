@@ -1,0 +1,119 @@
+.signup-nickname-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signup-nickname {
+  width: 40rem;
+  height: 27.875rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem;
+  border-radius: 24px;
+  background: #fff;
+  gap: 2rem;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.4);
+}
+
+.signup-nickname-title {
+  color: var(--kakao-text, rgba(0, 0, 0, 0.85));
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 150%; /* 2.25rem */
+  align-self: flex-start;
+}
+
+.signup-nickname-input-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.signup-nickname-text {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.nickname-input {
+  padding: 0.8125rem 1rem;
+  border-radius: 1rem;
+  border: 2px solid #777371;
+  height: 3rem;
+  flex-grow: 1;
+}
+
+.nickname-input.valid {
+  border-color: #144fe5;
+}
+
+.nickname-input.invalid {
+  border-color: #ce1a3b;
+}
+
+.nickname-input.duplicate {
+  border-color: #ce1a3b;
+}
+
+.check-button {
+  width: 8rem;
+  height: 3rem;
+  margin-left: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  border: 2px solid #b8b3b1;
+  color: #b8b3b1;
+  font-family: "Pretendard Variable";
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nickname-validation-message {
+  color: var(--grey-text-1, #5d5854);
+  font-family: "Pretendard Variable";
+  font-size: 1.125rem;
+  font-weight: 700;
+  align-self: stretch;
+  margin-top: 0.5rem;
+}
+
+.nickname-validation-message.success {
+  color: #144fe5;
+}
+
+.nickname-validation-message.error {
+  color: #ce1a3b;
+}
+
+.nickname-submit-button {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  background: #ff7331;
+  color: #fff;
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nickname-submit-button:disabled {
+  background: #cccac9;
+  cursor: no-drop;
+}
+
+.go-to-main {
+  margin-top: 1.25rem;
+  color: #666;
+  text-decoration: none;
+}

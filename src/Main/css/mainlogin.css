@@ -1,0 +1,351 @@
+/* mainlogin.css */
+.main-login-slider {
+  width: 80%;
+  /* margin: 0 auto; */
+}
+
+.main-login-slider .slick-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80rem;
+  height: 20rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: #FFF5ED;
+}
+
+.main-login-slider .main-slide-content {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.main-login-slider .slide-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.main-login-slider .main-slide-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.main-login-slider .slide-text-container {
+  flex: 2;
+  text-align: left;
+  padding-left: 20px;
+  border: #000 solid 0.1rem;
+}
+
+.main-login-slider .slide-text-container h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.main-login-slider .slide-text-container p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.main-login-slider .slide-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: #ccc;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #333;
+}
+
+.slick-prev, .slick-next {
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+}
+
+.slick-prev:before, .slick-next:before {
+  font-size: 40px;
+  color: #333;
+}
+
+.main-advertisement-container {
+  width: 80rem;
+  height: 15rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: #F5F5F5;
+  margin-top: 5rem;
+  border: solid red;
+  margin-left: 20rem;
+  margin-right: 20rem;
+}
+
+.main-advertisement-image {
+  display: flex;
+  justify-content: right;
+  text-align: center;
+  margin-right: 1.5rem;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.main-advertisement-logo-image {
+  width: 4.95rem;
+  height: 3.375rem;
+  margin-right: 0.9rem;
+}
+
+.main-advertisement-slogan-image {
+  width: 8.62163rem;
+  height: 2.75rem;
+}
+
+.main-advertisement-text {
+  display: flex;
+  color: var(--kakao-logo, #000);
+  text-align: center;
+  font-family: "Pretendard Variable";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 1.875rem */
+  margin-left: 4rem;
+}
+
+.main-help-container {
+  display: flex;
+  width: 78rem;
+  height: 7rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: #FFF3E8;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: darkblue solid 0.1rem;
+  margin-left: 20rem;
+  margin-right: 20rem;
+  margin-top: 3rem;
+}
+
+.main-help-text-button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.main-help-text-container {
+  flex: 3;
+}
+
+.main-help-text-container-large {
+  color: var(--kakao-logo, #000);
+  text-align: left;
+  font-family: "Pretendard Variable";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 1.875rem */
+}
+
+.main-help-text-container-small {
+  color: var(--kakao-logo, #000);
+  text-align: left;
+  font-family: "Pretendard Variable";
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 1.6875rem */
+}
+
+.main-help-button {
+  display: flex;
+  width: 15rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 1rem;
+  background: var(--primary, #FF7331);
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40);
+  color: #FFF;
+  text-align: center;
+  font-family: "Pretendard Variable";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 1.875rem */
+  border: none;
+}
+
+.event-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.user-info-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.user-info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.user-image {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.user-ho, .user-date, .user-title {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* 반응형 설정 */
+@media (max-width: 1200px) {
+  .main-login-slider, .main-advertisement-container, .main-help-container {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .event-list, .user-info-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .event-list, .user-info-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .event-list, .user-info-list {
+    grid-template-columns: 1fr;
+  }
+
+  .main-login-slider .slick-slide {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+.main-study-container{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+
+.main-play-container{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.main-information-container{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.main-study-title{
+  color: var(--kakao-logo, #000);
+font-family: "Pretendard Variable";
+font-size: 2.25rem;
+font-style: normal;
+font-weight: 700;
+line-height: 175%; /* 3.9375rem */
+}
+
+.main-play-more{
+  color: var(--kakao-logo, #000);
+font-family: "Pretendard Variable";
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 600;
+line-height: 175%; /* 2.625rem */
+background-color: white;
+border:none;
+margin-top: 1rem;
+cursor: pointer;
+}
+
+.main-play-title{
+  color: var(--kakao-logo, #000);
+font-family: "Pretendard Variable";
+font-size: 2.25rem;
+font-style: normal;
+font-weight: 700;
+line-height: 175%; /* 3.9375rem */
+}
+
+.main-information-more{
+  color: var(--kakao-logo, #000);
+font-family: "Pretendard Variable";
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 600;
+line-height: 175%; /* 2.625rem */
+background-color: white;
+border:none;
+margin-top: 1rem;
+cursor: pointer;
+}
+
+.main-study-more{
+  color: var(--kakao-logo, #000);
+font-family: "Pretendard Variable";
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 600;
+line-height: 175%; /* 2.625rem */
+background-color: white;
+border:none;
+margin-top: 1rem;
+cursor: pointer;
+}
+
+
+.main-information-title{
+  color: var(--kakao-logo, #000);
+font-family: "Pretendard Variable";
+font-size: 2.25rem;
+font-style: normal;
+font-weight: 700;
+line-height: 175%; /* 3.9375rem */
+}
+

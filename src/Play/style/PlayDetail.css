@@ -1,0 +1,62 @@
+.playdetail-page {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.playdetail-image {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.playdetail-image img {
+  width: 100%;
+  height: auto;
+}
+
+.playdetail-info {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.playdetail-info h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.playdetail-info p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.playdetail-organizer {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.organizer-profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.playdetail-reviews {
+  margin-top: 20px;
+}
+
+.playdetail-reviews h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.review {
+  margin-bottom: 10px;
+}
+
+.review p {
+  font-size: 16px;
+}

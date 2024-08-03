@@ -1,0 +1,162 @@
+.kakao-login-welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+  }
+  
+  .kakao-welcome-page {
+    width: 45rem;
+    height: 42.125rem;
+    display: ruby;
+    padding: 2.5rem 2.5rem 0rem 2.5rem;
+    flex-direction: column;
+    align-items: center;
+    /* gap: 5rem; */
+    border-radius: 1.5rem;
+    background: #FFF;
+  
+    /* 그림자 */
+    box-shadow: 0rem 0rem 0.5rem 0rem rgba(0, 0, 0, 0.40);
+  }
+  
+  .kakao-welcome-text {
+    color: var(--kakao-logo, #000);
+    font-family: "Pretendard Variable";
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  
+  .kakao-welcome-text .highlight {
+    color: #FF7331;
+  }
+  
+  .kakao-text-welcome {
+    margin-bottom: 2.5rem;
+    display: inline;
+    color: #000;
+  }
+  
+  .login-video {
+    display: flex;
+    height: 22.5rem;
+    width: 40rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    align-self: stretch;
+    border-radius: 1rem;
+    background: #F1F1F1;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .kakao-login-step {
+    height: 2.6875rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    margin:0;
+    display: flex;
+align-items: center;
+gap: 1rem;
+  }
+  
+ 
+  .kakao-login-step .login-signup-step {
+    display: flex;
+    width: 8.8125rem;
+    height: 2.6875rem;
+    padding: 0.75rem 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    background: #FF7331;
+    color: #FFF;
+    font-family: "Pretendard Variable";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: #FFF;
+    font-family: "Pretendard Variable";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing:-0.14rem;
+
+    border: none;
+  }
+  
+  .kakao-login-step .kakao-start-button {
+    width: 13.3125rem;
+    height: 2.25rem;
+    display: flex;
+    /* padding: 0rem 1rem; */
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--kakao-text, rgba(0, 0, 0, 0.85));
+    font-family: "Pretendard Variable";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 1.5rem */
+    letter-spacing:-0.1rem;
+    margin:0;
+    border-radius: 0.5rem;
+    background: var(--kakao-bg, #FEE500);
+    border:none;
+  }
+  
+  .kakao-login-step .kakao-start-logo {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+    color: var(--kakao-text, rgba(0, 0, 0, 0.85));
+    font-family: "Pretendard Variable";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 1.5rem */
+  }
+  
+  .kakao-login-step .finish {
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 1.5rem */
+  display: flex;
+align-items: center;
+gap: 1rem;
+background-color: #FFF;
+border: none;
+  }
+  
+  .kakao-login-step img.triangle {
+    width: 0.9rem;
+    height: 1rem;
+  }
+  
+  .home-button {
+    width: 100%;
+    height: 4.5625rem;
+    background: #FF7331;
+    color: #fff;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  

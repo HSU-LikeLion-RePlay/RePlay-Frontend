@@ -1,0 +1,85 @@
+:root{
+    --font-color : #767676;
+    --symbol-background-color : #EFF6FE;
+    --signup-background-color : #FFFFFF;
+    --signup-border-color : #E5E5EC;
+    --signup-button-color : #204598;
+  }
+  
+  .sign-up>p{
+    margin: 0;
+  }
+  
+  .id>input, .pw>input, .email>input, .name>input, .nickname>input{
+    width: 500px;
+    padding: 16px;
+    border: 1px solid var(--signup-border-color);
+  }
+  
+  /* .sign 컴포넌트 */
+  .Sign-Up {
+    background-color: var(--symbol-background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-color);
+    width: 100%; 
+    height: 100vh;
+  }
+  
+  .Sign-Up .container{
+    background-color: var(--signup-background-color);
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    width: 800px;
+    height: 100%;
+    box-shadow: 0px 4px 10px -1px rgba(35, 48, 56, 0.08);
+  }
+  
+  .Sign-Up .container .symbol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+  
+  .symbol>p{
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+  
+  .id, .pw, .email, .name {
+    margin-bottom: 30px;
+  }
+  
+  .nickname {
+    margin-bottom: 50px;
+  }
+  
+  .id>p, .pw>p, .email>p, .name>p, .nickname>p {
+    margin-bottom: 12px;
+    margin: 0;
+  }
+  
+  
+  #Sign-Up-button{
+    background-color: var(--signup-button-color);
+    color: var(--signup-background-color);
+  
+    margin-bottom: 24px;
+    padding: 16px;
+    width: 500px;
+  }
+  
+  .sign-up{
+    display: flex;
+  }
+  
+  .sign-up>p{
+    margin-right: 12px;
+  }

@@ -1,0 +1,111 @@
+.postcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.post-container {
+  width: 100%;
+  max-width: 54rem;
+  padding: 2rem;
+  background-color: #f9f8f7;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.issue-number {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.date {
+  font-size: 1rem;
+  color: #666;
+}
+
+.bookmark {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.bookmark img {
+  width: 24px;
+  height: 24px;
+}
+
+.main-content {
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.slider {
+  margin-bottom: 1rem;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.slide p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.content {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.post-footer {
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.post-text-footer {
+  font-size: 1rem;
+  color: #666;
+}
+
+.slick-dots-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.slick-dot img {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+}
+
+.slick-dots .slick-active img {
+  width: 12px;
+  height: 12px;
+}

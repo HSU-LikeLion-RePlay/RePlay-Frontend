@@ -1,0 +1,186 @@
+.informationpostcontainer {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  height: 100vh;
+  
+  
+}
+
+.container {
+  display: flex;
+  width: 54rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+} 
+
+
+.form-group {
+  margin-top: 2.5rem;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.title-label {
+  height: 1.8125rem;
+align-self: stretch;
+color: var(--kakao-logo, #000);
+font-family: "Pretendard Variable";
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+margin: 0.8rem;
+}
+
+.image-label {
+  margin: 0.8rem;
+
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+}
+
+.content-label {
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+}
+
+.title-input {
+  width: 54rem;
+  height: 5rem;
+  padding: 1.5625rem 2rem;
+  background: #F9F8F7;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1.25rem;
+  color: #AEACAB;
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 0.75rem;
+}
+
+.content-input {
+  display: flex;
+  width: 54rem;
+height: 62.5625rem;
+padding: 1.5rem 2rem;
+flex-direction: column;
+align-items: flex-start;
+gap: 0.5rem;
+flex-shrink: 0;
+align-self: stretch;
+border-radius: 1rem;
+background: #F9F8F7;
+color: var(--kakao-logo, #000);
+font-family: "Pretendard Variable";
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 500;
+line-height: 150%; /* 1.875rem */
+margin-top:0.75rem
+}
+
+.image-input-hidden {
+  display: none;
+}
+.images{
+  margin-top: 0.75rem;
+  margin-botton:2.5rem;
+}
+
+.image-upload-container {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 1rem;
+  border: 2px solid #AEACAB;
+  position: relative;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.image-upload-icon {
+  width: 5.45944rem;
+  height: 3.4375rem;
+  flex-shrink: 0;
+  padding: 0;
+  margin-bottom: 3rem;
+}
+
+.image-count {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #999;
+}
+
+.image-preview-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.image-preview-container {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.image-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.submit-button {
+  display: flex;
+  width: 10.5rem;
+  height: 5rem;
+  padding: 1.375rem 6.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: #F2F0EF;
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.75rem;
+  font-style: normal;
+  text-align: center;
+  font-weight: 600;
+  line-height: normal;
+  float: right;
+  white-space: nowrap;
+  margin-top:2.5rem;
+}
+
+.submit-button:hover {
+  background-color: #FF7331;
+}

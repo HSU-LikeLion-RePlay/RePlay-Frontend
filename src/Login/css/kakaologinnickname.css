@@ -1,0 +1,170 @@
+.kakao-login-nickname-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .kakao-login-nickname-container .kakao-login-nickname {
+    width: 720px;
+    height: 446px;
+    display: inline-flex;
+    padding: 40px 40px 24px 40px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.4);
+  }
+  
+  .kakao-login-nickname-title {
+    color: var(--kakao-logo, #000);
+    font-family: "Pretendard Variable";
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 3rem */
+    width: 40rem;
+    height: 3rem;
+  }
+  
+  .kakao-login-nickname-input-container {
+    display: inline-grid;
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top:5rem;
+  }
+  
+  .kakao-login-nickname-input-container .kakao-input {
+    width: 40rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 16px;
+    border: 3px solid #777371;
+    margin-left:10px;
+    margin-right: 10px;
+    padding-left: 16px;
+  }
+  
+  .kakao-input.valid {
+    border-color: #AEACAB;
+  }
+  
+  
+  .kakao-input.duplicate {
+    border-color: #ce1a3b;
+  }
+  
+  .kakao-check-button {
+    width: 80px;
+    height: 37px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    padding: 3px 5px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 12px;
+    border: 2px solid #b8b3b1;
+    color: #b8b3b1;
+    font-family: "Pretendard Variable";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    right: 80px;
+    top: 25%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    margin-left: 4px;
+    
+  }
+  
+  .instruction {
+    color: var(--grey-text-1, #5d5854);
+    font-family: "Pretendard Variable";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    /* margin-top: px; Adjust as needed */
+  }
+  
+  .instruction.valid {
+    width: 640px;
+    height: 55px;
+    color: #144FE5;
+  }
+  
+  .instruction.invalid {
+    width: 640px;
+    height: 55px;
+    color: #CE1A3B;
+  }
+  
+  .validation-message {
+    color: var(--grey-text-1, #5D5854);
+  font-family: "Pretendard Variable";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+    align-self: stretch;
+    
+  }
+  
+  .validation-message.success {
+    color: #144FE5;
+  }
+  
+  .validation-message.error {
+    color: #CE1A3B;
+  }
+  
+  .kakao-submit-button {
+    display: flex;
+    width: 640px;
+    height: 80px;
+    padding: 22px 100px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #FF7331;
+    color: #FFF;
+    font-family: "Pretendard Variable";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+  }
+  
+  .kakao-submit-button:disabled {
+    display: flex;
+    width: 640px;
+    height: 80px;
+    padding: 22px 100px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #CCCAC9;
+    cursor:no-drop;
+  }
+  
+  .go-to-main {
+    display: block;
+    margin-top: 20px;
+    color: #666;
+    text-decoration: none;
+  }
+  

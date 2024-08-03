@@ -1,0 +1,72 @@
+/* src/components/EventCard.css */
+.event-card {
+    width: 15rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    text-align: center;
+    margin: 1rem;
+  }
+  
+  .event-image {
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+  
+  .category-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #FFE5CC;
+    color: #FF7331;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    margin: 0.5rem 0;
+  }
+  
+  .event-info {
+    margin-top: 1rem;
+  }
+  
+  .event-date {
+    font-size: 0.875rem;
+    color: #777;
+  }
+  
+  .event-title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+  }
+  
+  .event-details {
+    font-size: 0.875rem;
+    color: #777;
+  }
+  
+  .event-location, .event-participants {
+    margin: 0.25rem 0;
+  }
+  
+  .profile-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+  
+  .event-nickname {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #555;
+  }
+  
+  .event-intro, .event-activity, .event-fee {
+    font-size: 0.875rem;
+    color: #555;
+    margin-top: 0.5rem;
+  }
+  
