@@ -153,11 +153,11 @@ const Post = () => {
   }
 
   return (
-    <div className="postcontainer">
-      <div className="post-container">
+    <div className="post-container">
+      <div className="post-container-title">
         <header className="post-container-header">
-          <div className="issue-number">{post.infoNum}</div>
-          <div className="date">{post.createdAt}</div>
+          <div className="issue-number">제 {post.infoNum}호</div>
+          <div className="issue-date">{post.createdAt}</div>
           <button
             className="bookmark"
             onMouseEnter={handleMouseEnter}
@@ -166,12 +166,9 @@ const Post = () => {
           >
             <img src={bookmarkImage} alt="bookmark" />
           </button>
-          <Link to="/bookmarks" className="bookmark-page-link">
-            북마크 페이지로 이동
-          </Link>
         </header>
         <main className="main-content">
-          <h1 className="title">{post.title}</h1>
+          <h1 className="main-content-title">{post.title}</h1>
           <Slider {...settings} className="slider">
             <div className="slide">
               <img
@@ -180,8 +177,10 @@ const Post = () => {
                 className="image-placeholder"
               />
             </div>
+            <div className="slide">
+              <div className="content">{post.content}</div>
+            </div>
           </Slider>
-          <div className="content">{post.content}</div>
         </main>
         <footer className="post-footer">
           <div className="post-text-footer">{post.writer}</div>
