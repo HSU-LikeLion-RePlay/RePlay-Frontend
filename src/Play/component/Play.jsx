@@ -1,16 +1,47 @@
-import React, { useState } from 'react';
+
+import React, { useState,useEffect } from 'react';
 import Category from './Category';
 import Mentoring from './Mentoring';
 import SelectDate from './SelectDate';
 import Location from './Location';
 import { useNavigate } from 'react-router-dom';
-
+import LoginHeader from '../../Header/components/LoginHeader';
 export default function Play() {
   const [selectedDates, setSelectedDates] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const navigate = useNavigate();
 
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("https://43.201.176.194.nip.io/api/playing/getPlaying", {
+          method: "GET",
+          
+        });
+  
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+  
+        const result = await response.json();
+        console.log("Response status:", response.status);
+        console.log("Response result:", result);
+  
+        if (response.status === 200) {
+          console.log("데이터 가져오기 성공:", result.data.allInfos);
+        } else {
+          console.error("Error message:", result.message);
+        }
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+      }
+    };
+  
+    fetchData();
+  }, []);
+  
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const month = date.toLocaleString('default', { month: 'long' });
@@ -63,6 +94,7 @@ export default function Play() {
 
   return (
     <>
+      <LoginHeader/>
       <SelectDate selectedDates={selectedDates} setSelectedDates={setSelectedDates} />
       <Location selectedLocation={selectedLocation} setSelectedLocation={setSelectedLocation} />
       <Category selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />

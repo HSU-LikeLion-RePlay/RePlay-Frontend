@@ -18,6 +18,8 @@ export const playInfoState = atom({ //놀이터에 사용될 하나의 모임들
       intro: '자기소개 내용', //100자 이내의 소개글 
       activity: '활동에 대한 설명 ',
       fee:'참가 비용',
+      latitude: '37.58833257313714', //위도
+      longitude: '127.00831057785734' //경도 
   },
   {
     img: testImg,
@@ -33,6 +35,8 @@ export const playInfoState = atom({ //놀이터에 사용될 하나의 모임들
     intro: '자기소개 내용', //100자 이내의 소개글 
     activity: '활동 내용',
     fee:'참가 비용',
+    latitude: '37.58833257313714', //위도
+      longitude: '127.00831057785734' //경도 
 },
 {
   img: testImg,
@@ -48,6 +52,8 @@ export const playInfoState = atom({ //놀이터에 사용될 하나의 모임들
   intro: '자기소개 내용', //100자 이내의 소개글 
   activity: '활동 내용',
   fee:'참가 비용',
+  latitude: '37.58833257313714', //위도
+  longitude: '127.00831057785734' //경도 
 },
 {
   img: testImg,
@@ -63,6 +69,8 @@ export const playInfoState = atom({ //놀이터에 사용될 하나의 모임들
   intro: '자기소개 내용', //100자 이내의 소개글 
   activity: '활동 내용',
   fee:'참가 비용',
+  latitude: '37.58833257313714', //위도
+  longitude: '127.00831057785734' //경도 
 },
   ]
 });
@@ -78,7 +86,6 @@ export const reviewState = atom({
         { author: '참가자2', content: '유익한 시간이었습니다.' },
       ],
     },
-    // 다른 모임의 후기 데이터...
   ],
 });
 

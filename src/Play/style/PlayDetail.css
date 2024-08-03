@@ -1,12 +1,24 @@
+/* PlayDetail.css */
 .playdetail-page {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.playdetail-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.playdetail-left {
+  flex: 1;
   padding: 20px;
 }
 
-.playdetail-image {
+.playdetail-right {
   flex: 1;
-  margin-bottom: 20px;
+  padding: 20px;
 }
 
 .playdetail-image img {
@@ -15,26 +27,17 @@
 }
 
 .playdetail-info {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-.playdetail-info h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.playdetail-info p {
-  margin: 5px 0;
-  font-size: 16px;
+.playdetail-info button {
+  margin-right: 10px;
 }
 
 .playdetail-organizer {
-  margin-top: 20px;
   display: flex;
   align-items: center;
+  margin-top: 20px;
 }
 
 .organizer-profile {
@@ -48,15 +51,20 @@
   margin-top: 20px;
 }
 
-.playdetail-reviews h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
 .review {
   margin-bottom: 10px;
 }
 
-.review p {
-  font-size: 16px;
+.join-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.join-button:hover {
+  background-color: #0056b3;
 }

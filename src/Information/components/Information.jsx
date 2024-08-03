@@ -12,13 +12,15 @@ const Information = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
+
           "http://43.201.176.194:8080/api/info/getAllInfo",
+
           {
             method: "GET",
           }
         );
-
         const result = await response.json();
+
 
         console.log("Response status:", response.status);
         console.log("Response result:", result);

@@ -1,4 +1,3 @@
-// src/Page/Header/components/LoginHeader.jsx
 import React from "react";
 import { Link } from "react-router-dom"; // react-router-dom에서 Link를 가져옵니다.
 import "../css/loginheader.css";
@@ -19,13 +18,15 @@ const LoginHeader = () => {
         </div>
 
         <nav className="login-header-nav">
-          <Link to="/Study">배움터</Link>
-          <Link to="/Play">놀이터</Link>
+
+          <Link to="/study">배움터</Link>
+          <Link to="/play">놀이터</Link>
           <Link to="/Information">생생정보터</Link>
         </nav>
 
         <div className="login-header-buttons">
-          <Link to="/Mypage" className="header-mypage-button">
+
+          <Link to="/mypage" className="header-mypage-button">
             내정보
           </Link>
           <Link to="/" className="header-logout-button">
