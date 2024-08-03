@@ -1,4 +1,3 @@
-// src/Page/Header/components/LoginHeader.jsx
 import React from "react";
 import { Link } from "react-router-dom"; // react-router-dom에서 Link를 가져옵니다.
 import "../css/loginheader.css";

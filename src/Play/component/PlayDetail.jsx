@@ -3,6 +3,10 @@ import { useParams } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { playInfoState, reviewState } from '../../atoms';
 import '../style/PlayDetail.css';
+<<<<<<< HEAD
+=======
+import Comment from './Comment'; // Comment 컴포넌트 임포트
+>>>>>>> 5fe2862 (.)
 
 export default function PlayDetail() {
   const { index } = useParams();
@@ -45,6 +49,11 @@ export default function PlayDetail() {
           <p>후기가 없습니다.</p>
         )}
       </div>
+<<<<<<< HEAD
+=======
+      <hr/>
+      <Comment /> {/* Comment 컴포넌트 추가 */}
+>>>>>>> 5fe2862 (.)
     </div>
   );
 }

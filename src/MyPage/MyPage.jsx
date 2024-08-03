@@ -14,7 +14,11 @@ export default function MyPage() {
       }
 
       try {
+<<<<<<< HEAD
         const response = await axios.get('http://43.201.176.194/api/user/getMyPage', {
+=======
+        const response = await axios.get('https://43.201.176.194.nip.io/api/user/getMyPage', {
+>>>>>>> 5fe2862 (.)
           headers: {
             Authorization: `Bearer ${token}`
           }
