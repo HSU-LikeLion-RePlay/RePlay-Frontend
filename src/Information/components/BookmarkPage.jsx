@@ -1,10 +1,10 @@
 import React from "react";
-import { useAtom } from "jotai";
-import { bookmarksAtom } from "../../../atoms";
+import { useRecoilValue } from "recoil";
+import { bookmarksAtom } from "../../atoms";
 import "../css/post.css"; // 필요한 CSS 파일
 
 const BookmarkPage = () => {
-  const [bookmarks] = useAtom(bookmarksAtom);
+  const bookmarks = useRecoilValue(bookmarksAtom);
 
   return (
     <div className="bookmark-page">
@@ -16,9 +16,18 @@ const BookmarkPage = () => {
           {bookmarks.map((bookmark, index) => (
             <li key={index} className="bookmark-item">
               <h2>{bookmark.title}</h2>
-              <p>{bookmark.date}</p>
-              <p>{bookmark.issue}</p>
+              <p>{bookmark.createdAt}</p>
+              <p>
+                {bookmark.infoNum ? `제 ${bookmark.infoNum}호` : "호수 없음"}
+              </p>
               <p>{bookmark.content}</p>
+              {bookmark.thumbnailUrl && (
+                <img
+                  src={bookmark.thumbnailUrl}
+                  alt={bookmark.title}
+                  className="bookmark-thumbnail"
+                />
+              )}
             </li>
           ))}
         </ul>

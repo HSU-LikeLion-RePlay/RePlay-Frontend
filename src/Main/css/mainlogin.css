@@ -1,10 +1,11 @@
 /* mainlogin.css */
 .main-login-slider {
-  width: 80%;
+  width: 80rem;
+  height: 20rem;
   /* margin: 0 auto; */
 }
 
-.main-login-slider .slick-slide {
+/* .main-login-slider .slick-slide {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,16 +14,14 @@
   flex-shrink: 0;
   border-radius: 1rem;
   background: #FFF5ED;
-}
+} */
 
 .main-login-slider .main-slide-content {
   display: flex;
   align-items: center;
-  padding: 20px;
 }
 
 .main-login-slider .slide-image-container {
-  flex: 1;
   display: flex;
   justify-content: center;
 }
@@ -34,6 +33,7 @@
 }
 
 .main-login-slider .slide-text-container {
+  
   flex: 2;
   text-align: left;
   padding-left: 20px;
@@ -349,3 +349,13 @@ font-weight: 700;
 line-height: 175%; /* 3.9375rem */
 }
 
+/* mainlogin.css */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px; /* 원하는 간격으로 변경 */
+}
+
+.event-grid .event-item {
+  width: 100%; /* 그리드 아이템의 너비를 조정 */
+}

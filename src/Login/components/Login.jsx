@@ -118,8 +118,8 @@ const Login = () => {
               회원가입
             </a>
             {/* 링크확인 */}
-            <a href="/AdminInformationPost" className="signup-link">
-              AdminInformationPost
+            <a href="/Category" className="signup-link">
+              Category
             </a>
             <a href="/InformationPost" className="signup-link">
               InformationPost
@@ -143,4 +143,4 @@ const Login = () => {
   );
 };
 
-export default Login
+export default Login;

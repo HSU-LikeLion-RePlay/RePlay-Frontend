@@ -81,3 +81,9 @@ export const reviewState = atom({
     // 다른 모임의 후기 데이터...
   ],
 });
+
+// 북마크된 게시물의 상태를 관리하는 atom
+export const bookmarksAtom = atom({
+  key: 'bookmarksAtom',
+  default: [],
+});

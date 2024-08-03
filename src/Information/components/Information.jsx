@@ -15,9 +15,6 @@ const Information = () => {
           "http://43.201.176.194:8080/api/info/getAllInfo",
           {
             method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
           }
         );
 

@@ -1,4 +1,3 @@
-//투고하기
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -40,8 +39,8 @@ const InformationPost = () => {
 
     const formData = new FormData();
     formData.append(
-      "infoCreateRequest",
-      new Blob([JSON.stringify({ title: title, content: content })], {
+      "infoSubmitRequest",
+      new Blob([JSON.stringify({ title, content })], {
         type: "application/json",
       })
     );
@@ -52,7 +51,7 @@ const InformationPost = () => {
 
     try {
       const response = await axios.post(
-        "http://43.201.176.194:8080/api/info/submitInfo",
+        "https://43.201.176.194:8080/api/info/submitInfo",
         formData,
         {
           headers: {
@@ -60,6 +59,9 @@ const InformationPost = () => {
           },
         }
       );
+
+      console.log("Response status:", response.status);
+      console.log("Response data:", response.data);
 
       if (response.status === 200) {
         setIsModalOpen(true);
