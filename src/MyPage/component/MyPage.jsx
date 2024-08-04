@@ -77,7 +77,7 @@ export default function MyPage() {
         </div>
       </div>
 
-      <div className="section">
+      <div className="mypage-section">
         <div className="mypage-subtitle">나의 배움터</div>
         <div className="button-container">
           <button
@@ -95,7 +95,7 @@ export default function MyPage() {
         </div>
       </div>
 
-      <div className="section">
+      <div className="mypage-section">
         <div className="mypage-subtitle">나의 놀이터</div>
         <div className="button-container">
           <button
@@ -119,7 +119,7 @@ export default function MyPage() {
         </div>
       </div>
 
-      <div className="section">
+      <div className="mypage-section">
         <div className="mypage-subtitle">나의 생생정보터</div>
         <div className="button-container">
           <button
