@@ -1,4 +1,4 @@
-.postcontainer {
+.post-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   min-height: 100vh;
 }
 
-.post-container {
+.post-container-title {
   width: 100%;
   max-width: 54rem;
   padding: 2rem;
@@ -19,27 +19,20 @@
 .post-container-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   border-bottom: 1px solid #ddd;
   padding-bottom: 1rem;
   margin-bottom: 1rem;
-}
-
-.issue-number {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-.date {
-  font-size: 1rem;
-  color: #666;
+  width: 54rem;
 }
 
 .bookmark {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .bookmark img {
@@ -47,14 +40,34 @@
   height: 24px;
 }
 
+.bookmark-text {
+  font-size: 12px;
+  color: #000;
+  margin-top: 4px;
+}
+
+.issue-number {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.issue-date {
+  font-size: 1rem;
+  color: #666;
+}
+
 .main-content {
   text-align: center;
 }
 
-.title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+.main-content-title {
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  justify-content: start;
 }
 
 .slider {
@@ -62,15 +75,8 @@
 }
 
 .slide img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.slide p {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  color: #333;
+  height: 30.375rem;
+  align-self: stretch;
 }
 
 .content {
@@ -88,8 +94,14 @@
 }
 
 .post-text-footer {
-  font-size: 1rem;
-  color: #666;
+  display: flex;
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 175%; /* 2.1875rem */
+  justify-content: start;
 }
 
 .slick-dots-container {
@@ -103,9 +115,29 @@
   width: 10px;
   height: 10px;
   margin: 0 5px;
+  border-radius: 50%;
 }
 
 .slick-dots .slick-active img {
   width: 12px;
   height: 12px;
+  opacity: 1;
+  border-radius: 50%;
+}
+
+.slick-dots li img {
+  opacity: 0.5;
+  border-radius: 50%;
+}
+
+.dots-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-dots li.slick-active img {
+  opacity: 1;
+  filter: brightness(0.7);
+  border-radius: 50%;
 }

@@ -1,4 +1,3 @@
-//투고하기
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -36,12 +35,12 @@ const InformationPost = () => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault(); // 폼 제출 기본 동작 방지
 
     const formData = new FormData();
     formData.append(
-      "infoCreateRequest",
-      new Blob([JSON.stringify({ title: title, content: content })], {
+      "infoSubmitRequest",
+      new Blob([JSON.stringify({ title, content })], {
         type: "application/json",
       })
     );
@@ -52,7 +51,7 @@ const InformationPost = () => {
 
     try {
       const response = await axios.post(
-        "http://43.201.176.194:8080/api/info/submitInfo",
+        "https://43.201.176.194:8080/api/info/submitInfo",
         formData,
         {
           headers: {
@@ -60,6 +59,9 @@ const InformationPost = () => {
           },
         }
       );
+
+      console.log("Response status:", response.status);
+      console.log("Response data:", response.data);
 
       if (response.status === 200) {
         setIsModalOpen(true);
@@ -82,25 +84,22 @@ const InformationPost = () => {
   };
 
   return (
-    <div className="informationpostcontainer">
-      <div className="container">
+    <div className="information-post-container">
+      <div className="information-post">
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label className="title-label">제목</label>
+          <div className="information-post-form-group">
+            <label className="information-title-label">제목</label>
             <input
               type="text"
               value={title}
               onChange={handleTitleChange}
-              className="title-input"
+              className="information-title-input"
               placeholder="제목을 입력해주세요."
             />
           </div>
-          <div className="form-group">
-            <label className="image-label">사진</label>
-            <div
-              className="images"
-              style={{ display: "flex", alignItems: "center" }}
-            >
+          <div className="information-post-form-group">
+            <label className="information-image-label">사진</label>
+            <div className="images">
               <div
                 className="image-upload-container"
                 onClick={handleImageClick}
@@ -133,18 +132,20 @@ const InformationPost = () => {
               accept="image/*"
             />
           </div>
-          <div className="form-group">
-            <label className="content-label">내용</label>
+          <div className="information-post-form-group">
+            <label className="information-content-label">내용</label>
             <textarea
               value={content}
               onChange={handleContentChange}
-              className="content-input"
+              className="information-content-input"
               placeholder="내용을 입력해주세요."
             />
           </div>
-          <button type="submit" className="submit-button">
-            투고하기
-          </button>
+          <div className="information-submit-button-container">
+            <button type="submit" className="information-submit-button">
+              투고하기
+            </button>
+          </div>
         </form>
         <Modal
           isOpen={isModalOpen}

@@ -156,3 +156,9 @@ export const reviewState = atom({
     },
   ],
 });
+
+// 북마크된 게시물의 상태를 관리하는 atom
+export const bookmarksAtom = atom({
+  key: 'bookmarksAtom',
+  default: [],
+});

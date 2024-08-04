@@ -17,9 +17,6 @@ const Information = () => {
 
           {
             method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
           }
         );
         const result = await response.json();

@@ -12,6 +12,12 @@ import SignUpPW from './SignUp/components/SignUpPW';
 import MyPage from './MyPage/component/MyPage';
 import PlayDetail from './Play/component/PlayDetail';
 import WelcomeMakePlay from './Play/component/WelcomeMakePlay';
+import MainLogin from './Main/components/MainLogin';
+import Information from './Information/components/Information';
+import Study from './Play/component/Play';
+import InformationPost from './Information/components/InformationPost';
+import Post from './Information/components/Post';
+import BookmarkPage from './Information/components/BookmarkPage';
 import EditProfil from './MyPage/component/EditProfil';
 import MyInfo from './MyPage/component/MyInfo';
 import MyPlay from './MyPage/component/MyPlay';
@@ -20,16 +26,22 @@ import MyScrapPlay from './MyPage/component/MyScrapPlay';
 import PlayApply from './Play/component/PlayApply';
 import Pay from './Play/component/Pay';
 import ApplyComplete from './Play/component/ApplyComplete';
-import EditPlay from './Play/component/EditPlay';
+import EditPlay from './Play/component/EditPlay';
 import Study from './Study/component/Study';
 import StudyDetail from './Study/component/StudyDetail';
 import StudyApply from './Study/component/StudyApply';
+import AdvertisementSupporter from './Main/components/AdvertisementSupporter';
+
 const App = () => {
   return (
     <RecoilRoot>
       <Router>
         <Routes>
           <Route path="/play" element={<Play />} />
+          <Route path="/Information" element={<Information />} />
+          <Route path="/Study" element={<Study />} />
+
+          <Route path="/" element={<Login />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/makeplay" element={<MakePlay />} />
           <Route path="/SignUpBirthDay" element={<SignUpBirthDay />} />
@@ -48,6 +60,17 @@ const App = () => {
           <Route path='/myStudy' element={<MyStudy />} />
           <Route path='/editProfil' element={<EditProfil />} />
           <Route path="/playdetail/:index" element={<PlayDetail />} />
+          <Route path='/MainLogin' element={<MainLogin />} />
+          <Route path="/InformationPost" element={<InformationPost />} />
+          <Route path="/InformationPost" element={<InformationPost />} />
+          <Route path="/bookmarks" element={<BookmarkPage />} />
+          <Route path='/AdvertisementSupporter' element={<AdvertisementSupporter/>}/>
+
+          <Route path="/post/:id" element={<Post />} />
+
+          {/* showMakePlayButton prop을 false로 설정하여 버튼 숨기기 */}
+          <Route path='/welcomeMakePlay' element={<WelcomeMakePlay/>}/>
+
           <Route path='/welcomeMakePlay' element={<WelcomeMakePlay />} />
           <Route path='/playApply' element={<PlayApply/>}/>
           <Route path='/pay' element={<Pay/>}></Route>

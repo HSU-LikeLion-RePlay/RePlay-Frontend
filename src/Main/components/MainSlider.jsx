@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../css/mainlogin.css";
 
-// import dot from "../image/circle.jpg";
+import dot from "../image/circle.jpg";
 
 const MainSlider = ({ className, slides }) => {
   const sliderRef = React.useRef(null);
