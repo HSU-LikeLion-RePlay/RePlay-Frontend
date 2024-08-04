@@ -14,7 +14,6 @@ import PlayDetail from './Play/component/PlayDetail';
 import WelcomeMakePlay from './Play/component/WelcomeMakePlay';
 import MainLogin from './Main/components/MainLogin';
 import Information from './Information/components/Information';
-import Study from './Play/component/Play';
 import InformationPost from './Information/components/InformationPost';
 import Post from './Information/components/Post';
 import BookmarkPage from './Information/components/BookmarkPage';

@@ -6,7 +6,7 @@ import '../style/PlayDetail.css';
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import Comment from './Comment';
 import locimg from '../images/Loc.svg';
-import ConfirmModal from '../component/ConfirmModal';
+import ConfirmModal from './ConfirmModal';
 
 export default function PlayDetail() {
   const { kakao } = window;

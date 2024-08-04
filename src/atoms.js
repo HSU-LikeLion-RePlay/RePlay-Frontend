@@ -140,10 +140,12 @@ export const interviewState = atom({
     {people: '와인한잔',
     comment: '리플레이 덕분에 재취업도 문제 없어요!',
     },
+     {people: '성북동 중절모',
+    comment: '리플레이 추천하냐구요? 무조건 추천!',
+    },
     ]
 
-
-})
+});
 export const reviewState = atom({
   key: 'reviewState',
   default: [
