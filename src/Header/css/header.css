@@ -2,7 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  width: 100%;
+  position: fixed; /* 화면의 제일 위에 고정 */
+  top: 0;
+  z-index: 1000; /* 다른 콘텐츠 위에 표시되도록 설정 */
+  background-color: white; /* 배경색을 설정하여 투명하지 않게 만듦 */
+  border-bottom: 1px solid #ccc; /* 아래에 선 추가 */
 }
 
 .header {
@@ -10,7 +15,6 @@
   align-items: center;
   width: 100%;
   padding: 1rem 15rem 1rem 15rem; /* 기본 좌우 여백 */
-  border-bottom: 1px solid #ccc; /* 아래에 선 추가 */
 }
 
 /* 큰 화면에서 여백을 줄입니다 */

@@ -24,6 +24,9 @@ import MyPlay from './MyPage/component/MyPlay';
 import MyStudy from './MyPage/component/MyStudy';
 import MyScrapPlay from './MyPage/component/MyScrapPlay';
 import AdvertisementSupporter from './Main/components/AdvertisementSupporter';
+import Main from './Main/components/Main';
+import InformationHeader from './Header/components/InformationHeader';
+import StudyHeader from './Header/components/StudyHeader';
 
 const App = () => {
   return (
@@ -57,11 +60,14 @@ const App = () => {
           <Route path="/InformationPost" element={<InformationPost />} />
           <Route path="/bookmarks" element={<BookmarkPage />} />
           <Route path='/AdvertisementSupporter' element={<AdvertisementSupporter/>}/>
+          <Route path='/InformationHeader' element={<InformationHeader/>}/>
+          <Route path='/StudyHeader' element={<StudyHeader/>}/>
 
           <Route path="/post/:id" element={<Post />} />
 
           {/* showMakePlayButton prop을 false로 설정하여 버튼 숨기기 */}
           <Route path='/welcomeMakePlay' element={<WelcomeMakePlay/>}/>
+          <Route path='/Main' element={<Main />} />
 
           <Route path='/welcomeMakePlay' element={<WelcomeMakePlay />} />
         </Routes>

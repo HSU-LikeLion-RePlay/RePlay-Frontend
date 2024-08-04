@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardItem from "./CardItem";
 import "../css/information.css";
-import LoginHeader from "../../Header/components/LoginHeader";
+import InformationHeader from "../../Header/components/InformationHeader";
+import Footer from "../../Footer/components/Footer";
 const Information = () => {
   const navigate = useNavigate();
   const [cards, setCards] = useState([]);
@@ -12,7 +13,6 @@ const Information = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-
           "http://43.201.176.194:8080/api/info/getAllInfo",
 
           {
@@ -20,7 +20,6 @@ const Information = () => {
           }
         );
         const result = await response.json();
-
 
         console.log("Response status:", response.status);
         console.log("Response result:", result);
@@ -51,7 +50,7 @@ const Information = () => {
 
   return (
     <div>
-      <LoginHeader />
+      <InformationHeader />
       <div className="information-container">
         <div className="banner-container">
           <div className="banner">
@@ -103,6 +102,7 @@ const Information = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,136 +1,142 @@
 .login-header-container {
   display: flex;
   text-align: center;
-  }
-  
-  .login-header {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 1rem 15rem 1rem 15rem; /* 기본 좌우 여백 */
-    border-bottom: 1px solid #ccc; /* 아래에 선 추가 */
+}
 
+.login-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 15rem 1rem 15rem; /* 기본 좌우 여백 */
+  border-bottom: 1px solid #ccc; /* 아래에 선 추가 */
+}
+
+/* 작은 화면에서는 여백을 줄입니다 */
+@media (max-width: 1200px) {
+  .login-header {
+    padding: 0 10rem;
   }
-  
-  /* 작은 화면에서는 여백을 줄입니다 */
-  @media (max-width: 1200px) {
-    .login-header {
-      padding: 0 10rem;
-    }
+}
+
+@media (max-width: 992px) {
+  .login-header {
+    padding: 0 5rem;
   }
-  
-  @media (max-width: 992px) {
-    .login-header {
-      padding: 0 5rem;
-    }
+}
+
+@media (max-width: 768px) {
+  .login-header {
+    padding: 0 2rem;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  @media (max-width: 768px) {
-    .login-header {
-      padding: 0 2rem;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .login-header-logo {
-      margin-bottom: 1rem;
-    }
-  
-    .login-header-nav {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-  
-    .login-header-nav a {
-      padding: 0.5rem 1rem;
-      font-size: 1.2rem;
-    }
-  
-    .login-header-login-buttons {
-      width: 100%;
-      justify-content: flex-start;
-    }
-  
-    .login-header-login-button {
-      width: 100%;
-      text-align: center;
-    }
-  }
-  
+
   .login-header-logo {
-    display: flex;
-    align-items: center;
+    margin-bottom: 1rem;
   }
-  
-  .login-header-logo-image {
-    width: 4.95rem;
-    height: 3.375rem;
-    padding: 0.8125rem 0.5rem;
-  }
-  
-  .login-header-slogan-image {
-    width: 8.62163rem;
-    height: 2.75rem;
-    padding: 1.125rem 0.5rem 1.125rem 0rem;
-    margin-right: 2.5rem;
-  }
-  
+
   .login-header-nav {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
-  
+
   .login-header-nav a {
-    display: flex;
-    padding: 0.8125rem 0.75rem 0.875rem 0.75rem;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 0.5rem;
-    color: var(--kakao-logo, #000);
-    font-family: "Pretendard Variable";
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
   }
-  
-  .login-header-buttons {
-    display: flex;
-    margin-left: auto; /* 자동으로 왼쪽 마진을 설정하여 오른쪽 정렬 */
+
+  .login-header-login-buttons {
+    width: 100%;
+    justify-content: flex-start;
   }
-  
-  .header-mypage-button{
-    display: flex;
-    padding: 0.8125rem 0.75rem 0.875rem 0.75rem;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 0.5rem;
-    color: var(--kakao-logo, #000);
-    font-family: "Pretendard Variable";
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    text-decoration: none;
+
+  .login-header-login-button {
+    width: 100%;
+    text-align: center;
   }
-  
-.header-logout-button{
-    display: flex;
-    padding: 0.8125rem 0.75rem 0.875rem 0.75rem;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    border-radius: 0.5rem;
-    color: var(--kakao-logo, #000);
-    font-family: "Pretendard Variable";
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    text-decoration: none;
+}
+
+.login-header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.login-header-logo-image {
+  width: 4.95rem;
+  height: 3.375rem;
+  padding: 0.8125rem 0.5rem;
+}
+
+.login-header-slogan-image {
+  width: 8.62163rem;
+  height: 2.75rem;
+  padding: 1.125rem 0.5rem 1.125rem 0rem;
+  margin-right: 2.5rem;
+}
+
+.login-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.login-header-nav a {
+  display: flex;
+  padding: 0.8125rem 0.75rem 0.875rem 0.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.information-link {
+  color: #ff7331; /* 생생정보터 링크의 색상을 변경합니다 */
+}
+
+.login-header-buttons {
+  display: flex;
+  margin-left: auto; /* 자동으로 왼쪽 마진을 설정하여 오른쪽 정렬 */
+}
+
+.header-mypage-button {
+  display: flex;
+  padding: 0.8125rem 0.75rem 0.875rem 0.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.header-logout-button {
+  display: flex;
+  padding: 0.8125rem 0.75rem 0.875rem 0.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: 0.5rem;
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+}
+login-header-nav a .information-link{
+  color: #ff7331;
 }

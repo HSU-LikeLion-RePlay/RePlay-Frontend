@@ -4,7 +4,8 @@ import axios from "axios";
 import Modal from "../components/Modal";
 import "../css/informationpost.css";
 import uploadImage from "../image/upload.jpg"; // 이미지 경로를 맞춰주세요
-
+import Footer from "../../Footer/components/Footer";
+import InformationHeader from "../../Header/components/InformationHeader";
 const InformationPost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -84,76 +85,80 @@ const InformationPost = () => {
   };
 
   return (
-    <div className="information-post-container">
-      <div className="information-post">
-        <form onSubmit={handleSubmit}>
-          <div className="information-post-form-group">
-            <label className="information-title-label">제목</label>
-            <input
-              type="text"
-              value={title}
-              onChange={handleTitleChange}
-              className="information-title-input"
-              placeholder="제목을 입력해주세요."
-            />
-          </div>
-          <div className="information-post-form-group">
-            <label className="information-image-label">사진</label>
-            <div className="images">
-              <div
-                className="image-upload-container"
-                onClick={handleImageClick}
-              >
-                <img
-                  src={uploadImage}
-                  alt="Upload"
-                  className="image-upload-icon"
-                />
-                <div className="image-count">{images.length}/5</div>
-              </div>
-              <div className="image-preview-grid">
-                {images.map((image, index) => (
-                  <div key={index} className="image-preview-container">
-                    <img
-                      src={URL.createObjectURL(image)}
-                      alt={`preview-${index}`}
-                      className="image-preview"
-                    />
-                  </div>
-                ))}
-              </div>
+    <div>
+      <InformationHeader />
+      <div className="information-post-container">
+        <div className="information-post">
+          <form onSubmit={handleSubmit}>
+            <div className="information-post-form-group">
+              <label className="information-title-label">제목</label>
+              <input
+                type="text"
+                value={title}
+                onChange={handleTitleChange}
+                className="information-title-input"
+                placeholder="제목을 입력해주세요."
+              />
             </div>
-            <input
-              type="file"
-              multiple
-              onChange={handleImageChange}
-              ref={fileInputRef}
-              className="image-input-hidden"
-              accept="image/*"
-            />
-          </div>
-          <div className="information-post-form-group">
-            <label className="information-content-label">내용</label>
-            <textarea
-              value={content}
-              onChange={handleContentChange}
-              className="information-content-input"
-              placeholder="내용을 입력해주세요."
-            />
-          </div>
-          <div className="information-submit-button-container">
-            <button type="submit" className="information-submit-button">
-              투고하기
-            </button>
-          </div>
-        </form>
-        <Modal
-          isOpen={isModalOpen}
-          onClose={closeModal}
-          onNavigateHome={navigateHome}
-          onNavigateInfo={navigateMypage}
-        />
+            <div className="information-post-form-group">
+              <label className="information-image-label">사진</label>
+              <div className="images">
+                <div
+                  className="image-upload-container"
+                  onClick={handleImageClick}
+                >
+                  <img
+                    src={uploadImage}
+                    alt="Upload"
+                    className="image-upload-icon"
+                  />
+                  <div className="image-count">{images.length}/5</div>
+                </div>
+                <div className="image-preview-grid">
+                  {images.map((image, index) => (
+                    <div key={index} className="image-preview-container">
+                      <img
+                        src={URL.createObjectURL(image)}
+                        alt={`preview-${index}`}
+                        className="image-preview"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <input
+                type="file"
+                multiple
+                onChange={handleImageChange}
+                ref={fileInputRef}
+                className="image-input-hidden"
+                accept="image/*"
+              />
+            </div>
+            <div className="information-post-form-group">
+              <label className="information-content-label">내용</label>
+              <textarea
+                value={content}
+                onChange={handleContentChange}
+                className="information-content-input"
+                placeholder="내용을 입력해주세요."
+              />
+            </div>
+            <div className="information-submit-button-container">
+              <button type="submit" className="information-submit-button">
+                투고하기
+              </button>
+            </div>
+          </form>
+          <Modal
+            isOpen={isModalOpen}
+            onClose={closeModal}
+            onNavigateHome={navigateHome}
+            onNavigateInfo={navigateMypage}
+          />
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };

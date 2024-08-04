@@ -6,7 +6,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../css/post.css";
 import { bookmarksAtom } from "../../atoms"; // 경로를 수정하여 올바르게 import 합니다.
-
+import InformationHeader from "../../Header/components/InformationHeader";
+import Footer from "../../Footer/components/Footer";
 import bookmarkIcon from "../image/bookmark.jpg";
 import bookmarkHoverIcon from "../image/orangebookmark.jpg";
 import dotIcon from "../image/circle.jpg";
@@ -153,39 +154,43 @@ const Post = () => {
   }
 
   return (
-    <div className="post-container">
-      <div className="post-container-title">
-        <header className="post-container-header">
-          <div className="issue-number">제 {post.infoNum}호</div>
-          <div className="issue-date">{post.createdAt}</div>
-          <button
-            className="bookmark"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onClick={handleClick}
-          >
-            <img src={bookmarkImage} alt="bookmark" />
-          </button>
-        </header>
-        <main className="main-content">
-          <h1 className="main-content-title">{post.title}</h1>
-          <Slider {...settings} className="slider">
-            <div className="slide">
-              <img
-                src={post.thumbnailUrl}
-                alt="슬라이드"
-                className="image-placeholder"
-              />
-            </div>
-            <div className="slide">
-              <div className="content">{post.content}</div>
-            </div>
-          </Slider>
-        </main>
-        <footer className="post-footer">
-          <div className="post-text-footer">{post.writer}</div>
-        </footer>
+    <div>
+      <InformationHeader />
+      <div className="post-container">
+        <div className="post-container-title">
+          <header className="post-container-header">
+            <div className="issue-number">제 {post.infoNum}호</div>
+            <div className="issue-date">{post.createdAt}</div>
+            <button
+              className="bookmark"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onClick={handleClick}
+            >
+              <img src={bookmarkImage} alt="bookmark" />
+            </button>
+          </header>
+          <main className="main-content">
+            <h1 className="main-content-title">{post.title}</h1>
+            <Slider {...settings} className="slider">
+              <div className="slide">
+                <img
+                  src={post.thumbnailUrl}
+                  alt="슬라이드"
+                  className="image-placeholder"
+                />
+              </div>
+              <div className="slide">
+                <div className="content">{post.content}</div>
+              </div>
+            </Slider>
+          </main>
+          <footer className="post-footer">
+            <div className="post-text-footer">{post.writer}</div>
+          </footer>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };
