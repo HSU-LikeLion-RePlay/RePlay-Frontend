@@ -13,7 +13,7 @@ const Information = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://43.201.176.194:8080/api/info/getAllInfo",
+          "https://43.201.176.194.nip.io/api/info/getAllInfo",
 
           {
             method: "GET",
