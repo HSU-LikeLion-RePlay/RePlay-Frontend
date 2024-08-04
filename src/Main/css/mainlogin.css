@@ -1,4 +1,10 @@
-/* mainlogin.css */
+.main-login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Optional: 수직 방향으로도 가운데 정렬하고 싶을 경우 추가 */
+}
+
 .main-login-slider {
   width: 80rem;
   height: 20rem;
@@ -33,7 +39,6 @@
 }
 
 .main-login-slider .slide-text-container {
-  
   flex: 2;
   text-align: left;
   padding-left: 20px;
@@ -71,13 +76,15 @@
   color: #333;
 }
 
-.slick-prev, .slick-next {
+.slick-prev,
+.slick-next {
   width: 40px;
   height: 40px;
   z-index: 1;
 }
 
-.slick-prev:before, .slick-next:before {
+.slick-prev:before,
+.slick-next:before {
   font-size: 40px;
   color: #333;
 }
@@ -87,7 +94,7 @@
   height: 15rem;
   flex-shrink: 0;
   border-radius: 1rem;
-  background: #F5F5F5;
+  background: #f5f5f5;
   margin-top: 5rem;
   border: solid red;
   margin-left: 20rem;
@@ -132,7 +139,7 @@
   height: 7rem;
   flex-shrink: 0;
   border-radius: 1rem;
-  background: #FFF3E8;
+  background: #fff3e8;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
@@ -147,6 +154,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  text-decoration: none;
 }
 
 .main-help-text-container {
@@ -181,9 +189,9 @@
   align-items: center;
   gap: 0.25rem;
   border-radius: 1rem;
-  background: var(--primary, #FF7331);
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40);
-  color: #FFF;
+  background: var(--primary, #ff7331);
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.4);
+  color: #fff;
   text-align: center;
   font-family: "Pretendard Variable";
   font-size: 1.25rem;
@@ -191,6 +199,7 @@
   font-weight: 700;
   line-height: 150%; /* 1.875rem */
   border: none;
+  text-decoration: none;
 }
 
 .event-list {
@@ -226,7 +235,9 @@
   border-radius: 0.5rem;
 }
 
-.user-ho, .user-date, .user-title {
+.user-ho,
+.user-date,
+.user-title {
   margin-top: 0.5rem;
   font-size: 1rem;
   color: #333;
@@ -234,25 +245,30 @@
 
 /* 반응형 설정 */
 @media (max-width: 1200px) {
-  .main-login-slider, .main-advertisement-container, .main-help-container {
+  .main-login-slider,
+  .main-advertisement-container,
+  .main-help-container {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
   }
 
-  .event-list, .user-info-list {
+  .event-list,
+  .user-info-list {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 992px) {
-  .event-list, .user-info-list {
+  .event-list,
+  .user-info-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .event-list, .user-info-list {
+  .event-list,
+  .user-info-list {
     grid-template-columns: 1fr;
   }
 
@@ -262,100 +278,122 @@
   }
 }
 
-
-.main-study-container{
+.main-study-container {
+  width: 78rem;
   display: flex;
   justify-content: space-between;
   text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
 }
 
-
-.main-play-container{
+.main-play-container {
+  width: 78rem;
   display: flex;
   justify-content: space-between;
   text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
 }
 
-.main-information-container{
+.main-information-container {
+  width: 78rem;
   display: flex;
   justify-content: space-between;
   text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
 }
 
-.main-study-title{
+.main-study-title {
   color: var(--kakao-logo, #000);
-font-family: "Pretendard Variable";
-font-size: 2.25rem;
-font-style: normal;
-font-weight: 700;
-line-height: 175%; /* 3.9375rem */
+  font-family: "Pretendard Variable";
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 175%; /* 3.9375rem */
 }
 
-.main-play-more{
+.main-play-more {
   color: var(--kakao-logo, #000);
-font-family: "Pretendard Variable";
-font-size: 1.5rem;
-font-style: normal;
-font-weight: 600;
-line-height: 175%; /* 2.625rem */
-background-color: white;
-border:none;
-margin-top: 1rem;
-cursor: pointer;
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 175%; /* 2.625rem */
+  background-color: white;
+  border: none;
+  margin-top: 1rem;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.main-play-title{
+.main-play-title {
   color: var(--kakao-logo, #000);
-font-family: "Pretendard Variable";
-font-size: 2.25rem;
-font-style: normal;
-font-weight: 700;
-line-height: 175%; /* 3.9375rem */
+  font-family: "Pretendard Variable";
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 175%; /* 3.9375rem */
 }
 
-.main-information-more{
+.main-information-more {
   color: var(--kakao-logo, #000);
-font-family: "Pretendard Variable";
-font-size: 1.5rem;
-font-style: normal;
-font-weight: 600;
-line-height: 175%; /* 2.625rem */
-background-color: white;
-border:none;
-margin-top: 1rem;
-cursor: pointer;
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 175%; /* 2.625rem */
+  background-color: white;
+  border: none;
+  margin-top: 1rem;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.main-study-more{
+.main-study-more {
   color: var(--kakao-logo, #000);
-font-family: "Pretendard Variable";
-font-size: 1.5rem;
-font-style: normal;
-font-weight: 600;
-line-height: 175%; /* 2.625rem */
-background-color: white;
-border:none;
-margin-top: 1rem;
-cursor: pointer;
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 175%; /* 2.625rem */
+  background-color: white;
+  border: none;
+  margin-top: 1rem;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-
-.main-information-title{
+.main-information-title {
   color: var(--kakao-logo, #000);
-font-family: "Pretendard Variable";
-font-size: 2.25rem;
-font-style: normal;
-font-weight: 700;
-line-height: 175%; /* 3.9375rem */
+  font-family: "Pretendard Variable";
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 175%; /* 3.9375rem */
 }
 
 /* mainlogin.css */
 .event-grid {
+  width: 80rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px; /* 원하는 간격으로 변경 */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem; /* 원하는 간격으로 변경 */
 }
 
 .event-grid .event-item {
+  width: 100%; /* 그리드 아이템의 너비를 조정 */
+}
+
+/* 한 줄에 4개씩 배치되는 그리드 */
+.grid-4 {
+  width: 80rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem; /* 원하는 간격으로 변경 */
+}
+
+.grid-4 .grid-item {
   width: 100%; /* 그리드 아이템의 너비를 조정 */
 }
