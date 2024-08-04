@@ -1,0 +1,223 @@
+.edit-profile-container {
+    display: flex;
+    width: 54rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    margin: 0 auto;
+  }
+  
+  .title-edit-profile-container {
+    width: 100%;
+    color: var(--kakao-logo, #000);
+    font-family: "Pretendard Variable";
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: left;
+  }
+  
+  .profile-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .profile-image-label {
+    cursor: pointer;
+  }
+  
+  .profile-image {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .edit-profil-image {
+    color: var(--kakao-logo, #000);
+    text-align: center;
+    font-family: "Pretendard Variable";
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-right: 1rem;
+    margin-top:1rem;
+  }
+  
+  .edit-form-group {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    color: var(--kakao-logo, #000);
+    font-family: "Pretendard Variable";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 1rem;
+  }
+  
+  .edit-input-group {
+    width: 54rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0.8125rem 1rem;
+    gap: 0.5rem;
+    border-radius: 1rem;
+    border: 2px solid #777371;
+  }
+  
+  input[type="text"], select {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: var(--kakao-logo, #000);
+    font-family: "Pretendard Variable";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-right: 100px; /* 중복 확인 버튼 공간 확보 */
+    /* appearance: none; 기본 드롭다운 스타일 제거 */
+  }
+  
+  select {
+    width: calc(100% - 2rem);
+    z-index: 2; /* 드롭다운이 다른 요소들 위에 올 수 있도록 설정 */
+  }
+  
+  .check-button {
+    position: absolute;
+    right: 0;
+    height: 2.1rem;
+    width: 5rem;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    border: 2px solid var(--kakao-logo, #000);
+    color: var(--kakao-logo, #000);
+    font-family: "Pretendard Variable";
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 700;
+    margin-right: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .success {
+    color: green;
+    margin-top: 0.5rem;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 0.5rem;
+  }
+  
+  .editprofil-submit-button {
+    display: flex;
+    width: 25rem;
+    height: 5rem;
+    padding: 1.375rem 6.25rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+    border-radius: 1rem;
+    background: var(--primary, #FF7331);
+    color: #FFF;
+    font-family: "Pretendard Variable";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0 auto; /* 추가: 가운데 정렬 */
+  }
+  
+  .editprofil-submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed; /* 추가: 비활성화 시 커서 */
+  }
+  
+
+  .modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    width: 50rem;
+    height: 29rem;
+
+  }
+  
+  .modal-content p {
+    color: var(--kakao-logo, #000);
+    text-align: center;
+    font-family: "Pretendard Variable";
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 10rem;
+  }
+  
+  .modal-content button {
+    display: flexbox;
+    width: 30rem;
+    height: 5.125rem;
+    padding: 0.75rem 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 1rem;
+    background: #F2F0EF;
+    color: var(--kakao-logo, #000);
+    font-family: "Pretendard Variable";
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    justify-content: center;
+    margin-right: 4rem;
+    margin-top: 5rem;
+
+  }
+  
+  .modal-content button:hover {
+    background-color: #e06424;
+  }
+  
