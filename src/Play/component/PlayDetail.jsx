@@ -84,7 +84,8 @@ export default function PlayDetail() {
             <img src={playInfo.img} alt={playInfo.name} />
           </div>
           <div className='playdetail-info'>
-            <button>{playInfo.category}</button><button>스크랩</button>
+            <button>{playInfo.category}</button>
+            <button>스크랩</button>
             <h2>{playInfo.name}</h2>
             <p>{playInfo.date}</p>
             <p>{playInfo.time}</p>

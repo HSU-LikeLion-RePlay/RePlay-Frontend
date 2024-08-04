@@ -64,7 +64,7 @@ export default function Play() {
 
     try {
       const response = await fetch(
-        "http://43.201.176.194:8080/api/playing/filtering", {
+        "https://43.201.176.194.nip.io/api/playing/filtering", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
