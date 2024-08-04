@@ -12,7 +12,7 @@ export default function Comment() {
     return date.toISOString(); // ISO 형식으로 저장
   };
 
-  const formatDisplayDate = (dateString) => {
+  const formatDisstudyDate = (dateString) => {
     const [date] = dateString.split('T'); // 'T'를 기준으로 문자열을 나눠서 날짜 부분만 사용
     return date.replace(/-/g, '.'); // '-'를 '.'로 대체하여 표시
   };
@@ -62,14 +62,14 @@ export default function Comment() {
         {comments.slice(0, visibleCount).map(comment => (
           <div key={comment.id} className='comment'>
             <p><strong>{comment.nickname}:</strong> {comment.content}</p>
-            <p className='comment-date'>{formatDisplayDate(comment.date)}</p>
+            <p className='comment-date'>{formatDisstudyDate(comment.date)}</p>
             <button onClick={() => setReplyingTo(comment.id)}>답글 달기</button>
             {comment.replies.length > 0 && (
               <div className='replies'>
                 {comment.replies.map(reply => (
                   <div key={reply.id} className='reply'>
                     <p><strong>{reply.nickname}:</strong> {reply.content}</p>
-                    <p className='reply-date'>{formatDisplayDate(reply.date)}</p>
+                    <p className='reply-date'>{formatDisstudyDate(reply.date)}</p>
                   </div>
                 ))}
               </div>

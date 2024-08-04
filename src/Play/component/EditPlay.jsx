@@ -4,7 +4,7 @@ import { getYear, getMonth, format } from 'date-fns';
 import ko from 'date-fns/locale/ko';
 import 'react-datepicker/dist/react-datepicker.css';
 import "../style/MakePlay.css"; // 일반 페이지 스타일을 적용할 CSS 파일
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from "axios";
 registerLocale('ko', ko); // 한국어 사용 등록
 
@@ -23,20 +23,23 @@ const categories = [
   { ko: "기타", en: "ETC" }
 ];
 
-const MakePlay = () => {
+const EditPlay = () => {
+  const location = useLocation();
+  const playInfo = location.state?.playInfo || {};
+
   const [formData, setFormData] = useState({
-    name: "",
-    title: "",
-    date: [],
-    time: { period: 'AM', hour: '12', minute: '00' },
-    location: "",
-    latitude: null,
-    longitude: null,
-    category: "",
-    description: "",
+    name: playInfo.intro || "",
+    title: playInfo.name || "",
+    date: playInfo.date ? [playInfo.date] : [],
+    time: { period: playInfo.time?.includes('오전') ? 'AM' : 'PM', hour: playInfo.time?.split(' ')[1]?.split(':')[0] || '12', minute: playInfo.time?.split(':')[1] || '00' },
+    location: playInfo.loc || "",
+    latitude: playInfo.latitude || null,
+    longitude: playInfo.longitude || null,
+    category: categories.find(cat => cat.ko === playInfo.category)?.en || "",
+    description: playInfo.activity || "",
     photo: null,
-    participants: 1,
-    fee: 0,
+    participants: playInfo.max || 1,
+    fee: playInfo.fee || 0,
   });
 
   const [step, setStep] = useState(1);
@@ -238,7 +241,7 @@ const MakePlay = () => {
       if (response.status === 200 || response.status === 201) {
         console.log("Success:", response.data);
         // 성공하면 웰컴 페이지로 이동
-        navigate('/welcomeMakePlay', { state: { nickname: formData.name, isEdited: false } });
+        navigate('/welcomeMakePlay', { state: { nickname: formData.name, isEdited: true } });
       } else {
         console.error("Error:", response.status, response.data);
       }
@@ -380,4 +383,4 @@ const MakePlay = () => {
   );
 };
 
-export default MakePlay;
+export default EditPlay;

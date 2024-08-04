@@ -10,22 +10,24 @@ import { InformationRecoil } from "../../Recoil/InformationRecoil";
 import { StudyAndPlay as StudyAndPlayState } from "../../Recoil/StudyAndPlay";
 import "../css/mainlogin.css";
 import { Link, useNavigate } from "react-router-dom";
-
+import gentleman from '../image/gentleman.jpg'
+import wine from '../image/wine.png'
+import hat from '../image/hat.png'
 const slides = [
   {
-    image: "gentleman.jpg",
+    image: gentleman,
     name: "젠틀맨",
     description: "리플레이를 만나고 자신감이 생겼어요!",
   },
   {
-    image: "gentleman.jpg",
-    name: "Slide 2",
-    description: "Description for Slide 2",
+    image: wine,
+    name: "와인한잔",
+    description: "리플레이 덕분에 재취업도 문제 없어요!",
   },
   {
-    image: "gentleman.jpg",
-    name: "Slide 3",
-    description: "Description for Slide 3",
+    image: hat,
+    name: "성북동 중절모",
+    description: "리플레이 추천하냐구요? 무조건 추천!",
   },
 ];
 

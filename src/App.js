@@ -14,7 +14,6 @@ import PlayDetail from './Play/component/PlayDetail';
 import WelcomeMakePlay from './Play/component/WelcomeMakePlay';
 import MainLogin from './Main/components/MainLogin';
 import Information from './Information/components/Information';
-import Study from './Play/component/Play';
 import InformationPost from './Information/components/InformationPost';
 import Post from './Information/components/Post';
 import BookmarkPage from './Information/components/BookmarkPage';
@@ -23,6 +22,13 @@ import MyInfo from './MyPage/component/MyInfo';
 import MyPlay from './MyPage/component/MyPlay';
 import MyStudy from './MyPage/component/MyStudy';
 import MyScrapPlay from './MyPage/component/MyScrapPlay';
+import PlayApply from './Play/component/PlayApply';
+import Pay from './Play/component/Pay';
+import ApplyComplete from './Play/component/ApplyComplete';
+import EditPlay from './Play/component/EditPlay';
+import Study from './Study/component/Study';
+import StudyDetail from './Study/component/StudyDetail';
+import StudyApply from './Study/component/StudyApply';
 import AdvertisementSupporter from './Main/components/AdvertisementSupporter';
 import Main from './Main/components/Main';
 import InformationHeader from './Header/components/InformationHeader';
@@ -45,8 +51,9 @@ const App = () => {
           <Route path="/SignUpPW" element={<SignUpPW />} />
           <Route path="/SignUpNickName" element={<SignUpNickName />} />
           <Route path="/SignUpWelcome" element={<SignUpWelcome />} />
-          {/* <Route path='/myCreatedPlay' element={<MyCreatedPlay />} />
-          <Route path='/myScrapStudy' element={<MyScrapStudy />} /> */}
+          <Route path='/study' element={<Study/>}/>
+          <Route path='/StudyDetail/:index' element={<StudyDetail/>}/>
+          <Route path='/studyApply' element={<StudyApply/>}/>
           <Route path='/myScrapPlay' element={<MyScrapPlay />} />
           <Route path='/myPage' element={<MyPage />} />
           <Route path='/myInfo' element={<MyInfo />} />
@@ -70,6 +77,10 @@ const App = () => {
           <Route path='/Main' element={<Main />} />
 
           <Route path='/welcomeMakePlay' element={<WelcomeMakePlay />} />
+          <Route path='/playApply' element={<PlayApply/>}/>
+          <Route path='/pay' element={<Pay/>}></Route>
+          <Route path= '/applyComplete' element={<ApplyComplete/>}></Route>
+          <Route path='editPlay' element={<EditPlay/>}> </Route>
         </Routes>
       </Router>
     </RecoilRoot>

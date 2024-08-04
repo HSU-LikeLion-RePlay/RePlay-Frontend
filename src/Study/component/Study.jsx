@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import LoginHeader from '../../Header/components/LoginHeader';
 import logo from '../images/logo.svg';
 import namelogo from '../images/namelogo.svg'
-export default function Play() {
+export default function Study() {
   const [selectedDates, setSelectedDates] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -64,7 +64,7 @@ export default function Play() {
 
     try {
       const response = await fetch(
-        "http://43.201.176.194:8080/api/playing/filtering", {
+        "https://43.201.176.194.nip.io/api/learning/filtering", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -93,9 +93,9 @@ export default function Play() {
   return (
     <>
       <LoginHeader/>
-      <div className="play-banner">
-        <div className="paly-banner-comment"> 애들은 가라. <br/> 다시 한번 <span> 뜨겁게 </span> 놀아보자.</div>
-        <div className="play-banner-explain">리플레이의 놀이터는 모든 시니어를 위한 놀이공간입니다.<br/>지금 바로 다양한 놀이에 참여해보세요!</div>
+      <div className="study-banner">
+        <div className="study-banner-comment"> 늦지 않았냐고요? <br/><span> 배움  </span> 엔 나이가 없어요!</div>
+        <div className="study-banner-explain">리플레이의 놀이터는 모든 시니어를 위한 놀이공간입니다.<br/>지금 바로 다양한 놀이에 참여해보세요!</div>
         <div className="banner-logo">
           <img  className="banner-img"src={logo}></img>
           <img className="banner-name"src={namelogo}></img>
@@ -105,7 +105,6 @@ export default function Play() {
       <Location selectedLocation={selectedLocation} setSelectedLocation={setSelectedLocation} />
       <Category selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
       <button onClick={handleSave} className="save-button">적용하기</button>
-      <button onClick={() => navigate('/makeplay')}>놀이터 만들기</button>
       <Mentoring />
     </>
   );

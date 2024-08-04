@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../css/mainlogin.css";
-
+import bubble from '../image/bubble.png'
 import dot from "../image/circle.jpg";
 
 const MainSlider = ({ className, slides }) => {
@@ -34,7 +34,7 @@ const MainSlider = ({ className, slides }) => {
     draggable: true,
     arrows: false,
     customPaging: (i) => (
-      <button>{/* <img src={dot} alt={`dot-${i + 1}`} /> */}</button>
+      <button>{<img src={dot} alt={`dot-${i + 1}`} /> }</button>
     ),
   };
 
@@ -44,16 +44,19 @@ const MainSlider = ({ className, slides }) => {
         {slides.map((slide, index) => (
           <div key={index} className="main-slide-content">
             <div className="slide-image-container">
-              <img
-                className="main-slide-image"
-                src={slide.image}
-                alt={`Slide ${index + 1}`}
-              />
+              
             </div>
             <div className="slide-text-container">
-              <h2>{slide.name}</h2>
-              <p>{slide.description}</p>
-              <button className="slide-button">{slide.buttonText}</button>
+            <img
+                className="main-slide-image"
+                src={slide.image} //이미지
+                alt={`Slide ${index + 1}`} //이미지 인데스 
+              />
+            <h2>{slide.name}</h2>
+              <div>
+                <img className="bubble" src={bubble}></img>
+              </div>
+              <button className="slide-button">보러가기 - &gt;</button>
             </div>
           </div>
         ))}

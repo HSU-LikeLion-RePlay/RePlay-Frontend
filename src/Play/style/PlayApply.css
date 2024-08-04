@@ -1,0 +1,7 @@
+.map-container {
+  margin-bottom: 1rem; /* 지도의 하단 마진 추가 */
+}
+
+.feecheck-container {
+  margin-top: 1rem; /* FeeCheck 컴포넌트의 상단 마진 추가 */
+}
