@@ -3,7 +3,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../css/mypage.css"; // CSS 파일을 추가합니다.
 import editIcon from "../images/edit.png"; // 수정 아이콘 경로를 맞춰주세요
-
+import MyHeader from "../../Header/components/MyHeader";
+import nullImg from '../images/nullProfil.png';
+import Footer from '../../Footer/components/Footer';
+import arrow from '../images/rightarrow.png';
 export default function MyPage() {
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
@@ -42,94 +45,100 @@ export default function MyPage() {
   }
 
   return (
-    <div className="mypage-container">
-      <div className="hello-mypage">안녕하세요 {userData.nickName}님!</div>
-      <div className="mypage-title-header">
-        <div className="mypage-title">{userData.nickName}님의 회원 정보</div>
-        <button
-          className="mypage-edit-button"
-          onClick={() => navigate("/editProfil")}
-        >
-          <img src={editIcon} alt="Edit Icon" className="mypage-edit-icon" />
-          <div className="mypage-edit-text">수정하기</div>
-        </button>
-      </div>
-
-      <div className="user-info-container">
-        <div className="user-info-header"></div>
-        <div className="user-info-content">
-          <img
-            src={userData.profileImage}
-            alt="프로필 사진"
-            className="profile-image"
-          />
-          <div className="user-details">
-            <div className="user-detail-nickname">{userData.nickName}</div>
-          </div>{" "}
+    <div>
+      <MyHeader/>
+      <div className="mypage-container">
+        <div className="hello-mypage">안녕하세요 <span>{userData.nickName}님!</span></div>
+        <div className="mypage-title-header">
+          <div className="mypage-title">{userData.nickName}님의 회원 정보</div>
+          <button
+            className="mypage-edit-button"
+            onClick={() => navigate("/editProfil")}
+          >
+            <img src={editIcon} alt="Edit Icon" className="mypage-edit-icon" />
+            <div className="mypage-edit-text">수정하기</div>
+          </button>
         </div>
-        <div className="user-detail">
-          <strong>출생년도</strong>
-          {userData.year}
-        </div>
+      <div className="mypage-user-info-container">
+        <div className="mypage-user-info-content">
+          <div className="mypage-profil-name">
+            <img src={userData.profileImage || nullImg} alt="프로필 사진" className="mypage-profile-image" />
+            <div className="mypage-user-nickname">{userData.nickName}</div>
+          </div>
 
-        <div className="user-detail">
-          <strong>연락처:</strong> {userData.phoneId}
+          <div className="mypage-user-detail">
+            <span>출생년도</span> {userData.year}
+          </div>
+          <div className="mypage-user-detail">
+            <span>연락처:</span> {userData.phoneId}
+          </div>
         </div>
       </div>
 
       <div className="mypage-section">
         <div className="mypage-subtitle">나의 배움터</div>
-        <div className="button-container">
+        <div className="mypage-section-buttons">
           <button
-            className="section-button"
+            className="mypage-section-button"
             onClick={() => navigate("/myStudy")}
           >
             내가 참여한 배움터
+            <img src={arrow}/>
           </button>
           <button
-            className="section-button"
+            className="mypage-section-button"
             onClick={() => navigate("/myScrapStudy")}
           >
             스크랩한 배움터
+            <img src={arrow}/>
           </button>
         </div>
+        <hr className="mypage-section-hr"/>
       </div>
 
       <div className="mypage-section">
         <div className="mypage-subtitle">나의 놀이터</div>
-        <div className="button-container">
+        <div className="mypage-section-buttons">
           <button
-            className="section-button"
+            className="mypage-section-button"
             onClick={() => navigate("/myPlay")}
           >
             내가 참여한 놀이터
+            <img src={arrow}/>
           </button>
           <button
-            className="section-button"
+            className="mypage-section-button"
             onClick={() => navigate("/myScrapPlay")}
           >
             스크랩한 놀이터
+            <img src={arrow}/>
           </button>
           <button
-            className="section-button"
+            className="mypage-section-button"
             onClick={() => navigate("/myCreatedPlay")}
           >
             내가 만든 놀이터
+            <img src={arrow}/>
           </button>
         </div>
+        <hr className="mypage-section-hr"/>
       </div>
 
       <div className="mypage-section">
         <div className="mypage-subtitle">나의 생생정보터</div>
-        <div className="button-container">
+        <div className="mypage-section-buttons">
           <button
-            className="section-button"
-            onClick={() => navigate("/myInfo")}
+            className="mypage-section-button"
+            onClick={() => navigate("/bookmarks")}
           >
             스크랩한 정보터
+            <img src={arrow}/>
           </button>
         </div>
       </div>
     </div>
+    <Footer/>
+    </div>
+  
   );
 }

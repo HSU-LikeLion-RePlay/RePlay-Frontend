@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import LoginHeader from '../../Header/components/LoginHeader';
 import logo from '../images/logo.svg';
 import namelogo from '../images/namelogo.svg'
+import PlayHeader from '../../Header/components/PlayHeader';
 export default function Play() {
   const [selectedDates, setSelectedDates] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState([]);
@@ -64,7 +65,7 @@ export default function Play() {
 
     try {
       const response = await fetch(
-        "http://43.201.176.194:8080/api/playing/filtering", {
+        "https://43.201.176.194.nip.io/api/playing/filtering", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -92,7 +93,7 @@ export default function Play() {
 
   return (
     <>
-      <LoginHeader/>
+      <PlayHeader/>
       <div className="play-banner">
         <div className="paly-banner-comment"> 애들은 가라. <br/> 다시 한번 <span> 뜨겁게 </span> 놀아보자.</div>
         <div className="play-banner-explain">리플레이의 놀이터는 모든 시니어를 위한 놀이공간입니다.<br/>지금 바로 다양한 놀이에 참여해보세요!</div>

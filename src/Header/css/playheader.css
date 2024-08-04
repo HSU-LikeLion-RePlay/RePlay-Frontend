@@ -1,0 +1,78 @@
+.play-header-container {
+  display: flex;
+  text-align: center;
+}
+
+.play-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 15rem 1rem 15rem; /* 기본 좌우 여백 */
+  border-bottom: 1px solid #ccc; /* 아래에 선 추가 */
+}
+
+.play-header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.play-header-logo-image {
+  width: 4.95rem;
+  height: 3.375rem;
+  padding: 0.8125rem 0.5rem;
+}
+
+.play-header-slogan-image {
+  width: 8.62163rem;
+  height: 2.75rem;
+  padding: 1.125rem 0.5rem 1.125rem 0rem;
+  margin-right: 2.5rem;
+}
+
+.play-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.play-header-nav a {
+  display: flex;
+  padding: 0.8125rem 0.75rem 0.875rem 0.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.play-header-nav a[href="/play"] {
+  color: #f8611a; /* 놀이터 링크의 색상을 변경합니다 */
+}
+
+.play-header-buttons {
+  display: flex;
+  margin-left: auto; /* 자동으로 왼쪽 마진을 설정하여 오른쪽 정렬 */
+}
+
+
+.playheader-mypage-button,.playheader-logout-button {
+  display: flex;
+  padding: 0.8125rem 0.75rem 0.875rem 0.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: 0.5rem;
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+}

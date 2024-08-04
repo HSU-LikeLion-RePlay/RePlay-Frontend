@@ -30,7 +30,7 @@ const Login = () => {
 
     try {
       const response = await fetch(
-        "http://43.201.176.194:8080/api/user/login",
+        "https://43.201.176.194.nip.io/api/user/login",
         {
           method: "POST",
           headers: {

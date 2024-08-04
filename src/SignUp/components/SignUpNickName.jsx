@@ -24,7 +24,7 @@ function SignUpNickName() {
       console.log("Checking nickname duplication for:", nickname);
 
       const response = await fetch(
-        "http://43.201.176.194:8080/api/user/isExistNickName",
+        "https://43.201.176.194.nip.io/api/user/isExistNickName",
         {
           method: "POST",
           headers: {

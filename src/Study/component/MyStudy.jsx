@@ -1,4 +1,4 @@
-import Component from "./Component"
+import Component from "../../MyPage/component/Component"
 
 export default function myStudy(){
   return(

@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import LoginHeader from '../../Header/components/LoginHeader';
 import logo from '../images/logo.svg';
 import namelogo from '../images/namelogo.svg'
+import StudyHeader from '../../Header/components/StudyHeader';
 export default function Study() {
   const [selectedDates, setSelectedDates] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState([]);
@@ -92,7 +93,7 @@ export default function Study() {
 
   return (
     <>
-      <LoginHeader/>
+      <StudyHeader/>
       <div className="study-banner">
         <div className="study-banner-comment"> 늦지 않았냐고요? <br/><span> 배움  </span> 엔 나이가 없어요!</div>
         <div className="study-banner-explain">리플레이의 놀이터는 모든 시니어를 위한 놀이공간입니다.<br/>지금 바로 다양한 놀이에 참여해보세요!</div>
