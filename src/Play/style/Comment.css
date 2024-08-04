@@ -17,20 +17,6 @@ textarea {
   border-radius: 5px;
 }
 
-button {
-  align-self: flex-end;
-  padding: 5px 10px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
 .comments {
   margin-top: 20px;
 }

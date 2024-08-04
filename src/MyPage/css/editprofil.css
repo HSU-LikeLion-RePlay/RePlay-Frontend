@@ -76,11 +76,11 @@
     border: 2px solid #777371;
   }
   
-  input[type="text"], select {
+  .edit-input-group input[type="text"], select {
     width: 100%;
     padding: 0.5rem;
     font-size: 1rem;
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 4px;
     color: var(--kakao-logo, #000);
     font-family: "Pretendard Variable";
@@ -95,6 +95,13 @@
   select {
     width: calc(100% - 2rem);
     z-index: 2; /* 드롭다운이 다른 요소들 위에 올 수 있도록 설정 */
+    -webkit-appearance: none; /* 기본 드롭다운 스타일 제거 */
+    -moz-appearance: none; /* 기본 드롭다운 스타일 제거 */
+    appearance: none; /* 기본 드롭다운 스타일 제거 */
+    background: url('../images/downarrow.png') no-repeat;
+    background-position: right 1rem center; /* 화살표 위치 조정 */
+    background-size: 24px; /* 화살표 크기 조정 */
+    padding-right: 2.5rem; /* 화살표와 텍스트 간격 조정 */
   }
   
   .check-button {

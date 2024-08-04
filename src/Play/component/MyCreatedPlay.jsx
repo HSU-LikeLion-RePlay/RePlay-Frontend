@@ -1,4 +1,4 @@
-import Component from "./Component"
+import Comment from "./Comment"
 
 export default function MyScrapPlay(){
   return(

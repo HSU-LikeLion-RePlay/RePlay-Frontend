@@ -18,10 +18,9 @@ import InformationPost from './Information/components/InformationPost';
 import Post from './Information/components/Post';
 import BookmarkPage from './Information/components/BookmarkPage';
 import EditProfil from './MyPage/component/EditProfil';
-import MyInfo from './MyPage/component/MyInfo';
-import MyPlay from './MyPage/component/MyPlay';
-import MyStudy from './MyPage/component/MyStudy';
-import MyScrapPlay from './MyPage/component/MyScrapPlay';
+import MyPlay from './Play/component/MyPlay';
+import MyStudy from './Study/component/MyStudy';
+import MyScrapPlay from './Play/component/MyScrapPlay';
 import PlayApply from './Play/component/PlayApply';
 import Pay from './Play/component/Pay';
 import ApplyComplete from './Play/component/ApplyComplete';
@@ -42,7 +41,6 @@ const App = () => {
           <Route path="/play" element={<Play />} />
           <Route path="/Information" element={<Information />} />
           <Route path="/Study" element={<Study />} />
-
           <Route path="/" element={<Login />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/makeplay" element={<MakePlay />} />
@@ -56,8 +54,6 @@ const App = () => {
           <Route path='/studyApply' element={<StudyApply/>}/>
           <Route path='/myScrapPlay' element={<MyScrapPlay />} />
           <Route path='/myPage' element={<MyPage />} />
-          <Route path='/myInfo' element={<MyInfo />} />
-          <Route path='/myInfo' element={<MyInfo />} />
           <Route path='/myPlay' element={<MyPlay />} />
           <Route path='/myStudy' element={<MyStudy />} />
           <Route path='/editProfil' element={<EditProfil />} />

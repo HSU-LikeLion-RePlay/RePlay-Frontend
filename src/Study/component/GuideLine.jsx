@@ -28,7 +28,7 @@ export default function GuideLine({ show, onClose, isLoggedIn }) {
       return (
         <>
           <h2>로그인이 필요한 서비스 입니다</h2>
-          <button className='login-button' onClick={handleLoginClick}>로그인</button>
+          <button className='movelogin-button' onClick={handleLoginClick}>로그인</button>
         </>
       );
     }
