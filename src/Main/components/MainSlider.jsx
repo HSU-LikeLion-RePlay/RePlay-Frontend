@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "../css/mainlogin.css";
 import bubble from '../image/bubble.png'
 import dot from "../image/circle.jpg";
-
+import arrow from '../image/rightarrow.png';
 const MainSlider = ({ className, slides }) => {
   const sliderRef = React.useRef(null);
 
@@ -56,7 +56,8 @@ const MainSlider = ({ className, slides }) => {
               <div>
                 <img className="bubble" src={bubble}></img>
               </div>
-              <button className="slide-button">보러가기 - &gt;</button>
+              <div className="slide-content-tile"> {slide.name}님과 리플레이의 <span className="slide-strong">솔직한 인터뷰</span> </div>
+              <button className="slide-button">보러가기 <img src={arrow}/></button>
             </div>
           </div>
         ))}
