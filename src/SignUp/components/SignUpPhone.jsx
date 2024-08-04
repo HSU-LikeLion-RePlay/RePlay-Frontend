@@ -35,7 +35,7 @@ const SignUpPhone = () => {
 
     try {
       const response = await fetch(
-        "http://43.201.176.194:8080/api/user/isExistPhoneId",
+        "https://43.201.176.194.nip.io/api/user/isExistPhoneId",
         {
           method: "POST",
           headers: {
