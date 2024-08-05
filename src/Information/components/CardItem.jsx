@@ -2,6 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../css/information.css";
 
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const options = { year: "numeric", month: "2-digit", day: "2-digit" };
+  const dateParts = date.toLocaleDateString("ko-KR", options).split(". ");
+  const [year, month, day] = dateParts.map((part) => part.replace(".", ""));
+  return `${year}년 ${month}월 ${day}일`;
+};
+
 const CardItem = ({ image, issue, date, title, text, onClick }) => (
   <div className="card-item" onClick={onClick}>
     <div className="card-content">
@@ -10,10 +18,9 @@ const CardItem = ({ image, issue, date, title, text, onClick }) => (
       </div>
       <div className="card-header">
         <div className="card-issue">{issue}</div>
-        <div className="card-date">{date}</div>
+        <div className="card-date">{formatDate(date)}</div>
       </div>
       <div className="card-title">{title}</div>
-      <div className="card-text">{text}</div>
     </div>
   </div>
 );

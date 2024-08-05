@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -11,6 +11,14 @@ import Footer from "../../Footer/components/Footer";
 import bookmarkIcon from "../image/bookmark.jpg";
 import bookmarkHoverIcon from "../image/orangebookmark.jpg";
 import dotIcon from "../image/circle.jpg";
+
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const options = { year: "numeric", month: "2-digit", day: "2-digit" };
+  const dateParts = date.toLocaleDateString("ko-KR", options).split(". ");
+  const [year, month, day] = dateParts.map((part) => part.replace(".", ""));
+  return `${year}년 ${month}월 ${day}일`;
+};
 
 const Post = () => {
   const { id: infoId } = useParams(); // URL에서 infoId를 가져옴
@@ -157,38 +165,48 @@ const Post = () => {
     <div>
       <InformationHeader />
       <div className="post-container">
-        <div className="post-container-title">
-          <header className="post-container-header">
-            <div className="issue-number">제 {post.infoNum}호</div>
-            <div className="issue-date">{post.createdAt}</div>
-            <button
-              className="bookmark"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              onClick={handleClick}
-            >
-              <img src={bookmarkImage} alt="bookmark" />
-            </button>
-          </header>
-          <main className="main-content">
-            <h1 className="main-content-title">{post.title}</h1>
-            <Slider {...settings} className="slider">
-              <div className="slide">
-                <img
-                  src={post.thumbnailUrl}
-                  alt="슬라이드"
-                  className="image-placeholder"
-                />
-              </div>
-              <div className="slide">
-                <div className="content">{post.content}</div>
-              </div>
-            </Slider>
-          </main>
-          <footer className="post-footer">
-            <div className="post-text-footer">{post.writer}</div>
-          </footer>
+        <div className="post-header">
+          <button
+            className="bookmark"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={handleClick}
+          >
+            <img src={bookmarkImage} alt="bookmark" />
+            <div>스크랩</div>
+          </button>
+          <div className="post-issue-date">
+            <div className="post-issue">제 {post.infoNum}호</div>
+            <div className="post-date">{formatDate(post.createdAt)}</div>
+          </div>
         </div>
+        <div className="post-title">
+          <h1>{post.title}</h1>
+        </div>
+        <main className="main-content">
+          {post.images && post.images.length > 0 ? (
+            <Slider {...settings} className="slider">
+              {post.images.map((image, index) => (
+                <div className="slide" key={index}>
+                  <img
+                    src={image}
+                    alt={`슬라이드 ${index + 1}`}
+                    className="image-placeholder"
+                  />
+                </div>
+              ))}
+            </Slider>
+          ) : (
+            <div className="slide">
+              <img
+                src={post.thumbnailUrl}
+                alt="슬라이드"
+                className="image-placeholder"
+              />
+            </div>
+          )}
+          <div className="post-content">{post.content}</div>
+        </main>
       </div>
       <Footer />
     </div>
