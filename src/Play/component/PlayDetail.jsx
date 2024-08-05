@@ -1,18 +1,59 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useRecoilValue, useRecoilState } from "recoil";
-import {
-  playInfoState,
-  reviewState,
-  userState,
-  playscarapState,
-} from "../../atoms";
+import { atom, useRecoilValue, useRecoilState } from "recoil";
 import "../style/PlayDetail.css";
 import bookmarkIcon from "../images/bookmark.jpg";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import Comment from "./Comment";
 import locimg from "../images/Loc.svg";
 import ConfirmModal from "./ConfirmModal";
+
+// 더미 데이터
+export const playInfoState = atom({
+  key: "playInfoState",
+  default: [
+    {
+      id: 1,
+      img: "https://via.placeholder.com/150",
+      category: "스포츠",
+      name: "축구 경기",
+      date: "2024-08-10",
+      time: "15:00",
+      loc: "중앙 공원",
+      crnt: 10,
+      max: 20,
+      profilImg: "https://via.placeholder.com/50",
+      nickname: "홍길동",
+      intro: "친선 축구 경기에 참여하세요!",
+      latitude: 37.5665,
+      longitude: 126.978,
+      participants: [{ userId: 1, userName: "홍길동" }],
+    },
+  ],
+});
+
+export const reviewState = atom({
+  key: "reviewState",
+  default: [
+    {
+      playIndex: 1,
+      reviews: [
+        { author: "김철수", content: "정말 즐거운 경기였어요!" },
+        { author: "이영희", content: "다음에도 꼭 참여하고 싶어요!" },
+      ],
+    },
+  ],
+});
+
+export const userState = atom({
+  key: "userState",
+  default: { id: 1, name: "홍길동" },
+});
+
+export const playscarapState = atom({
+  key: "playscarapState",
+  default: [],
+});
 
 export default function PlayDetail() {
   const { kakao } = window;
@@ -23,7 +64,7 @@ export default function PlayDetail() {
   const user = useRecoilValue(userState); // 로그인 상태 가져오기
   const [scraps, setScraps] = useRecoilState(playscarapState); // 스크랩 상태 관리
   const isLoggedIn = !!user; // 로그인 상태 확인
-  const playInfo = playInfos[index];
+  const playInfo = playInfos.find((play) => play.id === parseInt(index, 10));
   const playReviews = reviews.find(
     (review) => review.playIndex === parseInt(index, 10)
   );
@@ -38,41 +79,9 @@ export default function PlayDetail() {
   const isScrapped = scraps.includes(playInfo?.id); // 해당 모임이 스크랩된 상태인지 확인
 
   useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        const response = await fetch(
-          `https://43.201.176.194.nip.io/api/playing/getPlaying/${playingId}`,
-          {
-            method: "GET",
-            headers: {},
-          }
-        );
-
-        if (response.status === 404) {
-          console.error("해당 글을 찾을 수 없습니다.");
-          setLoading(false);
-          return;
-        }
-
-        const result = await response.json();
-
-        console.log("Response status:", response.status);
-        console.log("Response result:", result);
-
-        if (response.status === 200) {
-          setPost(result.data);
-          console.log("데이터 가져오기 성공:", result.data);
-        } else {
-          console.error(result.message);
-        }
-      } catch (error) {
-        console.error("네트워크 오류가 발생했습니다.", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPost();
+    // 더미 데이터 사용으로 fetch 생략
+    setPost(playInfo);
+    setLoading(false);
   }, [playingId]);
 
   useEffect(() => {
@@ -84,6 +93,28 @@ export default function PlayDetail() {
       setIsParticipating(!!userParticipation);
     }
   }, [user, playInfo]);
+
+  useEffect(() => {
+    if (playInfo) {
+      const geocoder = new kakao.maps.services.Geocoder();
+      const coord = new kakao.maps.LatLng(
+        playInfo.latitude,
+        playInfo.longitude
+      );
+
+      geocoder.coord2Address(
+        coord.getLng(),
+        coord.getLat(),
+        (result, status) => {
+          if (status === kakao.maps.services.Status.OK) {
+            setAddress(result[0].address);
+          } else {
+            console.error("주소 정보를 가져오는데 실패했습니다.");
+          }
+        }
+      );
+    }
+  }, [playInfo, kakao.maps.services.Geocoder]);
 
   const handleDirectionsClick = () => {
     if (address && address.address_name) {
@@ -140,13 +171,13 @@ export default function PlayDetail() {
   }
 
   return (
-    <div className="playdetail-page">
-      <div className="playdetail-container">
-        <div className="playdetail-left">
-          <div className="playdetail-image">
+    <div className="play-detail-page">
+      <div className="play-detail-container">
+        <div className="play-detail-top">
+          <div className="play-detail-image">
             <img src={playInfo.img} alt={playInfo.name} />
           </div>
-          <div className="playdetail-info">
+          <div className="play-detail-info">
             <button>{playInfo.category}</button>
             <button onClick={handleScrapClick}>
               {isScrapped ? (
@@ -162,39 +193,41 @@ export default function PlayDetail() {
             <p>
               {playInfo.crnt}/{playInfo.max}명
             </p>
-            <div className="playdetail-organizer">
-              <img
-                src={playInfo.profilImg}
-                alt={playInfo.nickname}
-                className="organizer-profile"
-              />
-              <p>
-                <strong>담당자:</strong> {playInfo.nickname}
-              </p>
-              <p>{playInfo.intro}</p>
-            </div>
           </div>
-          <div className="playdetail-reviews">
-            <h3>후기</h3>
-            {playReviews && playReviews.reviews.length > 0 ? (
-              playReviews.reviews.map((review, i) => (
-                <div key={i} className="review">
-                  <p>
-                    <strong>{review.author}:</strong> {review.content}
-                  </p>
-                </div>
-              ))
-            ) : (
-              <p>후기가 없습니다.</p>
-            )}
-          </div>
-          <hr />
-          <Comment />
         </div>
-        <div className="playdetail-right">
+
+        <div className="play-detail-organizer">
+          <img
+            src={playInfo.profilImg}
+            alt={playInfo.nickname}
+            className="organizer-profile"
+          />
+          <p>
+            <strong>담당자:</strong> {playInfo.nickname}
+          </p>
+          <p>{playInfo.intro}</p>
+        </div>
+
+        <div className="play-detail-reviews">
+          <h3>후기</h3>
+          {playReviews && playReviews.reviews.length > 0 ? (
+            playReviews.reviews.map((review, i) => (
+              <div key={i} className="review">
+                <p>
+                  <strong>{review.author}:</strong> {review.content}
+                </p>
+              </div>
+            ))
+          ) : (
+            <p>후기가 없습니다.</p>
+          )}
+        </div>
+        <hr />
+        <Comment />
+        <div className="play-detail-right">
           <Map
             center={{ lat: playInfo.latitude, lng: playInfo.longitude }}
-            style={{ width: "800px", height: "600px" }}
+            style={{ width: "100%", height: "400px" }}
             level={3}
           >
             <MapMarker
