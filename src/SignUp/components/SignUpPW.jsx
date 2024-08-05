@@ -59,9 +59,9 @@ const SignUpPw = () => {
               onChange={handleConfirmPasswordChange}
             />
           </div>
-          <div className="login-alert-container">
+          <div className="alert-container">
             <div className={alertClassName()}>
-              <div class="pw-error-msg">비밀번호가 일치하지 않습니다.</div>
+              <h5>비밀번호가 일치하지 않습니다.</h5>
             </div>
           </div>
           <div className="pw-button-container">
@@ -80,7 +80,7 @@ const SignUpPw = () => {
             </button>
           </div>
         </div>
-        <a href="/Main" className="pw-go-to-main">
+        <a href="/Main" className="go-to-main">
           홈페이지로 돌아가기
         </a>
       </div>

@@ -4,6 +4,9 @@ import CardItem from "./CardItem";
 import "../css/information.css";
 import InformationHeader from "../../Header/components/InformationHeader";
 import Footer from "../../Footer/components/Footer";
+import logo from "../image/logo.png"; // 로고 이미지 경로
+import slogan from "../image/slogan.png"; // 슬로건 이미지 경로
+
 const Information = () => {
   const navigate = useNavigate();
   const [cards, setCards] = useState([]);
@@ -14,7 +17,6 @@ const Information = () => {
       try {
         const response = await fetch(
           "https://43.201.176.194.nip.io/api/info/getAllInfo",
-
           {
             method: "GET",
           }
@@ -49,17 +51,17 @@ const Information = () => {
   };
 
   return (
-    <div>
+    <div className="information-page">
       <InformationHeader />
       <div className="information-container">
         <div className="banner-container">
           <div className="banner">
             <div className="information-title">
               <p>
-                새로운 <span className="highlight">직업?</span>
+                새로운 <span className="highlight">직업</span>?
               </p>
               <p>
-                새로운 <span className="highlight">활동?</span>
+                새로운 <span className="highlight">활동</span>?
               </p>
               <p>무엇이 있을까요!</p>
             </div>
@@ -68,6 +70,14 @@ const Information = () => {
             </div>
             <div className="description">
               여러분의 아름다운 인생 제 2막을 위한 생생한 정보를 제공합니다.
+            </div>
+            <div className="logo-slogan-container">
+              <img src={logo} alt="Logo" className="information-logo-image" />
+              <img
+                src={slogan}
+                alt="Slogan"
+                className="information-slogan-image"
+              />
             </div>
           </div>
         </div>

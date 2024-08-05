@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Select from "react-select";
 import "../css/signupbirthday.css";
 
 const SignUpBirthday = () => {
   const [selectedYear, setSelectedYear] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const { nickname } = location.state || { nickname: "" };
 
   const handleYearChange = (selectedOption) => {
     setSelectedYear(selectedOption);
@@ -22,7 +24,9 @@ const SignUpBirthday = () => {
 
   const handleNextClick = () => {
     if (selectedYear) {
-      navigate("/SignUpPhone", { state: { birthday: selectedYear.value } });
+      navigate("/SignUpPhone", {
+        state: { nickname, birthday: selectedYear.value },
+      });
     }
   };
 

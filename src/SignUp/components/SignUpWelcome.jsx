@@ -55,8 +55,8 @@ const SignUpWelcome = () => {
           <div className="welcome-text"> 님 환영합니다!</div>
         </div>
         <div className="user-info-box">
-          <div className="information">{nickname}님의 회원정보</div>*
-          <div className="line"> </div>
+          <div className="information">{nickname}님의 회원정보</div>
+          <div className="line"></div>
           <div className="user-info">
             <div className="box">
               <div>
