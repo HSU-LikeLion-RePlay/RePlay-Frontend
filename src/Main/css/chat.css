@@ -1,0 +1,8 @@
+.chat-container{
+}
+
+.chat-content{
+    display: flex;
+    justify-content: center;
+
+}

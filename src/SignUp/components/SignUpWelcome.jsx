@@ -14,6 +14,15 @@ const SignUpWelcome = () => {
 
   const handleHomeButtonClick = async () => {
     try {
+      const payload = {
+        phoneId: userId,
+        password: password,
+        nickname: nickname,
+        year: parseInt(birthday, 10), // birthday를 Integer로 변환
+        userRoles: ["ROLE_USER"],
+      };
+      console.log("Sending payload:", payload); // payload를 콘솔에 출력
+
       const response = await fetch(
         "https://43.201.176.194.nip.io/api/user/signUp",
         {
@@ -21,18 +30,12 @@ const SignUpWelcome = () => {
           headers: {
             "Content-Type": "application/json; charset=utf-8",
           },
-          body: JSON.stringify({
-            phoneId: userId,
-            password: password,
-            nickname: nickname,
-            year: birthday,
-            userRoles: ["ROLE_USER"],
-          }),
+          body: JSON.stringify(payload),
         }
       );
 
       const data = await response.json();
-      console.log(data);
+      console.log("Response data:", data); // 서버 응답을 콘솔에 출력
 
       if (response.status === 200) {
         // 사용자 정보 localStorage에 저장
@@ -43,7 +46,7 @@ const SignUpWelcome = () => {
         alert("입력값이 올바르지 않습니다.");
       }
     } catch (error) {
-      console.log("error");
+      console.log("error", error);
     }
   };
 
