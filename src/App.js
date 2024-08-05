@@ -81,6 +81,7 @@ const App = () => {
           <Route path="/editPlay" element={<EditPlay />} />
           <Route path="/myPlay" element={<MyPlay />} />
           <Route path="/myScrapPlay" element={<MyScrapPlay />} />
+          <Route path='/makePlay' element={<MakePlay/>}/>
 
           {/* Study 관련 라우트 */}
           <Route path="/study" element={<Study />} />
