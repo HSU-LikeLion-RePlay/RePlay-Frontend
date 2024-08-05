@@ -15,7 +15,7 @@ const SignUpWelcome = () => {
   const handleHomeButtonClick = async () => {
     try {
       const response = await fetch(
-        "http://43.201.176.194:8080/api/user/signUp",
+        "https://43.201.176.194.nip.io/api/user/signUp",
         {
           method: "POST",
           headers: {
@@ -38,7 +38,7 @@ const SignUpWelcome = () => {
         // 사용자 정보 localStorage에 저장
         localStorage.setItem("nickname", nickname);
         localStorage.setItem("token", data.token); // 서버에서 발급한 토큰 저장
-        navigate("/MainLogin");
+        navigate("/");
       } else if (response.status === 400) {
         alert("입력값이 올바르지 않습니다.");
       }
