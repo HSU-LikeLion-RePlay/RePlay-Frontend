@@ -31,8 +31,8 @@ const SignUpBirthday = () => {
   };
 
   return (
-    <div className="signup">
-      <div className="box">
+    <div className="signup-birthday-container">
+      <div className="signup-birthday-box">
         <div className="birthday-title">출생연도를 선택해주세요!</div>
 
         <div className="dropdown">
