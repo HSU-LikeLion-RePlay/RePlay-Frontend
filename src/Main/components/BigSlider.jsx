@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../css/mainlogin.css";
-import bubble from "../image/bubble.png";
-import dot from "../image/circle.jpg";
+import bubble from "../image/bubble.png"; // 사용 중인 bubble 이미지
 
 const BigSlider = ({ className, slides }) => {
   const sliderRef = React.useRef(null);
@@ -35,14 +34,11 @@ const BigSlider = ({ className, slides }) => {
     slidesToScroll: 1,
     draggable: false,
     arrows: false,
-    customPaging: (i) => (
-      <button>{<img src={dot} alt={`dot-${i + 1}`} />}</button>
-    ),
   };
 
   const handleButtonClick = (e, link) => {
-    e.stopPropagation();
-    navigate(link);
+    e.stopPropagation(); // 이벤트 전파 막기
+    navigate(link); // 이동할 경로 설정
   };
 
   return (
@@ -56,21 +52,12 @@ const BigSlider = ({ className, slides }) => {
                 src={slide.image}
                 alt={`Slide ${index + 1}`}
               />
-            </div>
-            <div className="slide-text-container">
-              <h2>{slide.name}</h2>
-              <div>
-                <img className="bubble" src={bubble} alt="Bubble" />
-              </div>
-              <div className="slide-content-title">
-                {slide.name}님과 리플레이의{" "}
-                <span className="slide-strong">솔직한 인터뷰</span>
-              </div>
+
               <button
                 onClick={(e) => handleButtonClick(e, slide.link)}
-                className="navigate-button"
+                className="banner-navigate-button"
               >
-                Go to Next Page
+                보러가기⟶
               </button>
             </div>
           </div>

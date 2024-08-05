@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
+
 import Play from './Play/component/Play';
 import MakePlay from './Play/component/MakePlay';
 import Login from './Login/components/Login';
@@ -32,26 +33,30 @@ import AdvertisementSupporter from './Main/components/AdvertisementSupporter';
 import Main from './Main/components/Main';
 import InformationHeader from './Header/components/InformationHeader';
 import StudyHeader from './Header/components/StudyHeader';
+import BigSlider from './Main/components/BigSlider';
 import Chat1 from './Main/components/Chat1';
 import Chat2 from './Main/components/Chat2';
 import Chat3 from './Main/components/Chat3';
-import MainSlider from './Main/components/MainSlider';
+
+import banner1 from './Main/image/banner1.png';
+import banner2 from './Main/image/banner2.png';
+import banner3 from './Main/image/banner3.png';
 
 const slides = [
   {
-    image: "path_to_image_1.jpg",
-    name: "김철수",
-    link: "/Chat1"
+    image: banner1,
+    name: "임예은",
+    link: "/chat1"
   },
   {
-    image: "path_to_image_2.jpg",
+    image: banner2,
     name: "이영희",
-    link: "/Chat2"
+    link: "/chat2"
   },
   {
-    image: "path_to_image_3.jpg",
+    image: banner3,
     name: "박민수",
-    link: "/Chat3"
+    link: "/chat3"
   },
 ];
 
@@ -60,47 +65,56 @@ const App = () => {
     <RecoilRoot>
       <Router>
         <Routes>
-          <Route path="/play" element={<Play />} />
-          <Route path="/Information" element={<Information />} />
-          <Route path="/Study" element={<Study />} />
+          {/* 기본 라우트 */}
           <Route path="/" element={<Login />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/makeplay" element={<MakePlay />} />
+          <Route path="/Main" element={<Main />} />
+          <Route path="/MainLogin" element={<MainLogin />} />
+
+          {/* Play 관련 라우트 */}
+          <Route path="/play" element={<Play />} />
+          <Route path="/playdetail/:index" element={<PlayDetail />} />
+          <Route path="/welcomeMakePlay" element={<WelcomeMakePlay />} />
+          <Route path="/playApply" element={<PlayApply />} />
+          <Route path="/pay" element={<Pay />} />
+          <Route path="/applyComplete" element={<ApplyComplete />} />
+          <Route path="/editPlay" element={<EditPlay />} />
+          <Route path="/myPlay" element={<MyPlay />} />
+          <Route path="/myScrapPlay" element={<MyScrapPlay />} />
+
+          {/* Study 관련 라우트 */}
+          <Route path="/study" element={<Study />} />
+          <Route path="/studyApply" element={<StudyApply />} />
+          <Route path="/StudyDetail/:index" element={<StudyDetail />} />
+          <Route path="/myStudy" element={<MyStudy />} />
+
+          {/* SignUp 관련 라우트 */}
           <Route path="/SignUpBirthDay" element={<SignUpBirthDay />} />
           <Route path="/SignUpPhone" element={<SignUpPhone />} />
           <Route path="/SignUpPW" element={<SignUpPW />} />
           <Route path="/SignUpNickName" element={<SignUpNickName />} />
           <Route path="/SignUpWelcome" element={<SignUpWelcome />} />
-          <Route path='/study' element={<Study/>}/>
-          <Route path='/StudyDetail/:index' element={<StudyDetail/>}/>
-          <Route path='/studyApply' element={<StudyApply/>}/>
-          <Route path='/myScrapPlay' element={<MyScrapPlay />} />
-          <Route path='/myPage' element={<MyPage />} />
-          <Route path='/myPlay' element={<MyPlay />} />
-          <Route path='/myStudy' element={<MyStudy />} />
-          <Route path='/editProfil' element={<EditProfil />} />
-          <Route path="/playdetail/:index" element={<PlayDetail />} />
-          <Route path='/MainLogin' element={<MainLogin />} />
+
+          {/* MyPage 관련 라우트 */}
+          <Route path="/myPage" element={<MyPage />} />
+          <Route path="/editProfil" element={<EditProfil />} />
+
+          {/* Information 관련 라우트 */}
+          <Route path="/Information" element={<Information />} />
           <Route path="/InformationPost" element={<InformationPost />} />
           <Route path="/bookmarks" element={<BookmarkPage />} />
-          <Route path='/AdvertisementSupporter' element={<AdvertisementSupporter/>}/>
-          <Route path='/InformationHeader' element={<InformationHeader/>}/>
-          <Route path='/StudyHeader' element={<StudyHeader/>}/>
-
           <Route path="/post/:id" element={<Post />} />
-
-          <Route path='/welcomeMakePlay' element={<WelcomeMakePlay/>}/>
-          <Route path='/Main' element={<Main />} />
-          <Route path='/playApply' element={<PlayApply/>}/>
-          <Route path='/pay' element={<Pay/>}></Route>
-          <Route path= '/applyComplete' element={<ApplyComplete/>}></Route>
-          <Route path='editPlay' element={<EditPlay/>}></Route>
+          <Route path="/InformationHeader" element={<InformationHeader />} />
+          <Route path="/StudyHeader" element={<StudyHeader />} />
 
           {/* 추가된 라우트 */}
-          <Route path="/main-slider" element={<MainSlider className="main-slider" slides={slides} />} />
+          <Route path="/main-slider" element={<BigSlider className="main-slider" slides={slides} />} />
           <Route path="/chat1" element={<Chat1 />} />
           <Route path="/chat2" element={<Chat2 />} />
           <Route path="/chat3" element={<Chat3 />} />
+
+          {/* Advertisement */}
+          <Route path="/AdvertisementSupporter" element={<AdvertisementSupporter />} />
         </Routes>
       </Router>
     </RecoilRoot>

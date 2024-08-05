@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top:2.5rem;
+
   justify-content: center; /* Optional: 수직 방향으로도 가운데 정렬하고 싶을 경우 추가 */
 }
 
@@ -23,19 +25,19 @@
 } */
 
 .main-login-slider .main-slide-content {
-  display: flex;
+  width: 80rem;
   align-items: center;
 }
 
 .main-login-slider .slide-image-container {
-  display: flex;
+  width: 80rem;
   justify-content: center;
+
 }
 
-.main-login-slider .main-slide-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+.main-slide-image {
+  width: 80rem;
+  height: 20rem;
 }
 
 .main-login-slider .slide-text-container {
@@ -146,7 +148,8 @@
   border: darkblue solid 0.1rem;
   margin-left: 20rem;
   margin-right: 20rem;
-  margin-top: 3rem;
+  margin-top: 5rem;
+  border: none;
 }
 
 .main-help-text-button-container {
@@ -200,6 +203,7 @@
   line-height: 150%; /* 1.875rem */
   border: none;
   text-decoration: none;
+  margin-right: 0.8rem;
 }
 
 .event-list {
@@ -397,3 +401,37 @@
 .grid-4 .grid-item {
   width: 100%; /* 그리드 아이템의 너비를 조정 */
 }
+
+.slide-image-container {
+  position: relative;
+}
+
+.main-slide-image {
+  width: 100%;
+  height: auto;
+}
+
+.banner-navigate-button {
+  position: absolute;
+  bottom: 5.5rem; /* 버튼의 하단 위치 */
+  left: 46.7rem; /* 버튼의 좌측 위치 */
+  display: flex;
+width: 28.25rem;
+height: 4.875rem;
+padding: 0.5rem 1.5rem;
+justify-content: center;
+align-items: center;
+gap: 0.3125rem;
+flex-shrink: 0;
+border-radius: 1rem;
+background: var(--primary, #FF7331);
+color: #FFF;
+font-family: "Pretendard Variable";
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 700;
+line-height: 175%; /* 2.625rem */
+border: none;
+}
+
+
