@@ -1,4 +1,3 @@
-//닉네임 중복 처리 - 통신 완료
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/signupnickname.css";
@@ -13,13 +12,20 @@ function SignUpNickName() {
   const handleNicknameChange = (e) => {
     const value = e.target.value;
     setNickname(value);
-    const valid = /^[a-zA-Z0-9가-힣_]{2,8}$/.test(value);
-    setIsValid(valid);
-    setValidationMessage(valid ? "" : "2~8 자로 입력해주세요.");
+    // 자음 또는 모음만 포함된 별명 검사 추가
+    const isValidNickname =
+      /^[a-zA-Z0-9가-힣]{2,8}$/.test(value) && !/^[ㄱ-ㅎㅏ-ㅣ]+$/.test(value);
+    setIsValid(isValidNickname);
+    setValidationMessage(isValidNickname ? "" : "2~8 자로 입력해주세요.");
     setIsDuplicate(false);
   };
 
   const checkDuplicate = async () => {
+    if (!isValid) {
+      setValidationMessage("유효한 별명을 입력해주세요.");
+      return;
+    }
+
     try {
       console.log("Checking nickname duplication for:", nickname);
 
@@ -34,23 +40,14 @@ function SignUpNickName() {
         }
       );
 
-      const text = await response.text();
-      console.log("Raw response text:", text);
-
-      let result;
-      try {
-        result = JSON.parse(text);
-      } catch (error) {
-        console.error("Failed to parse JSON:", text);
-        throw new Error("서버에서 JSON 형식이 아닌 응답이 반환되었습니다.");
-      }
+      const result = await response.json();
 
       console.log("Parsed response:", result);
 
       if (response.status === 200) {
         console.log("Nickname is available:", result.message);
         setIsDuplicate(false);
-        setValidationMessage(result.message);
+        setValidationMessage("사용할 수 있는 별명입니다.");
       } else if (response.status === 400) {
         console.log("Nickname is not available:", result.message);
         setIsDuplicate(true);
@@ -61,17 +58,15 @@ function SignUpNickName() {
       }
     } catch (error) {
       console.error("Fetch error:", error);
-      setValidationMessage(
-        error.message === "서버에서 JSON 형식이 아닌 응답이 반환되었습니다."
-          ? error.message
-          : "네트워크 오류가 발생했습니다. 다시 시도해주세요."
-      );
+      setValidationMessage("네트워크 오류가 발생했습니다. 다시 시도해주세요.");
     }
   };
 
   const handleSubmit = () => {
     if (isValid && !isDuplicate) {
       navigate("/SignUpBirthday", { state: { nickname } });
+    } else {
+      setValidationMessage("유효한 별명을 입력하고 중복 확인을 해주세요.");
     }
   };
 
@@ -86,21 +81,23 @@ function SignUpNickName() {
               value={nickname}
               onChange={handleNicknameChange}
               placeholder="별명"
-              className={`nickname-input ${
+              className={`signup-nickname-input ${
                 !isValid ? "invalid" : isDuplicate ? "duplicate" : "valid"
               }`}
             />
-            <button onClick={checkDuplicate} className="check-button">
+            <button onClick={checkDuplicate} className="nickname-check-button">
               중복 확인
             </button>
           </div>
-          <p
-            className={`nickname-validation-message ${
-              !isValid || isDuplicate ? "error" : "success"
-            }`}
-          >
-            {validationMessage}
-          </p>
+          <div className="nickname-validation-message-container">
+            <p
+              className={`nickname-validation-message ${
+                !isValid || isDuplicate ? "error" : "success"
+              }`}
+            >
+              {validationMessage}
+            </p>
+          </div>
         </div>
         <button
           onClick={handleSubmit}
@@ -110,11 +107,9 @@ function SignUpNickName() {
           다음
         </button>
       </div>
-      <div className="go-to-home">
-        <a href="/Main" className="go-to-main">
-          홈페이지로 돌아가기
-        </a>
-      </div>
+      <a href="/Main" className="go-to-main">
+        홈페이지로 돌아가기
+      </a>
     </div>
   );
 }

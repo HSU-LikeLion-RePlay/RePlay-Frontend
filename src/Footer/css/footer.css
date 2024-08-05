@@ -1,37 +1,41 @@
 .footer-container {
-  width: 100%; /* 너비를 100%로 설정 */
+  width: 100%; /* Full width of the container */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff; /* 배경색 */
-  padding: 2rem 0; /* 상하 여백 */
-  border-top: 1px solid #ccc; /* 위에 선 추가 */
-  position: relative; /* 절대 위치를 상대 위치로 변경 */
-  margin-top: 1rem;
+  justify-content: center; /* Center contents horizontally */
+  align-items: center; /* Center contents vertically */
+  background-color: #fff; /* Background color */
+  border-top: 1px solid #ccc; /* Top border */
+  position: relative;
+  margin-top: 1.38rem;
+  margin-bottom: 1.38rem;
+  height: 9rem;
+  margin-right: 15rem; /* Right margin */
 }
 
 .footer {
   display: flex;
   width: 100%;
-  max-width: 120rem; /* 최대 너비 설정 */
-  padding: 1.375rem 30rem; /* 여백 조정 */
-  justify-content: space-between;
-  align-items: center;
+  max-width: 120rem; /* Maximum width */
+  padding: 1.375rem 30rem; /* Padding for larger screens */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center items vertically */
 }
 
-/* 작은 화면에서는 여백을 줄입니다 */
+/* Adjust padding for medium screens */
 @media (max-width: 1200px) {
   .footer {
     padding: 1.375rem 10rem;
   }
 }
 
+/* Adjust padding for small screens */
 @media (max-width: 992px) {
   .footer {
     padding: 1.375rem 5rem;
   }
 }
 
+/* Adjust layout for very small screens */
 @media (max-width: 768px) {
   .footer {
     padding: 1.375rem 2rem;
@@ -51,7 +55,7 @@
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: 2rem; /* 로고와 텍스트 사이의 간격 조정 */
+  gap: 2rem; /* Space between logo and slogan */
 }
 
 .footer-logo-image {
@@ -68,19 +72,21 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 0.5rem; /* 텍스트 줄 사이의 간격 조정 */
+  align-items: flex-end;
+  gap: 0.5rem; /* Space between text lines */
 }
 
 .footer-text-1,
 .footer-text-2 {
+  align-items: flex-end;
   color: var(--kakao-logo, #000);
-  width: 25rem;
-  text-align: right;
+  width: 100%;
   font-family: "Pretendard Variable";
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 1.5; /* 줄 간격 설정 */
-  margin: 0; /* 여백 제거 */
+  display: flex;
+  justify-content: flex-end; /* Align text to the right */
+  line-height: 1; /* Line height */
+  margin: 0;
 }

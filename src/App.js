@@ -32,6 +32,28 @@ import AdvertisementSupporter from './Main/components/AdvertisementSupporter';
 import Main from './Main/components/Main';
 import InformationHeader from './Header/components/InformationHeader';
 import StudyHeader from './Header/components/StudyHeader';
+import Chat1 from './Main/components/Chat1';
+import Chat2 from './Main/components/Chat2';
+import Chat3 from './Main/components/Chat3';
+import MainSlider from './Main/components/MainSlider';
+
+const slides = [
+  {
+    image: "path_to_image_1.jpg",
+    name: "김철수",
+    link: "/Chat1"
+  },
+  {
+    image: "path_to_image_2.jpg",
+    name: "이영희",
+    link: "/Chat2"
+  },
+  {
+    image: "path_to_image_3.jpg",
+    name: "박민수",
+    link: "/Chat3"
+  },
+];
 
 const App = () => {
   return (
@@ -60,7 +82,6 @@ const App = () => {
           <Route path="/playdetail/:index" element={<PlayDetail />} />
           <Route path='/MainLogin' element={<MainLogin />} />
           <Route path="/InformationPost" element={<InformationPost />} />
-          <Route path="/InformationPost" element={<InformationPost />} />
           <Route path="/bookmarks" element={<BookmarkPage />} />
           <Route path='/AdvertisementSupporter' element={<AdvertisementSupporter/>}/>
           <Route path='/InformationHeader' element={<InformationHeader/>}/>
@@ -68,15 +89,18 @@ const App = () => {
 
           <Route path="/post/:id" element={<Post />} />
 
-          {/* showMakePlayButton prop을 false로 설정하여 버튼 숨기기 */}
           <Route path='/welcomeMakePlay' element={<WelcomeMakePlay/>}/>
           <Route path='/Main' element={<Main />} />
-
-          <Route path='/welcomeMakePlay' element={<WelcomeMakePlay />} />
           <Route path='/playApply' element={<PlayApply/>}/>
           <Route path='/pay' element={<Pay/>}></Route>
           <Route path= '/applyComplete' element={<ApplyComplete/>}></Route>
-          <Route path='editPlay' element={<EditPlay/>}> </Route>
+          <Route path='editPlay' element={<EditPlay/>}></Route>
+
+          {/* 추가된 라우트 */}
+          <Route path="/main-slider" element={<MainSlider className="main-slider" slides={slides} />} />
+          <Route path="/chat1" element={<Chat1 />} />
+          <Route path="/chat2" element={<Chat2 />} />
+          <Route path="/chat3" element={<Chat3 />} />
         </Routes>
       </Router>
     </RecoilRoot>

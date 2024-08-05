@@ -1,4 +1,3 @@
-//전화번호 중복 체크 통신 완료
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../css/signupphone.css";
@@ -79,44 +78,54 @@ const SignUpPhone = () => {
   };
 
   return (
-    <div className="signup-phone-container">
-      <div className="container">
-        <div className="phone-title">휴대폰번호를 입력해주세요!</div>
-        <div className="phone-subtitle">
-          휴대폰번호는 로그인 시 아이디로 활용됩니다.
-        </div>
-        <div className="phone-input-container">
-          <input
-            className="phone-input"
-            type="text"
-            value={phoneNumber}
-            onChange={handlePhoneNumberChange}
-            placeholder="01000000000"
-          />
-          <button className="phone-button" onClick={handleCheckDuplicate}>
-            중복 확인
-          </button>
-        </div>
-        {message && (
-          <div
-            className={`message ${isDuplicate === false ? "success" : "error"}`}
-          >
-            {message}
+    <div className="signup-phone-page">
+      <div className="signup-phone-container">
+        <div className="title-container">
+          <div className="phone-title">휴대폰번호를 입력해주세요!</div>
+          <div className="phone-subtitle">
+            휴대폰번호는 로그인 시 아이디로 활용됩니다.
           </div>
-        )}
-        <div className="phone-button-container">
-          <button className="prev" onClick={() => navigate("/signupbirthday")}>
-            뒤로
-          </button>
-          <button
-            className="next"
-            onClick={handleNextClick}
-            disabled={!phoneNumber || isDuplicate !== false}
-          >
-            다음
-          </button>
+          <div className="phone-input-container">
+            <input
+              className="signup-phone-input"
+              type="text"
+              value={phoneNumber}
+              onChange={handlePhoneNumberChange}
+              placeholder="01000000000"
+            />
+            <button className="phone-button" onClick={handleCheckDuplicate}>
+              중복 확인
+            </button>
+          </div>
+          {message && (
+            <div
+              className={`message ${
+                isDuplicate === false ? "success" : "error"
+              }`}
+            >
+              {message}
+            </div>
+          )}
+          <div className="phone-button-container">
+            <button
+              className="prev"
+              onClick={() => navigate("/signupbirthday")}
+            >
+              뒤로
+            </button>
+            <button
+              className="next"
+              onClick={handleNextClick}
+              disabled={!phoneNumber || isDuplicate !== false}
+            >
+              다음
+            </button>
+          </div>
         </div>
       </div>
+      <a href="/Main" className="phone-go-to-main">
+        홈페이지로 돌아가기
+      </a>
     </div>
   );
 };

@@ -29,7 +29,7 @@ const slides = [
   },
 ];
 
-const MainLogin = () => {
+const Main = () => {
   const studyAndPlay = useRecoilValue(StudyAndPlayState); // Fetch user data using atom
   const informationRecoil = useRecoilValue(InformationRecoil);
   const [cards, setCards] = useState([]);
@@ -156,4 +156,4 @@ const MainLogin = () => {
   );
 };
 
-export default MainLogin;
+export default Main;

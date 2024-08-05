@@ -1,62 +1,64 @@
-.signup {
+.signup-birthday-container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+
   align-items: center;
   height: 100vh;
 }
 
-.signup .box {
-  display: block;
-  width: 640px;
-  height: 577px;
-  padding: 0px 40px 24px 40px;
+.signup-birthday-box {
+  width: 45rem;
+  height: 30.0625rem;
+  display: inline-flex;
+  padding: 2.5rem 2.5rem 1.5rem 2.5rem;
   flex-direction: column;
   align-items: center;
-  gap: 80px;
-  flex-shrink: 0;
-  border-radius: 24px;
-  background: #FFF;
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40);
+  border-radius: 1.5rem;
+background: #FFF;
+box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40);
 }
 
-.signup .box .birthday-title {
-  width: 640px;
+.birthday-title {
   color: var(--kakao-logo, #000);
-  font-family: "Pretendard Variable";
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 150%; /* 48px */
-  margin-bottom: 80px;
-  margin-top: 40px;
+font-family: "Pretendard Variable";
+font-size: 2rem;
+font-style: normal;
+font-weight: 600;
+line-height: 150%; /* 3rem */
+width: 40rem;
+margin-left: -5rem;
+margin-bottom: 5rem;
+}
+
+.react-select__control css-13cymwt-control{
+  border-color: #FFF;
+
 }
 
 /* 드롭다운 호버 시 */
-.signup .box .dropdown:hover .react-select__control {
-  border-radius: 16px;
+.dropdown:hover .react-select__control {
   border: 2px solid #FF7331;
+  border-color: #FFF;
 }
 
 /* 드롭다운 포커스 시 */
 .react-select__control--is-focused {
-  border-radius: 16px !important;
+
   border: 2px solid #FF7331 !important;
   box-shadow: none !important; /* 기본 파란색 테두리 제거 */
 }
 
-.signup .box .dropdown {
+.dropdown {
   width: 100%;
-  margin-bottom: 240px;
+  margin-bottom: 12rem;
   border-radius: none !important;
-  border-radius: 16px;
-
   box-shadow: none !important; /* 기본 파란색 테두리 제거 */
 
 }
 
 .react-select__control {
   border: 2px solid #FF7331;
-  border-radius: 16px;
   font-size: 16px;
   display: flex;
   width: 100%;
@@ -68,7 +70,6 @@
 }
 
 .react-select__placeholder {
-  border-radius: 16px;
   color: var(--grey-text-3, #AEACAB);
   font-family: "Pretendard Variable";
   font-size: 28px;
@@ -81,7 +82,6 @@
 
 .react-select__single-value {
   color: var(--kakao-logo, #000);
-  border-radius: 16px;
 
 font-family: "Pretendard Variable";
 font-size: 28px;
@@ -93,7 +93,6 @@ line-height: normal;
 }
 
 .react-select__indicator-separator {
-  border-radius: 16px;
   display: none;
   box-shadow: none !important; /* 기본 파란색 테두리 제거 */
 
@@ -101,7 +100,6 @@ line-height: normal;
 
 .react-select__dropdown-indicator {
   padding: 8px;
-  border-radius: 16px;
   background-image: url('../image/arrow.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -121,7 +119,6 @@ line-height: normal;
 }
 
 .react-select__menu {
-  border-radius: 16px;
   border: 2px solid #FF7331;
   box-shadow: none !important; /* 기본 파란색 테두리 제거 */
 
@@ -160,7 +157,6 @@ line-height: normal;
 
 .react-select__menu-list::-webkit-scrollbar-track {
   background: #f1f1f1; /* 스크롤바 트랙의 배경색 */
-  border-radius: 5px;
   box-shadow: none !important; /* 기본 파란색 테두리 제거 */
 
 }
@@ -188,21 +184,20 @@ line-height: normal;
   
 }
 
-.signup .box .birthday-buttons {
+.birthday-buttons {
   display: flex;
   justify-content: space-between;
   width: 100%;
   box-shadow: none !important; /* 기본 파란색 테두리 제거 */
 }
 
-.signup .box .birthday-buttons button:hover {
-  border-radius: 16px;
+.birthday-buttons button:hover {
   border: 2px solid #FF7331;
   box-shadow: none !important; /* 기본 파란색 테두리 제거 */
 
 }
 
-.signup .box .birthday-buttons button {
+.birthday-buttons button {
   padding: 10px 20px;
   font-size: 16px;
   border: none;
@@ -215,7 +210,7 @@ line-height: normal;
 
 }
 
-.signup .box .birthday-buttons button.prev {
+ .birthday-buttons button.prev {
   display: flex;
   width: 312px;
   height: 80px;
@@ -233,7 +228,7 @@ line-height: normal;
   line-height: normal;
 }
 
-.signup .box .birthday-buttons button.next {
+.birthday-buttons button.next {
   display: flex;
   width: 312px;
   height: 80px;
@@ -251,6 +246,7 @@ line-height: normal;
   line-height: normal;
 }
 
-.signup .box .birthday-buttons button:not(.selected):hover {
+.birthday-buttons button:not(.selected):hover {
   background-color: #ddd;
 }
+

@@ -29,7 +29,7 @@ const SignUpPw = () => {
 
   const handleSubmit = () => {
     if (password === confirmPassword) {
-      navigate("/signupwelcome", {
+      navigate("/SignUpWelcome", {
         state: { nickname, userId, password, birthday },
       });
     } else {
@@ -38,44 +38,51 @@ const SignUpPw = () => {
   };
 
   return (
-    <div className="signup-pw-container">
-      <div className="password-form">
-        <div className="pw-title">비밀번호를 입력해주세요!</div>
-        <div className="pw-input-container1">
-          <input
-            type="password"
-            placeholder="비밀번호"
-            value={password}
-            onChange={handlePasswordChange}
-          />
+    <div className="signup-pw-page">
+      <div className="signup-pw-container">
+        <div className="password-form">
+          <div className="pw-title">비밀번호를 입력해주세요!</div>
+          <div className="pw-input-container1">
+            <input
+              type="password"
+              placeholder="비밀번호"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          </div>
+          <div className="pw-text">비밀번호를 한번 더 입력해주세요.</div>
+          <div className="pw-input-container2">
+            <input
+              type="password"
+              placeholder="비밀번호 확인"
+              value={confirmPassword}
+              onChange={handleConfirmPasswordChange}
+            />
+          </div>
+          <div className="login-alert-container">
+            <div className={alertClassName()}>
+              <div class="pw-error-msg">비밀번호가 일치하지 않습니다.</div>
+            </div>
+          </div>
+          <div className="pw-button-container">
+            <button
+              className="pw-back-button"
+              onClick={() =>
+                navigate("/signupphone", {
+                  state: { nickname, birthday, userId },
+                })
+              }
+            >
+              뒤로
+            </button>
+            <button className="pw-submit-button" onClick={handleSubmit}>
+              완료
+            </button>
+          </div>
         </div>
-        <div className="pw-text">비밀번호를 한번 더 입력해주세요.</div>
-        <div className="pw-input-container2">
-          <input
-            type="password"
-            placeholder="비밀번호 확인"
-            value={confirmPassword}
-            onChange={handleConfirmPasswordChange}
-          />
-        </div>
-        <div className={alertClassName()}>
-          <h5>비밀번호가 일치하지 않습니다.</h5>
-        </div>
-        <div className="pw-button-container">
-          <button
-            className="pw-back-button"
-            onClick={() =>
-              navigate("/signupphone", {
-                state: { nickname, birthday, userId },
-              })
-            }
-          >
-            뒤로
-          </button>
-          <button className="pw-submit-button" onClick={handleSubmit}>
-            완료
-          </button>
-        </div>
+        <a href="/Main" className="pw-go-to-main">
+          홈페이지로 돌아가기
+        </a>
       </div>
     </div>
   );

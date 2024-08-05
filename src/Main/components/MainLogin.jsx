@@ -10,9 +10,9 @@ import { InformationRecoil } from "../../Recoil/InformationRecoil";
 import { StudyAndPlay as StudyAndPlayState } from "../../Recoil/StudyAndPlay";
 import "../css/mainlogin.css";
 import { Link, useNavigate } from "react-router-dom";
-import gentleman from '../image/gentleman.jpg'
-import wine from '../image/wine.png'
-import hat from '../image/hat.png'
+import gentleman from "../image/gentleman.jpg";
+import wine from "../image/wine.png";
+import hat from "../image/hat.png";
 const slides = [
   {
     image: gentleman,
@@ -41,7 +41,7 @@ const MainLogin = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://43.201.176.194:8080/api/info/getAllInfo",
+          "https://43.201.176.194:8080/api/info/getAllInfo",
           {
             method: "GET",
           }

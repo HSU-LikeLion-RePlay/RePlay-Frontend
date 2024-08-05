@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../css/mainlogin.css";
-import bubble from '../image/bubble.png'
+import bubble from "../image/bubble.png";
 import dot from "../image/circle.jpg";
-import arrow from '../image/rightarrow.png';
+import arrow from "../image/rightarrow.png";
+
 const MainSlider = ({ className, slides }) => {
   const sliderRef = React.useRef(null);
+  const navigate = useNavigate(); // useNavigate 훅 사용
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -34,30 +37,41 @@ const MainSlider = ({ className, slides }) => {
     draggable: true,
     arrows: false,
     customPaging: (i) => (
-      <button>{<img src={dot} alt={`dot-${i + 1}`} /> }</button>
+      <button>{<img src={dot} alt={`dot-${i + 1}`} />}</button>
     ),
   };
 
+  const handleButtonClick = (link) => {
+    navigate(link); // 페이지 이동
+  };
+
   return (
-    <div className={className}>
+    <div className={`${className} container`}>
       <Slider ref={sliderRef} {...settings}>
         {slides.map((slide, index) => (
           <div key={index} className="main-slide-content">
             <div className="slide-image-container">
-              
+              <img
+                className="main-slide-image"
+                src={slide.image}
+                alt={`Slide ${index + 1}`}
+              />
             </div>
             <div className="slide-text-container">
-            <img
-                className="main-slide-image"
-                src={slide.image} //이미지
-                alt={`Slide ${index + 1}`} //이미지 인데스 
-              />
-            <h2>{slide.name}</h2>
+              <h2>{slide.name}</h2>
               <div>
-                <img className="bubble" src={bubble}></img>
+                <img className="bubble" src={bubble} alt="Bubble" />
               </div>
-              <div className="slide-content-tile"> {slide.name}님과 리플레이의 <span className="slide-strong">솔직한 인터뷰</span> </div>
-              <button className="slide-button">보러가기 <img src={arrow}/></button>
+              <div className="slide-content-title">
+                {slide.name}님과 리플레이의{" "}
+                <span className="slide-strong">솔직한 인터뷰</span>
+              </div>
+              <button
+                onClick={() => handleButtonClick(slide.link)}
+                className="slide-button"
+              >
+                보러가기 <img src={arrow} alt="Arrow" />
+              </button>
             </div>
           </div>
         ))}

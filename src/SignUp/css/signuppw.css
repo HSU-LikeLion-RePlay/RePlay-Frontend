@@ -1,142 +1,179 @@
-.signup-pw-container{
+:root {
+    --primary-color: #000;
+    --secondary-color: #7E7872;
+    --highlight-color: #FFD4C0;
+    --disabled-color: #CCCAC9;
+    --error-color: #FF0000;
+    --success-color: #144FE5;
+    --button-height: 80px;
+    --button-width: 312px;
+    --button-padding: 22px 100px;
+    --border-radius: 16px;
+    --font-family: "Pretendard Variable";
+}
+
+.signup-pw-page {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
-.password-form {
-    width: 720px;
-  height: 484px;
-  padding: 40px 40px 24px 40px;
-  flex-direction: column;
-  align-items: center;
-  /* gap: 80px; */
-  border-radius: 24px;
-  background: #FFF;
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40)
-}
 
-.pw-title{
-    width: 612px;
-    color: var(--kakao-logo, #000);
-font-family: "Pretendard Variable";
-font-size: 32px;
-font-style: normal;
-font-weight: 600;
-line-height: 150%; /* 48px */
-margin-bottom: 80px;
-margin-left: 40px;
-
-}
-
-.pw-input-container1 {
+.signup-pw-container {
     display: flex;
-    padding: 16px;
-    width: 600px;
-
+    height: 34.625rem;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 8px;
-    align-self: stretch;
-    border-radius: 16px;
-    border: 2px solid #777371;
-    margin-left: 40px;
-
 }
-.pw-input-container2 {
+
+.password-form {
+    height: 34.625rem;
+    width: 40rem;
+    padding: 2.5rem 2.5rem 1.5rem 2.5rem;
     display: flex;
-    width: 600px;
-padding: 16px;
-align-items: center;
-gap: 8px;
-align-self: stretch;
-border-radius: 16px;
-border: 2px solid #777371;
-margin-left: 40px;
-
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.4);
 }
 
-.pw-text{
-    width: 612px;
+.pw-title {
+    color: var(--primary-color);
+    font-family: var(--font-family);
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 3rem */
+    width: 40rem;
+    margin-bottom: 5rem;
+}
+
+.pw-input-container1,
+.pw-input-container2 {
+    width: 40rem;
+    margin-bottom: 1rem;
+}
+
+.pw-input-container1 input,
+.pw-input-container2 input {
+    display: flex;
+    justify-content: center;
+    width: 37.75rem;
+    height: 1.8125rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 2px solid var(--primary-color);
+    font-size: 1.25rem;
+    font-family: var(--font-family);
+}
+
+.pw-text {
+    width: 100%;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
     color: var(--kakao-logo, #000);
     font-family: "Pretendard Variable";
-    font-size: 20px;
+    font-size: 1.25rem;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    margin-top: 40px;
-    margin-bottom: 16px;
-    margin-left: 40px;
-    letter-spacing: -1px;
+    letter-spacing: -0.1rem;
 }
 
-input {
-color: var(--grey-text-3, #AEACAB);
-font-family: "Pretendard Variable";
-font-size: 24px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-margin-left: 10px;
-border: none;
-
+.login-alert-container {
+    width: 100%;
+    height: 1.5rem; /* 고정 높이 설정 */
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-  
+.login-alert,
+.login-alert-view {
+    color: var(--error-color);
+    font-family: var(--font-family);
+    font-size: 1rem;
+}
+
 .login-alert {
-    visibility: hidden;
+    display: none;
 }
 
 .login-alert-view {
-    visibility: visible;
-    color: red;
-    margin-bottom: 10px;
+    display: block;
 }
 
 .pw-button-container {
-    align-items: center;
-    gap: 16px;
-    align-self: stretch;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
-
-
-.pw-button-container .pw-back-button {
+.pw-back-button {
     display: flex;
-    width: 312px;
-    height: 80px;
-    padding: 22px 100px;
+    width: 19.5rem;
+    height: 5rem;
+    padding: 1.375rem 6.25rem;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-    border-radius: 16px;
-    background: #FFD4C0;
-    color: var(--primary-text, #F8611A);
+    gap: 0.5rem;
+    border-radius: 1rem;
+    background: #ffd4c0;
+    color: #f8611a;
     font-family: "Pretendard Variable";
-    font-size: 24px;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     border: none;
+    margin-top: 3.5rem;
     cursor: pointer;
 }
 
-.pw-button-container .pw-submit-button {
-    display: flex;
-    width: 312px;
-    height: 80px;
-    padding: 22px 100px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border-radius: 16px;
-    background: #CCCAC9;
-    color: #FFF;
-    font-family: "Pretendard Variable";
-    font-size: 24px;
-    font-style: normal;
+.pw-submit-button {
+    width: 19.5rem;
+    height: 5rem;
+    padding: var(--button-padding);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+    font-size: 1.5rem;
     font-weight: 700;
-    line-height: normal;
+    cursor: pointer;
+    border-radius: 1rem;
+    background: #cccac9; /* 여기에서 고정 색상 제거 */
+    color: #ffffff;
     border: none;
+    margin-top: 3.5rem;
+}
+
+.pw-submit-button:hover {
+    color: #fff;
+}
+
+.pw-go-to-main {
+    margin-top: 2rem;
+    color: #666;
+    text-decoration: none;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-left: 35rem;
+
+}
+
+
+.pw-error-msg{
+    color: var(--negative-red-text, #CE1A3B);
+font-family: "Pretendard Variable";
+font-size: 1.125rem;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+margin-left: -20rem;
 }
