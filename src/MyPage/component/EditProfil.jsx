@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import "../css/editprofil.css";
+import axios from "axios";
 import MyHeader from "../../Header/components/MyHeader";
 
 function EditProfile() {
@@ -18,6 +19,39 @@ function EditProfile() {
   const [isNicknameValid, setIsNicknameValid] = useState(true);
   const [validationMessage, setValidationMessage] = useState("");
   const navigate = useNavigate();
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        console.error("No token found in local storage");
+        return;
+      }
+
+      try {
+        const response = await axios.get(
+          "https://43.201.176.194.nip.io/api/user/getMyPage",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        console.log("API Response:", response.data.data);
+        setUserData(response.data.data);
+        setNickname(response.data.data.nickName || "");
+        setPhoneNumber(response.data.data.phoneId || "");
+        setSelectedYear({ label: response.data.data.year, value: response.data.data.year });
+      } catch (error) {
+        console.error("API 요청 실패:", error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   const handleNicknameChange = (e) => {
     const value = e.target.value;
@@ -128,7 +162,6 @@ function EditProfile() {
       // 제출 로직 추가
       setShowModal(true);
       setModalMessage("수정되었습니다.");
-      // navigate("/nextpage", { state: { nickname, phoneNumber, birthYear: selectedYear.value } });
     } else {
       setShowModal(true);
       setModalMessage("저장에 실패했습니다. 입력 내용을 확인해주세요.");
@@ -142,6 +175,10 @@ function EditProfile() {
     }
   };
 
+  if (!userData) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
       <MyHeader />
@@ -150,7 +187,7 @@ function EditProfile() {
         <div className="profile-image-container">
           <label htmlFor="profileImageInput" className="profile-image-label">
             <img
-              src={profileImage || "https://via.placeholder.com/100"}
+              src={userData.profileImage || "https://via.placeholder.com/100"}
               alt="프로필"
               className="profile-image"
             />
@@ -203,8 +240,8 @@ function EditProfile() {
         <div className="edit-form-group">
           <label htmlFor="phoneNumber">휴대폰 번호</label>
           <div className="phone-subtitle">
-          휴대폰번호는 로그인 시 아이디로 활용됩니다.
-        </div>
+            휴대폰번호는 로그인 시 아이디로 활용됩니다.
+          </div>
           <div className="edit-input-group">
             <input
               type="text"
@@ -238,8 +275,8 @@ function EditProfile() {
         </button>
 
         {showModal && (
-          <div className="modal-container">
-            <div className="modal-content">
+          <div className="editprofil-modal-container">
+            <div className="editprofil-modal-content">
               <p>{modalMessage}</p>
               <button onClick={() => setShowModal(false)}>확인</button>
             </div>
