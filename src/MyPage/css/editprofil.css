@@ -308,7 +308,7 @@ button:disabled {
 }
 
 
-.modal-container {
+.editprofil-modal-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -321,49 +321,51 @@ button:disabled {
   z-index: 1000;
 }
 
-.modal-content {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 1rem;
-  text-align: center;
-  width: 50rem;
-  height: 29rem;
+.editprofil-modal-content {
+ display: flex;
+width: 50rem;
+height: auto; /* auto */
+flex-direction: column;
+justify-content: center;
+align-items: center;
+border-radius: 1rem;
+background: #FFF;
 
+/* 그림자 */
+box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40);
 }
 
-.modal-content p {
+.editprofil-modal-content p {
   color: var(--kakao-logo, #000);
-  text-align: center;
-  font-family: "Pretendard Variable";
-  font-size: 1.75rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  margin-top: 10rem;
+text-align: center;
+font-family: "Pretendard Variable";
+font-size: 1.75rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+margin-bottom: 9rem;
+margin-top: 9rem;
 }
 
-.modal-content button {
-  display: flexbox;
-  width: 30rem;
-  height: 5.125rem;
-  padding: 0.75rem 1rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 1rem;
-  background: #F2F0EF;
-  color: var(--kakao-logo, #000);
-  font-family: "Pretendard Variable";
-  font-size: 1.75rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  justify-content: center;
-  margin-right: 4rem;
-  margin-top: 5rem;
-
+.editprofil-modal-content button {
+  display: flex;
+width: 30rem;
+height: 5.125rem;
+padding: 0.75rem 1rem;
+justify-content: center;
+align-items: center;
+gap: 0.5rem;
+border-radius: 1rem;
+background: #F2F0EF;
+color: var(--kakao-logo, #000);
+font-family: "Pretendard Variable";
+font-size: 1.75rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+margin-bottom: 2.5rem;
 }
 
-.modal-content button:hover {
+.editprofil-modal-content button:hover {
   background-color: #e06424;
 }
