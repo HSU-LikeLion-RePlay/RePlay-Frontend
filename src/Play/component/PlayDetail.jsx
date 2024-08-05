@@ -1,18 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { useRecoilValue, useRecoilState } from "recoil";
-import {
-  playInfoState,
-  reviewState,
-  userState,
-  playscarapState,
-} from "../../atoms";
-import "../style/PlayDetail.css";
+import React, { useEffect, useState, useRef } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useRecoilValue, useRecoilState } from 'recoil';
+import { playInfoState, reviewState, userState, playscarapState } from '../../atoms';
+import '../style/PlayDetail.css';
 import bookmarkIcon from "../images/bookmark.jpg";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
-import Comment from "./Comment";
-import locimg from "../images/Loc.svg";
-import ConfirmModal from "./ConfirmModal";
+import Comment from './Comment';
+import locimg from '../images/Loc.svg';
+import ConfirmModal from './ConfirmModal';
 
 export default function PlayDetail() {
   const { kakao } = window;
@@ -31,11 +26,8 @@ export default function PlayDetail() {
   const [isParticipating, setIsParticipating] = useState(false); // 참가 상태 확인
   const [showConfirmModal, setShowConfirmModal] = useState(false); // 참가 취소 모달 가시성 상태
   const mapRef = useRef();
-  const { index: playingId } = useParams();
-  const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(true);
 
-  const isScrapped = scraps.includes(playInfo?.id); // 해당 모임이 스크랩된 상태인지 확인
+  const isScrapped = scraps.includes(playInfo?.id); // 스크랩 상태 확인
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -44,7 +36,8 @@ export default function PlayDetail() {
           `https://43.201.176.194.nip.io/api/playing/getPlaying/${playingId}`,
           {
             method: "GET",
-            headers: {},
+            headers: {
+            },
           }
         );
 
@@ -65,15 +58,10 @@ export default function PlayDetail() {
         } else {
           console.error(result.message);
         }
-      } catch (error) {
-        console.error("네트워크 오류가 발생했습니다.", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPost();
-  }, [playingId]);
+      };
+      geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+    }
+  }, [playInfo]);
 
   useEffect(() => {
     // 사용자가 현재 모임에 참가 중인지 확인하는 로직 추가
