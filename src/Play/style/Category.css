@@ -7,7 +7,6 @@ font-style: normal;
 font-weight: 700;
 line-height: normal;
 background-color: #fff;
-
 display: flex;
 height: 2.25rem;
 padding: 0.5rem 0.75rem;
@@ -17,6 +16,23 @@ align-items: center;
 gap: 0.5rem;
 border-radius: 1.125rem;
 border: 2px solid var(--grey-text-3, #AEACAB);
+}
+.category-header{
+  width: 18.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem 0 1rem;
+}
+.category-header span{
+  width: 5.6rem;
+  color: var(--kakao-logo, #000);
+  text-align: center;
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-right: 1rem;
 }
 .category-count{
   color: var(--grey-text-2, #7E7872);

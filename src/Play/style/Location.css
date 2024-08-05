@@ -4,11 +4,22 @@
   font-size: 14px;
   margin-top: -1rem;
 }
-.header {
+.loc-header {
   width: 18.5rem;
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem 0 1rem;
+}
+.loc-header span{
+  width: 5.6rem;
+  color: var(--kakao-logo, #000);
+  text-align: center;
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-right: 1rem;
 }
 .selected-locations-container ul {
   list-style: none;
@@ -17,7 +28,11 @@
   flex-wrap: wrap;
 
 }
-
+.location-picker-wrapper {
+  position: absolute;
+  z-index: 10; /* 다른 콘텐츠보다 위에 표시되도록 설정 */
+  width: 100%;
+}
 .location-button {
   display: flex;
   height: 2.25rem;
@@ -51,7 +66,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin-left: auto;
+  margin-left: 6.94rem;
 }
 .location-container {
   display: flex;
@@ -97,7 +112,28 @@
   flex: 0 0 calc(25% - 10px); 
 }
 
-
+.search-button {
+  display: flex;
+  width: 4rem;
+  height: 2rem;
+  padding: 0.0625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1.25rem;
+  border: 2px solid var(--grey-text-1, #5D5854);
+  background-color: #FFF;
+}
+.search-button:hover,
+.search-button:active {
+  border: 2px solid #FF7331; /* 테두리 색상 변경 */
+}
+.glass{
+  fill: #5D5854;
+}
+.glass:hover, .glass:active{
+  fill: #FF7331;
+}
 .sub-region-buttons {
   display: flex;
   flex-wrap: wrap;

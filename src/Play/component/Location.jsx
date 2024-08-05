@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import '../style/Location.css';
-import glass from '../images/Glass.svg';
 import before from '../images/before.svg';
-
+import { ReactComponent as Glass } from '../images/Glass.svg';
 const locations = {
     서울: ["전체", "강남", "강동", "강북", "강서", "관악", "광진", "구로", "금천", "노원", "도봉", "동대문", "동작", "마포", "서대문", "서초", "성동", "성북", "송파", "양천", "영등포", "용산", "은평", "종로", "중구", "중랑"],
     경기: ["전체", "가평", "고양", "광명", "광주", "구리", "군포", "김포", "부천", "성남", "수원", "시흥", "안산", "안성", "안양", "오산", "용인", "의왕", "의정부", "이천", "파주", "평택", "포천", "하남", "화성"],
@@ -88,10 +87,10 @@ const Location = ({ selectedLocation, setSelectedLocation }) => {
 
     return (
         <>
-            <div className="header">
+            <div className="loc-header">
                 <span>지역 선택</span>
                 <button className="search-button" onClick={() => setIsLocationContainerVisible(!isLocationContainerVisible)}>
-                    <img src={glass} alt="search" />
+                <Glass className="glass"/>
                 </button>
                 <p className='loc-count'>{selectedCount}/3</p>
             </div>
@@ -107,6 +106,7 @@ const Location = ({ selectedLocation, setSelectedLocation }) => {
                 </ul>
             </div>
             {isLocationContainerVisible && (
+                <div className='location-picker-wrapper'>
                 <div className="location-container">
                     {selectedRegion ? (
                         <div className="sub-region-buttons">
@@ -144,6 +144,7 @@ const Location = ({ selectedLocation, setSelectedLocation }) => {
                             </>
                         )}
                     </div>
+                </div>
                 </div>
             )}
         </>

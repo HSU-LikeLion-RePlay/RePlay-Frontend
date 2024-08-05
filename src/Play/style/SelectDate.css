@@ -1,3 +1,14 @@
+.select-date-container {
+  position: relative; /* 추가된 부분 */
+  width: 100%;
+}
+
+.date-picker-wrapper {
+  position: absolute; /* 추가된 부분 */
+  z-index: 10; /* 다른 콘텐츠보다 위에 표시되도록 설정 */
+  width: 100%;
+}
+
 .date-picker-container {
   width: 19.5rem;
   height: 20.1rem;
@@ -11,16 +22,18 @@
   border: 2px solid var(--primary, #FF7331);
   background: #FFF;
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40);
+  margin-top: 0.5rem; /* 입력 필드와 약간의 간격을 둠 */
 }
 
-.header {
+.date-header {
   width: 18.5rem;
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem 0 1rem;
 }
 
-.header span {
+.date-header span {
+  width: 5.6rem;
   color: var(--kakao-logo, #000);
   text-align: center;
   font-family: "Pretendard Variable";
@@ -45,24 +58,23 @@
 }
 .search-button:hover,
 .search-button:active {
-  border: 2px solid #FF7331; /* 테두리 색상 변경 */
+  border: 2px solid #FF7331;
 }
-.glass{
+.glass {
   fill: #5D5854;
 }
-.glass:hover, .glass:active{
+.glass:hover, .glass:active {
   fill: #FF7331;
 }
-.date-count{
+.date-count {
   color: var(--grey-text-2, #7E7872);
-  text-align: right; /* 오른쪽 정렬 */
+  text-align: right;
   font-family: "Pretendard Variable";
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin-left: auto; /* 좌측 마진을 자동으로 설정하여 우측 정렬 */
-
+  margin-left: 6.94rem;
 }
 .custom-calendar {
   width: 100%;
@@ -70,11 +82,11 @@
 }
 
 .selected-date {
-  background-color: #FF7331 ;
+  background-color: #FF7331;
   color: white;
   border-radius: 50%;
 }
-.selected-datehover{
+.selected-datehover {
   border-radius: 1.125rem;
   background: #FEB28E;
 }
@@ -83,7 +95,6 @@
   background-color: #fff;
   font-size: 14px;
   margin-top: -1rem;
-
 }
 
 .selected-dates-container ul {
@@ -91,7 +102,6 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .date-button {
@@ -134,71 +144,4 @@
   font-style: normal;
   margin-right: 0.55rem;
   font-weight: 700;
-}
-
-/* 날짜에 호버 시 배경색 변경 */
-.react-datepicker__day:hover {
-  background: #FEB28E; /* 호버 시 배경색 */
-  border-radius: 50%; /* 호버 시 테두리 둥글게 */
-}
-
-/* 선택된 날짜 스타일 */
-.selected-date {
-  background-color: #FF7331; /* 선택된 날짜의 배경색 */
-  color: white; /* 선택된 날짜의 텍스트 색상 */
-  border-radius: 50%; /* 선택된 날짜의 테두리 둥글게 */
-  z-index: 2; /* 선택된 날짜를 다른 요소보다 위에 표시 */
-}
-.react-datepicker__day-names {
-  color: var(--kakao-logo, #000);
-  text-align: center;
-  font-family: "Pretendard Variable";
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  align-self: stretch;
-}
-
-.react-datepicker__day-name {
-  margin-right: 0.55rem;
-}
-
-/* 추가된 CSS */
-.react-datepicker__header {
-  background-color: #fff; /* 상단 월 부분 배경색을 흰색으로 설정 */
-  border-bottom: none;
-  color: black; /* 텍스트 색상을 검정색으로 설정 */
-}
-
-.custom-header {
-  color: var(--kakao-logo, #000);
-  text-align: center;
-  font-family: "Pretendard Variable";
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-}
-
-.custom-header button {
-  width: 2rem; /* 화살표 버튼의 너비를 조정 */
-  height: 2rem; /* 화살표 버튼의 높이를 조정 */
-  border: none;
-  background: #FFF;
-  margin: 0.4rem 0;
-  font-size: 1.5rem; /* 화살표의 폰트 사이즈를 조정 */
-}
-
-.select-btn {
-  display: flex;
-  width: 17.25rem;
-  padding: 0.5rem 1rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 0.5rem;
-  background: #FF7331;
-  color: #FFF;
-  border: none;
 }

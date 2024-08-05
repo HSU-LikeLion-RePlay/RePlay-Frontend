@@ -1,4 +1,3 @@
-
 import React, { useState,useEffect } from 'react';
 import Category from './Category';
 import Mentoring from './Mentoring';
@@ -11,6 +10,7 @@ import namelogo from '../images/namelogo.svg'
 import PlayHeader from '../../Header/components/PlayHeader';
 import Footer from '../../Footer/components/Footer'
 import '../style/Play.css'
+import plus from '../images/Plus.png'
 export default function Play() {
   const [selectedDates, setSelectedDates] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState([]);
@@ -18,30 +18,30 @@ export default function Play() {
   const navigate = useNavigate();
 
 
-  // useEffect(() => { 전체 모든 것 조회하는 통신 파트 
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch("https://43.201.176.194.nip.io/api/playing/getPlaying", {
-  //         method: "GET",
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("https://43.201.176.194.nip.io/api/playing/getPlaying", {
+          method: "GET",
           
-  //       });
+        });
   
-  //       const result = await response.json();
-  //       console.log("Response status:", response.status);
-  //       console.log("Response result:", result);
+        const result = await response.json();
+        console.log("Response status:", response.status);
+        console.log("Response result:", result);
   
-  //       if (response.status === 200) {
-  //         console.log("데이터 가져오기 성공:", result.data.allInfos);
-  //       } else {
-  //         console.error("Error message:", result.message);
-  //       }
-  //     } catch (error) {
-  //       console.error("Failed to fetch data:", error);
-  //     }
-  //   };
+        if (response.status === 200) {
+          console.log("데이터 가져오기 성공:", result.data.allInfos);
+        } else {
+          console.error("Error message:", result.message);
+        }
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+      }
+    };
   
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
   
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -102,18 +102,30 @@ export default function Play() {
         <div className="play-banner-comment"> 애들은 가라. <br/> 다시 한번 <span> 뜨겁게 </span> 놀아보자.</div>
         <div className="play-banner-explain">리플레이의 놀이터는 모든 시니어를 위한 놀이공간입니다.<br/>지금 바로 다양한 놀이에 참여해보세요!</div>
         </div>
-
         <div className="play-banner-logo">
           <img  className="banner-img"src={logo}></img>
           <img className="banner-name"src={namelogo}></img>
         </div>
+
+
       </div>
-      <SelectDate selectedDates={selectedDates} setSelectedDates={setSelectedDates} />
-      <Location selectedLocation={selectedLocation} setSelectedLocation={setSelectedLocation} />
-      <Category selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
-      <button onClick={handleSave} className="save-button">적용하기</button>
-      <button onClick={() => navigate('/makeplay')}>놀이터 만들기</button>
-      <Mentoring />
+
+        <div className='play-content'>
+        <div className='play-left-container'>
+          <SelectDate selectedDates={selectedDates} setSelectedDates={setSelectedDates} />
+          <Location selectedLocation={selectedLocation} setSelectedLocation={setSelectedLocation} />
+          <Category selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+          <div className="save-button-container">
+            <button onClick={handleSave} className="save-button">적용하기</button>
+          </div>
+        </div>
+
+          <div className='play-right-container'>
+
+            <div className='play-button-container'><button onClick={() => navigate('/makeplay')}> <img src={plus}/>놀이터 만들기</button></div>
+            <Mentoring />
+          </div>
+        </div>
       </div>
       <Footer/>
     </>

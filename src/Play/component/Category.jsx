@@ -31,7 +31,7 @@ const Category = ({ selectedCategory, setSelectedCategory }) => {
 
   return (
     <div>
-      <div className='header'>
+      <div className='category-header'>
         <span>카테고리</span>
         <p className='category-count'>{selectedCategory ? 1 : 0}/1</p>
       </div>
