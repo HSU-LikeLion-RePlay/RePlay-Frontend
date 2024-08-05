@@ -15,7 +15,7 @@ const SignUpWelcome = () => {
   const handleHomeButtonClick = async () => {
     try {
       const response = await fetch(
-        "http://43.201.176.194:8080/api/user/signUp",
+        "https://43.201.176.194.nip.io/api/user/signUp",
         {
           method: "POST",
           headers: {
