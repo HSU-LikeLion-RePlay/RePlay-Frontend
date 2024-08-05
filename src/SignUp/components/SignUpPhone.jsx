@@ -123,7 +123,7 @@ const SignUpPhone = () => {
           </div>
         </div>
       </div>
-      <a href="/Main" className="go-to-main">
+      <a href="/Main" className="phone-go-to-main">
         홈페이지로 돌아가기
       </a>
     </div>
