@@ -1,4 +1,3 @@
-//닉네임 중복 처리 - 통신 완료
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/signupnickname.css";
@@ -90,7 +89,7 @@ function SignUpNickName() {
                 !isValid ? "invalid" : isDuplicate ? "duplicate" : "valid"
               }`}
             />
-            <button onClick={checkDuplicate} className="check-button">
+            <button onClick={checkDuplicate} className="nickname-check-button">
               중복 확인
             </button>
           </div>
@@ -110,11 +109,9 @@ function SignUpNickName() {
           다음
         </button>
       </div>
-      <div className="go-to-home">
-        <a href="/Main" className="go-to-main">
-          홈페이지로 돌아가기
-        </a>
-      </div>
+      <a href="/Main" className="go-to-main">
+        홈페이지로 돌아가기
+      </a>
     </div>
   );
 }

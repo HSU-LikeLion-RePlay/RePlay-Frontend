@@ -29,7 +29,7 @@ const SignUpPw = () => {
 
   const handleSubmit = () => {
     if (password === confirmPassword) {
-      navigate("/signupwelcome", {
+      navigate("/SignUpWelcome", {
         state: { nickname, userId, password, birthday },
       });
     } else {

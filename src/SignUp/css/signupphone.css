@@ -12,16 +12,24 @@
   --font-family: "Pretendard Variable";
 }
 
-.signup-phone-container {
+.signup-phone-page {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.signup-phone-container .container {
-  width: 720px;
-  height: 484px;
+.signup-phone-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.signup-phone-container .title-container {
+  width: 40rem;
+  height:26.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +37,8 @@
   border-radius: 24px;
   background: #FFF;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.40);
-  position: relative; /* 추가 */
+  position: relative;
+  color:#7E7872;
 }
 
 .signup-phone-container .phone-title, .signup-phone-container .phone-subtitle {
@@ -37,29 +46,32 @@
   font-family: var(--font-family);
   font-weight: 600;
   margin-right: auto;
+  margin-bottom: 0.5rem;
 }
 
 .signup-phone-container .phone-title {
-  font-size: 32px;
-  line-height: 1.5;
-  margin-bottom: 80px;
-  color: var(--primary-color);
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 3rem */
 }
 
 .signup-phone-container .phone-subtitle {
   font-size: 20px;
   line-height: 1.5;
-  margin-bottom: 8px;
-  color: var(--secondary-color);
+  margin-top: 5rem;;
 }
 
-.signup-phone-container .phone-input-container {
-  width: 680px;
-  margin: 8px 0 16px;
-  position: relative;
+.signup-phone-container .signup-phone-input-container {
+  display: flex;
+padding: 0.8125rem 1rem;
+align-items: center;
+gap: 0.5rem;
 }
 
-.signup-phone-container .phone-input-container .phone-input {
+.signup-phone-container .phone-input-container .signup-phone-input {
   width: 40rem;
   height: 45px;
   padding: 13px 16px;
@@ -93,9 +105,9 @@
 .signup-phone-container .message {
   font-family: var(--font-family);
   font-size: 16px;
-  position: absolute; /* 추가 */
-  bottom: 20px; /* 원하는 위치로 조정 */
-  left: 40px; /* 원하는 위치로 조정 */
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
 }
 
 .signup-phone-container .message.success {
@@ -110,8 +122,7 @@
   color: var(--error-color);
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 8rem;
-  margin-left: 2rem;
+  
 }
 
 .signup-phone-container .phone-button-container {
@@ -120,6 +131,7 @@
   width: 40rem;
   padding: 0 40px;
   gap:1rem;
+  margin-top:5.5rem;
 }
 
 .signup-phone-container .phone-button-container button {
@@ -152,4 +164,13 @@
 .signup-phone-container .phone-button-container button.next:disabled {
   background-color: #AAA;
   cursor: not-allowed;
+}
+
+.go-to-main {
+  margin-top: 1.25rem;
+  color: #666;
+  text-decoration: none;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 600;
 }
