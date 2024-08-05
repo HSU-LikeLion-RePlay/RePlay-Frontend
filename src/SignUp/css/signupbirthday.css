@@ -1,6 +1,8 @@
 .signup-birthday-container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+
   align-items: center;
   height: 100vh;
 }
@@ -247,3 +249,4 @@ line-height: normal;
 .birthday-buttons button:not(.selected):hover {
   background-color: #ddd;
 }
+

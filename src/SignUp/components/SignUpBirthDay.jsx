@@ -1,13 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Select from "react-select";
-import { useNavigate, useLocation } from "react-router-dom";
 import "../css/signupbirthday.css";
 
 const SignUpBirthday = () => {
   const [selectedYear, setSelectedYear] = useState(null);
   const navigate = useNavigate();
-  const location = useLocation();
-  const { nickname } = location.state || { nickname: "" };
 
   const handleYearChange = (selectedOption) => {
     setSelectedYear(selectedOption);
@@ -24,9 +22,7 @@ const SignUpBirthday = () => {
 
   const handleNextClick = () => {
     if (selectedYear) {
-      navigate("/SignUpPhone", {
-        state: { nickname, birthday: selectedYear.value },
-      });
+      navigate("/SignUpPhone", { state: { birthday: selectedYear.value } });
     }
   };
 
@@ -34,7 +30,6 @@ const SignUpBirthday = () => {
     <div className="signup-birthday-container">
       <div className="signup-birthday-box">
         <div className="birthday-title">출생연도를 선택해주세요!</div>
-
         <div className="dropdown">
           <Select
             value={selectedYear}
@@ -45,7 +40,6 @@ const SignUpBirthday = () => {
             classNamePrefix="react-select"
           />
         </div>
-
         <div className="birthday-buttons">
           <button className="prev" onClick={() => navigate("/SignUpNickName")}>
             뒤로
@@ -55,6 +49,9 @@ const SignUpBirthday = () => {
           </button>
         </div>
       </div>
+      <a href="/Main" className="go-to-main">
+        홈페이지로 돌아가기
+      </a>
     </div>
   );
 };
