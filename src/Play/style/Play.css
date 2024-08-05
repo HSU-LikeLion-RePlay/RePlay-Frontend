@@ -1,26 +1,29 @@
+/* 기본 스타일 */
 .play-container {
   margin-top: 2rem;
   margin-left: 12.75rem;
-  margin-right: 17.25rem;
-  width:90rem;
-
+  margin-right: 12.75rem;
+  width: calc(100vw - 25.5rem); /* 양쪽 마진을 뺀 나머지 뷰포트 너비 */
+  max-width: 90rem; /* 최대 너비를 제한 */
 }
 
 .play-banner {
   margin-bottom: 0.5rem;
   display: flex;
-  width: 90rem;
+  width: 100%;
+  max-width: 90rem;
   height: 18rem;
   align-items: center;
-  gap: 27.5rem;
+  gap: 2rem; /* 너무 큰 간격은 줄이기 */
   flex-shrink: 0;
   border-radius: 1rem;
   background: linear-gradient(80deg, rgba(241, 118, 153, 0.40) -19.54%, rgba(243, 130, 144, 0.40) -10.02%, rgba(251, 177, 111, 0.40) 32.11%, rgba(255, 196, 99, 0.40) 52.5%, rgba(255, 163, 79, 0.40) 68.81%, rgba(255, 135, 61, 0.40) 87.83%, rgba(255, 118, 50, 0.40) 104.14%, rgba(255, 112, 47, 0.40) 116.37%);
 }
 
 .play-banner-ments{
-  margin-left:6.25rem;
+  margin-left: 2rem;
 }
+
 .play-banner-comment {
   color: var(--kakao-logo, #000);
   font-family: "Pretendard Variable";
@@ -57,7 +60,7 @@
   align-items: center;
   gap: 0.625rem;
   flex-shrink: 0;
-  margin-right: 6.25rem;
+  margin-right: 2rem;
 }
 
 .play-content {
@@ -66,7 +69,7 @@
   gap: 2rem; /* 좌측과 우측 컨테이너 사이의 간격 추가 */
 }
 
-.play-left-container{
+.play-left-container {
   width: 30rem;
 }
 
@@ -76,10 +79,12 @@
   gap: 1rem; /* 버튼과 멘토링 컴포넌트 사이의 간격 추가 */
   flex: 1;
 }
+
 .save-button-container {
   display: flex;
   justify-content: flex-end;
 }
+
 .save-button {
   margin-top: 3rem; /* 저장 버튼 위에 약간의 공간 추가 */
   color: #FFF;
@@ -101,10 +106,10 @@
   margin-right: 0.5rem;
 }
 
-
-.play-button-container{
+.play-button-container {
   display: flex;
-  width: 65.75rem;
+  width: calc(100vw - 50rem); /* 양쪽 마진을 고려한 너비 */
+  max-width: 65.75rem;
   height: 7.5rem;
   padding: 1.4375rem 1.5rem;
   flex-direction: column;
@@ -116,26 +121,79 @@
   background: #FFF3E8;
 }
 
-.play-button-container button{
+.play-button-container button {
   display: flex;
-width: 17.5rem;
-height: 4rem;
-padding: 1rem 0.75rem;
-justify-content: center;
-align-items: center;
-gap: 0.5rem;
-flex-shrink: 0;
-border-radius: 1rem;
-background: var(--primary, #FF7331);
-border: none;
-/* 그림자 */
-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40);
+  width: 17.5rem;
+  height: 4rem;
+  padding: 1rem 0.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: var(--primary, #FF7331);
+  border: none;
+  /* 그림자 */
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40);
+  color: #FFF;
+  text-align: center;
+  font-family: "Pretendard Variable";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 1.875rem */
+}
 
-color: #FFF;
-text-align: center;
-font-family: "Pretendard Variable";
-font-size: 1.25rem;
-font-style: normal;
-font-weight: 600;
-line-height: 150%; /* 1.875rem */
+/* 미디어 쿼리 */
+@media (max-width: 1200px) {
+  .play-container {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    width: calc(100vw - 4rem);
+  }
+
+  .play-banner {
+    flex-direction: column;
+    height: auto;
+    gap: 1rem;
+  }
+
+  .play-banner-logo {
+    margin-right: 0;
+  }
+
+  .play-content {
+    flex-direction: column;
+  }
+
+  .play-left-container, .play-right-container {
+    width: 100%;
+  }
+
+  .play-button-container {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .play-container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: calc(100vw - 2rem);
+  }
+
+  .play-banner {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .play-button-container {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .play-button-container button {
+    width: 100%;
+  }
 }
