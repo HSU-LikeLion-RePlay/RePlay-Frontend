@@ -164,3 +164,13 @@ export const bookmarksAtom = atom({
   key: 'bookmarksAtom',
   default: [],
 });
+
+export const playscarapState = atom({
+  key: 'playscarapState',
+  default: [],
+});
+
+export const studyscarapState = atom({
+  key: 'studyscarapState',
+  default: [],
+});

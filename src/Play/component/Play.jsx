@@ -9,6 +9,8 @@ import LoginHeader from '../../Header/components/LoginHeader';
 import logo from '../images/logo.svg';
 import namelogo from '../images/namelogo.svg'
 import PlayHeader from '../../Header/components/PlayHeader';
+import Footer from '../../Footer/components/Footer'
+import '../style/Play.css'
 export default function Play() {
   const [selectedDates, setSelectedDates] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState([]);
@@ -93,11 +95,15 @@ export default function Play() {
 
   return (
     <>
-      <PlayHeader/>
+     <PlayHeader/>
+    <div className='play-container'>
       <div className="play-banner">
-        <div className="paly-banner-comment"> 애들은 가라. <br/> 다시 한번 <span> 뜨겁게 </span> 놀아보자.</div>
+        <div className='play-banner-ments'>
+        <div className="play-banner-comment"> 애들은 가라. <br/> 다시 한번 <span> 뜨겁게 </span> 놀아보자.</div>
         <div className="play-banner-explain">리플레이의 놀이터는 모든 시니어를 위한 놀이공간입니다.<br/>지금 바로 다양한 놀이에 참여해보세요!</div>
-        <div className="banner-logo">
+        </div>
+
+        <div className="play-banner-logo">
           <img  className="banner-img"src={logo}></img>
           <img className="banner-name"src={namelogo}></img>
         </div>
@@ -108,6 +114,8 @@ export default function Play() {
       <button onClick={handleSave} className="save-button">적용하기</button>
       <button onClick={() => navigate('/makeplay')}>놀이터 만들기</button>
       <Mentoring />
+      </div>
+      <Footer/>
     </>
   );
 }

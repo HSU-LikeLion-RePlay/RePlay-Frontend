@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
-import { playInfoState, reviewState, userState } from '../../atoms';
+import { useRecoilValue, useRecoilState } from 'recoil';
+import { playInfoState, reviewState, userState, playscarapState } from '../../atoms';
 import '../style/PlayDetail.css';
+import bookmarkIcon from "../images/bookmark.jpg";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import Comment from './Comment';
 import locimg from '../images/Loc.svg';
@@ -15,6 +16,7 @@ export default function PlayDetail() {
   const playInfos = useRecoilValue(playInfoState);
   const reviews = useRecoilValue(reviewState);
   const user = useRecoilValue(userState); // 로그인 상태 가져오기
+  const [scraps, setScraps] = useRecoilState(playscarapState); // 스크랩 상태 관리
   const isLoggedIn = !!user; // 로그인 상태 확인
   const playInfo = playInfos[index];
   const playReviews = reviews.find(review => review.playIndex === parseInt(index, 10));
@@ -22,19 +24,50 @@ export default function PlayDetail() {
   const [isParticipating, setIsParticipating] = useState(false); // 참가 상태 확인
   const [showConfirmModal, setShowConfirmModal] = useState(false); // 참가 취소 모달 가시성 상태
   const mapRef = useRef();
+  const { index: playingId } = useParams();
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const isScrapped = scraps.includes(playInfo?.id); // 해당 모임이 스크랩된 상태인지 확인
 
   useEffect(() => {
-    if (playInfo) {
-      const geocoder = new kakao.maps.services.Geocoder();
-      const coord = new kakao.maps.LatLng(playInfo.latitude, playInfo.longitude);
-      const callback = function (result, status) {
-        if (status === kakao.maps.services.Status.OK) {
-          setAddress(result[0].address);
+    const fetchPost = async () => {
+      try {
+        const response = await fetch(
+          `https://43.201.176.194.nip.io/api/playing/getPlaying/${playingId}`,
+          {
+            method: "GET",
+            headers: {
+            },
+          }
+        );
+
+        if (response.status === 404) {
+          console.error("해당 글을 찾을 수 없습니다.");
+          setLoading(false);
+          return;
         }
-      };
-      geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
-    }
-  }, [playInfo]);
+
+        const result = await response.json();
+
+        console.log("Response status:", response.status);
+        console.log("Response result:", result);
+
+        if (response.status === 200) {
+          setPost(result.data);
+          console.log("데이터 가져오기 성공:", result.data);
+        } else {
+          console.error(result.message);
+        }
+      } catch (error) {
+        console.error("네트워크 오류가 발생했습니다.", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPost();
+  }, [playingId]);
 
   useEffect(() => {
     // 사용자가 현재 모임에 참가 중인지 확인하는 로직 추가
@@ -72,6 +105,26 @@ export default function PlayDetail() {
     alert('참가가 취소되었습니다.');
   };
 
+  const handleScrapClick = () => {
+    if (!isLoggedIn) {
+      alert('로그인이 필요합니다.');
+      return;
+    }
+    if (isScrapped) {
+      setScraps((prevScraps) => {
+        const newScraps = prevScraps.filter(id => id !== playInfo.id);
+        console.log('Scrap removed:', newScraps);
+        return newScraps;
+      });
+    } else {
+      setScraps((prevScraps) => {
+        const newScraps = [...prevScraps, playInfo.id];
+        console.log('Scrap added:', newScraps);
+        return newScraps;
+      });
+    }
+  };
+
   if (!playInfo) {
     return <div>해당하는 모임 정보를 찾을 수 없습니다.</div>;
   }
@@ -85,7 +138,9 @@ export default function PlayDetail() {
           </div>
           <div className='playdetail-info'>
             <button>{playInfo.category}</button>
-            <button>스크랩</button>
+            <button onClick={handleScrapClick}>
+              {isScrapped ? <img src={bookmarkIcon} alt="스크랩됨" /> : <img src={bookmarkIcon} alt="스크랩" />}
+            </button>
             <h2>{playInfo.name}</h2>
             <p>{playInfo.date}</p>
             <p>{playInfo.time}</p>
