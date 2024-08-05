@@ -1,0 +1,51 @@
+.play-container{
+  margin-left: 6.25rem;
+  margin-right: 6.25rem;
+}
+.play-banner{
+  display: flex;
+  width: 90rem;
+  height: 18rem;
+  padding: 5.5625rem 6.25rem;
+  align-items: center;
+  gap: 27.5rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+background: linear-gradient(80deg, rgba(241, 118, 153, 0.40) -19.54%, rgba(243, 130, 144, 0.40) -10.02%, rgba(251, 177, 111, 0.40) 32.11%, rgba(255, 196, 99, 0.40) 52.5%, rgba(255, 163, 79, 0.40) 68.81%, rgba(255, 135, 61, 0.40) 87.83%, rgba(255, 118, 50, 0.40) 104.14%, rgba(255, 112, 47, 0.40) 116.37%);
+}
+.play-banner-ments{
+}
+.play-banner-comment{
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 175%; /* 3.9375rem */
+}
+.play-banner-comment span{ 
+  color: var(--primary-text, var(--kakao-logo, #F8611A));
+  font-family: "Pretendard Variable";
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 175%;
+}
+.play-banner-explain{
+  color: var(--kakao-logo, #000);
+font-family: "Pretendard Variable";
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 700;
+line-height: 175%; /* 2.625rem */
+}
+.play-banner-logo{
+  display: flex;
+width: 12.5rem;
+height: 11.75rem;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 0.625rem;
+flex-shrink: 0;
+}
