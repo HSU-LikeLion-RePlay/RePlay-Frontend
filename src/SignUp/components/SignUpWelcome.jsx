@@ -1,87 +1,87 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import "../css/signupwelcome.css";
 
-export default function MyPage() {
-  const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(true);
+const SignUpWelcome = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { nickname, userId, password, birthday } = location.state || {
+    nickname: "",
+    userId: "",
+    password: "",
+    birthday: "",
+  };
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const token = localStorage.getItem('token');  // 로컬 스토리지에서 토큰 가져오기
-
-      if (!token) {
-        console.error('No token found in local storage');
-        setLoading(false);
-        return;
-      }
-
-      try {
-        const response = await axios.get('https://43.201.176.194.nip.io/api/user/getMyPage', {
+  const handleHomeButtonClick = async () => {
+    try {
+      const response = await fetch(
+        "http://43.201.176.194:8080/api/user/signUp",
+        {
+          method: "POST",
           headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-        setUserData(response.data);
-      } catch (error) {
-        console.error('Failed to fetch user data:', error);
-      } finally {
-        setLoading(false);
+            "Content-Type": "application/json; charset=utf-8",
+          },
+          body: JSON.stringify({
+            phoneId: userId,
+            password: password,
+            nickname: nickname,
+            year: birthday,
+            userRoles: ["ROLE_USER"],
+          }),
+        }
+      );
+
+      const data = await response.json();
+      console.log(data);
+
+      if (response.status === 200) {
+        // 사용자 정보 localStorage에 저장
+        localStorage.setItem("nickname", nickname);
+        localStorage.setItem("token", data.token); // 서버에서 발급한 토큰 저장
+        navigate("/MainLogin");
+      } else if (response.status === 400) {
+        alert("입력값이 올바르지 않습니다.");
       }
-    };
-
-    fetchUserData();
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!userData) {
-    return <div>No user data available</div>;
-  }
+    } catch (error) {
+      console.log("error");
+    }
+  };
 
   return (
-    <>
-      <div>
-        안녕하세요 {userData.nickName ? userData.nickName : '사용자'}님!
-      </div>
-
-      <div>
-        <div>
-          {userData.nickName && `${userData.nickName}님의 회원 정보`}
-          <button>수정하기</button>
+    <div className="signup-welcome-container">
+      <div className="signup-welcome-page">
+        <div className="welcome-page-text">
+          <span className="welcome-highlight-text">{nickname}</span>
+          <div className="welcome-text"> 님 환영합니다!</div>
         </div>
-        <div>
-          {userData.profileImage && (
-            <img src={userData.profileImage} alt="프로필 사진" style={{ width: '150px', height: '150px', borderRadius: '50%' }} />
-          )}
+        <div className="user-info-box">
+          <div className="information">{nickname}님의 회원정보</div>*
+          <div className="line"> </div>
+          <div className="user-info">
+            <div className="box">
+              <div>
+                <span className="label">아이디</span>{" "}
+                <span className="value">{userId}</span>
+              </div>
+            </div>
+            <div className="box">
+              <div>
+                <span className="label">비밀번호</span>{" "}
+                <span className="value">{password}</span>
+              </div>
+            </div>
+          </div>
+          <p className="note">
+            잊어버리지 않게{" "}
+            <span className="highlight-text">꼭 기억해주세요!</span>
+          </p>
         </div>
-        <div>
-          {userData.year && <span>출생년도: {userData.year}</span>}
-        </div>
-        <div>
-          {userData.phoneId && <span>연락처: {userData.phoneId}</span>}
-        </div>
+        <button className="welcome-home-button" onClick={handleHomeButtonClick}>
+          홈페이지로 이동
+        </button>
       </div>
-
-      <div>
-        <h3>나의 배움터</h3>
-        {userData.myLearning && <p>{userData.myLearning}</p>}
-        {userData.scrapedLearning && <p>{userData.scrapedLearning}</p>}
-      </div>
-
-      <div>
-        <h3>나의 놀이터</h3>
-        {userData.myPlayground && <p>{userData.myPlayground}</p>}
-        {userData.scrapedPlayground && <p>{userData.scrapedPlayground}</p>}
-        {userData.createdPlayground && <p>{userData.createdPlayground}</p>}
-      </div>
-
-      <div>
-        <h3>나의 생생정보터</h3>
-        {userData.myInformation && <p>{userData.myInformation}</p>}
-        {userData.scrapedInformation && <p>{userData.scrapedInformation}</p>}
-      </div>
-    </>
+    </div>
   );
-}
+};
+
+export default SignUpWelcome;

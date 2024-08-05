@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import "../css/editprofil.css";
-import InformationHeader from "../../Header/components/InformationHeader";
+import MyHeader from "../../Header/components/MyHeader";
+
 function EditProfile() {
   const [nickname, setNickname] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [selectedYear, setSelectedYear] = useState(null);
   const [isNicknameDuplicate, setIsNicknameDuplicate] = useState(null);
   const [isPhoneDuplicate, setIsPhoneDuplicate] = useState(null);
   const [nicknameMessage, setNicknameMessage] = useState("");
@@ -12,13 +15,26 @@ function EditProfile() {
   const [profileImage, setProfileImage] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+  const [isNicknameValid, setIsNicknameValid] = useState(true);
+  const [validationMessage, setValidationMessage] = useState("");
   const navigate = useNavigate();
 
   const handleNicknameChange = (e) => {
     const value = e.target.value;
     setNickname(value);
-    setIsNicknameDuplicate(null);
-    setNicknameMessage("");
+
+    const valid = /^[a-zA-Z0-9가-힣_]{2,8}$/.test(value);
+    setIsNicknameValid(valid);
+
+    if (!valid) {
+      setValidationMessage("2~8 자로 입력해주세요.");
+      setIsNicknameDuplicate(true);
+      setNicknameMessage("별명은 2~8 자로 입력해주세요.");
+    } else {
+      setValidationMessage("");
+      setIsNicknameDuplicate(false);
+      setNicknameMessage("");
+    }
   };
 
   const handlePhoneNumberChange = (e) => {
@@ -28,50 +44,91 @@ function EditProfile() {
     setPhoneMessage("");
   };
 
+  const handleYearChange = (selectedOption) => {
+    setSelectedYear(selectedOption);
+  };
+
+  const generateYearOptions = () => {
+    const currentYear = new Date().getFullYear();
+    const years = [];
+    for (let year = 1950; year <= currentYear; year++) {
+      years.push({ label: year.toString(), value: year.toString() });
+    }
+    return years;
+  };
+
   const checkNicknameDuplicate = async () => {
-    const nicknamePattern = /^[a-zA-Z가-힣]{2,8}$/;
-    if (!nicknamePattern.test(nickname)) {
-      setNicknameMessage("별명은 2~8자 사이의 영어, 한글만 가능합니다.");
+    const valid = /^[a-zA-Z0-9가-힣_]{2,8}$/.test(nickname);
+    if (!valid) {
+      setNicknameMessage("별명은 2~8 자로 입력해주세요.");
       setIsNicknameDuplicate(true);
       return;
     }
 
-    // 예시: 백엔드와의 통신을 통해 닉네임 중복 여부를 확인합니다.
-    const existingNicknames = ["existingNickname1", "existingNickname2"];
-    if (existingNicknames.includes(nickname)) {
-      setIsNicknameDuplicate(true);
-      setNicknameMessage("이미 사용 중인 별명입니다.");
-    } else {
-      setIsNicknameDuplicate(false);
-      setNicknameMessage("사용 가능한 별명입니다!");
+    try {
+      const response = await fetch(
+        "https://43.201.176.194.nip.io/api/user/isExistNickName",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ nickName: nickname }),
+        }
+      );
+
+      const result = await response.json();
+      if (response.status === 200) {
+        setIsNicknameDuplicate(false);
+        setNicknameMessage("사용 가능한 별명입니다!");
+      } else {
+        setIsNicknameDuplicate(true);
+        setNicknameMessage(result.message);
+      }
+    } catch (error) {
+      setNicknameMessage("서버 오류가 발생했습니다. 다시 시도해주세요.");
     }
   };
 
   const checkPhoneDuplicate = async () => {
-    const phonePattern = /^[0-9]{11}$/;
-    if (!phonePattern.test(phoneNumber)) {
+    const valid = /^[0-9]{11}$/.test(phoneNumber);
+    if (!valid) {
       setPhoneMessage("휴대폰번호는 숫자로만 11자리여야 합니다.");
       setIsPhoneDuplicate(true);
       return;
     }
 
-    // 예시: 백엔드와의 통신을 통해 전화번호 중복 여부를 확인합니다.
-    const existingPhones = ["01022222222", "01033333333"];
-    if (existingPhones.includes(phoneNumber)) {
-      setIsPhoneDuplicate(true);
-      setPhoneMessage("이미 사용 중인 번호입니다.");
-    } else {
-      setIsPhoneDuplicate(false);
-      setPhoneMessage("사용 가능한 휴대폰번호입니다!");
+    try {
+      const response = await fetch(
+        "https://43.201.176.194.nip.io/api/user/isExistPhoneId",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ phoneId: phoneNumber }),
+        }
+      );
+
+      const result = await response.json();
+      if (response.status === 200) {
+        setIsPhoneDuplicate(false);
+        setPhoneMessage("사용 가능한 휴대폰번호입니다!");
+      } else {
+        setIsPhoneDuplicate(true);
+        setPhoneMessage(result.message);
+      }
+    } catch (error) {
+      setPhoneMessage("서버 오류가 발생했습니다. 다시 시도해주세요.");
     }
   };
 
   const handleSubmit = () => {
-    if (!isNicknameDuplicate && !isPhoneDuplicate) {
+    if (!isNicknameDuplicate && !isPhoneDuplicate && selectedYear) {
       // 제출 로직 추가
       setShowModal(true);
       setModalMessage("수정되었습니다.");
-      // navigate("/nextpage", { state: { nickname, phoneNumber } });
+      // navigate("/nextpage", { state: { nickname, phoneNumber, birthYear: selectedYear.value } });
     } else {
       setShowModal(true);
       setModalMessage("저장에 실패했습니다. 입력 내용을 확인해주세요.");
@@ -85,109 +142,111 @@ function EditProfile() {
     }
   };
 
-  const renderYearOptions = () => {
-    const years = [];
-    for (let year = 1950; year <= 2024; year++) {
-      years.push(
-        <option key={year} value={year}>
-          {year}
-        </option>
-      );
-    }
-    return years;
-  };
-
   return (
-    <div className="edit-profile-container">
-      <div className="title-edit-profile-container">내 정보 수정하기</div>
-      <div className="profile-image-container">
-        <label htmlFor="profileImageInput" className="profile-image-label">
-          <img
-            src={profileImage || "https://via.placeholder.com/100"}
-            alt="프로필"
-            className="profile-image"
-          />
-          <div className="edit-profil-image">변경하기</div>
-        </label>
-        <input
-          type="file"
-          id="profileImageInput"
-          accept="image/*"
-          onChange={handleImageChange}
-          style={{ display: "none" }}
-        />
-      </div>
-
-      <div className="edit-form-group">
-        <label htmlFor="nickname">별명</label>
-        <div className="edit-input-group">
+    <>
+      <MyHeader />
+      <div className="edit-profile edit-profile-container">
+        <div className="title-edit-profile-container">내 정보 수정하기</div>
+        <div className="profile-image-container">
+          <label htmlFor="profileImageInput" className="profile-image-label">
+            <img
+              src={profileImage || "https://via.placeholder.com/100"}
+              alt="프로필"
+              className="profile-image"
+            />
+            <div className="edit-profil-image">변경하기</div>
+          </label>
           <input
-            type="text"
-            id="nickname"
-            value={nickname}
-            onChange={handleNicknameChange}
-            placeholder="현재 별명"
+            type="file"
+            id="profileImageInput"
+            accept="image/*"
+            onChange={handleImageChange}
+            style={{ display: "none" }}
           />
-          <button onClick={checkNicknameDuplicate} className="check-button">
-            중복 확인
-          </button>
         </div>
-        {nicknameMessage && (
-          <p className={isNicknameDuplicate ? "error" : "success"}>
-            {nicknameMessage}
-          </p>
-        )}
-      </div>
 
-      <div className="edit-form-group">
-        <label htmlFor="birthYear">출생년도</label>
-        <div className="edit-input-group">
-          <select id="birthYear">{renderYearOptions()}</select>
+        <div className="edit-form-group">
+          <label htmlFor="nickname">별명</label>
+          <div className="edit-input-group">
+            <input
+              type="text"
+              id="nickname"
+              value={nickname}
+              onChange={handleNicknameChange}
+              placeholder="현재 별명"
+            />
+            <button onClick={checkNicknameDuplicate} className="check-button">
+              중복 확인
+            </button>
+          </div>
+          {nicknameMessage && (
+            <p className={isNicknameDuplicate ? "error" : "success"}>
+              {nicknameMessage}
+            </p>
+          )}
         </div>
-      </div>
 
-      <div className="edit-form-group">
-        <label htmlFor="phoneNumber">휴대폰 번호</label>
-        <div className="edit-input-group">
-          <input
-            type="text"
-            id="phoneNumber"
-            value={phoneNumber}
-            onChange={handlePhoneNumberChange}
-            placeholder="현재 번호"
-          />
-          <button onClick={checkPhoneDuplicate} className="check-button">
-            중복 확인
-          </button>
-        </div>
-        {phoneMessage && (
-          <p className={isPhoneDuplicate ? "error" : "success"}>
-            {phoneMessage}
-          </p>
-        )}
-      </div>
-
-      <button
-        className="editprofil-submit-button"
-        onClick={handleSubmit}
-        disabled={
-          isNicknameDuplicate ||
-          isPhoneDuplicate ||
-          !phoneNumber.match(/^[0-9]{11}$/)
-        }
-      >
-        저장하기
-      </button>
-
-      {showModal && (
-        <div className="modal-container">
-          <div className="modal-content">
-            <p>{modalMessage}</p>
-            <button onClick={() => setShowModal(false)}>확인</button>
+        <div className="edit-form-group">
+          <label htmlFor="birthYear">출생년도</label>
+          <div className="edit-input-group">
+            <Select
+              value={selectedYear}
+              onChange={handleYearChange}
+              options={generateYearOptions()}
+              placeholder="현재 출생년도"
+              isClearable
+              classNamePrefix="react-select"
+            />
           </div>
         </div>
-      )}
-    </div>
+
+        <div className="edit-form-group">
+          <label htmlFor="phoneNumber">휴대폰 번호</label>
+          <div className="phone-subtitle">
+          휴대폰번호는 로그인 시 아이디로 활용됩니다.
+        </div>
+          <div className="edit-input-group">
+            <input
+              type="text"
+              id="phoneNumber"
+              value={phoneNumber}
+              onChange={handlePhoneNumberChange}
+              placeholder="현재 번호"
+            />
+            <button onClick={checkPhoneDuplicate} className="check-button">
+              중복 확인
+            </button>
+          </div>
+          {phoneMessage && (
+            <p className={isPhoneDuplicate ? "error" : "success"}>
+              {phoneMessage}
+            </p>
+          )}
+        </div>
+
+        <button
+          className="editprofil-submit-button"
+          onClick={handleSubmit}
+          disabled={
+            isNicknameDuplicate ||
+            isPhoneDuplicate ||
+            !phoneNumber.match(/^[0-9]{11}$/) ||
+            !selectedYear
+          }
+        >
+          저장하기
+        </button>
+
+        {showModal && (
+          <div className="modal-container">
+            <div className="modal-content">
+              <p>{modalMessage}</p>
+              <button onClick={() => setShowModal(false)}>확인</button>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
