@@ -5,6 +5,7 @@
   margin-top: -1rem;
 }
 .loc-header {
+  letter-spacing: -0.1rem;
   width: 18.5rem;
   display: flex;
   align-items: center;

@@ -1,27 +1,24 @@
-/* 기본 스타일 */
 .play-container {
   margin-top: 2rem;
   margin-left: 12.75rem;
-  margin-right: 12.75rem;
-  width: calc(100vw - 25.5rem); /* 양쪽 마진을 뺀 나머지 뷰포트 너비 */
-  max-width: 90rem; /* 최대 너비를 제한 */
+  margin-right: 17.25rem;
+  width: 90rem;
 }
 
 .play-banner {
   margin-bottom: 0.5rem;
   display: flex;
-  width: 100%;
-  max-width: 90rem;
+  width: 90rem;
   height: 18rem;
   align-items: center;
-  gap: 2rem; /* 너무 큰 간격은 줄이기 */
+  gap: 27.5rem;
   flex-shrink: 0;
   border-radius: 1rem;
   background: linear-gradient(80deg, rgba(241, 118, 153, 0.40) -19.54%, rgba(243, 130, 144, 0.40) -10.02%, rgba(251, 177, 111, 0.40) 32.11%, rgba(255, 196, 99, 0.40) 52.5%, rgba(255, 163, 79, 0.40) 68.81%, rgba(255, 135, 61, 0.40) 87.83%, rgba(255, 118, 50, 0.40) 104.14%, rgba(255, 112, 47, 0.40) 116.37%);
 }
 
 .play-banner-ments {
-  margin-left: 2rem;
+  margin-left: 6.25rem;
 }
 
 .play-banner-comment {
@@ -31,7 +28,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 175%; /* 3.9375rem */
-  letter-spacing: -0.2rem;
+  letter-spacing: -0.1rem;
 }
 
 .play-banner-comment span {
@@ -41,7 +38,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 175%;
-  letter-spacing: -0.2rem;
+  letter-spacing: -0.1rem;
 }
 
 .play-banner-explain {
@@ -51,7 +48,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 175%; /* 2.625rem */
-  letter-spacing: -0.2rem;
+  letter-spacing: -0.1rem;
 }
 
 .play-banner-logo {
@@ -63,7 +60,7 @@
   align-items: center;
   gap: 0.625rem;
   flex-shrink: 0;
-  margin-right: 2rem;
+  margin-right: 6.25rem;
 }
 
 .play-content {
@@ -96,7 +93,6 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  letter-spacing: -0.2rem;
   display: flex;
   width: 6.5rem;
   height: 3rem;
@@ -112,8 +108,7 @@
 
 .play-button-container {
   display: flex;
-  width: calc(100vw - 50rem); /* 양쪽 마진을 고려한 너비 */
-  max-width: 65.75rem;
+  width: 65.75rem;
   height: 7.5rem;
   padding: 1.4375rem 1.5rem;
   flex-direction: column;
@@ -146,59 +141,4 @@
   font-style: normal;
   font-weight: 600;
   line-height: 150%; /* 1.875rem */
-  letter-spacing: -0.2rem;
-}
-
-/* 미디어 쿼리 */
-@media (max-width: 1200px) {
-  .play-container {
-    margin-left: 2rem;
-    margin-right: 2rem;
-    width: calc(100vw - 4rem);
-  }
-
-  .play-banner {
-    flex-direction: column;
-    height: auto;
-    gap: 1rem;
-  }
-
-  .play-banner-logo {
-    margin-right: 0;
-  }
-
-  .play-content {
-    flex-direction: column;
-  }
-
-  .play-left-container, .play-right-container {
-    width: 100%;
-  }
-
-  .play-button-container {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .play-container {
-    margin-left: 1rem;
-    margin-right: 1rem;
-    width: calc(100vw - 2rem);
-  }
-
-  .play-banner {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .play-button-container {
-    width: 100%;
-    padding: 1rem;
-  }
-
-  .play-button-container button {
-    width: 100%;
-  }
 }

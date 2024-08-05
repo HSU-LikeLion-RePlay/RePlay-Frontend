@@ -21,6 +21,7 @@
 }
 
 .study-banner-comment {
+  letter-spacing: -0.1rem;
   color: var(--kakao-logo, #000);
   font-family: "Pretendard Variable";
   font-size: 2.25rem;
@@ -30,6 +31,7 @@
 }
 
 .study-banner-comment span { 
+  letter-spacing: -0.1rem;
   color: var(--primary-text, var(--kakao-logo, #F8611A));
   font-family: "Pretendard Variable";
   font-size: 2.25rem;
@@ -39,6 +41,7 @@
 }
 
 .study-banner-explain {
+  letter-spacing: -0.1rem;
   color: var(--kakao-logo, #000);
   font-family: "Pretendard Variable";
   font-size: 1.5rem;
