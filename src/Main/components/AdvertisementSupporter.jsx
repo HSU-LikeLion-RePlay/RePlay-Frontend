@@ -50,12 +50,12 @@ const AdvertisementSupporter = () => {
           <div className="advertaisement-detail">
             <span className="detail-heading">활동내용</span>
             <span className="span">
-              - 반대사 입학생과 교육 수료
+              - 발대식 및 역량강화 교육 수료
               <br />
-              - 서포터즈 멘토링 참여 (멘토링 프로그램 개설) 수범
+              - 서포터즈 월미션 (멘토링 프로그램 개설) 수행
               <br />
-              - 리플레이의 서비스 홍보 및 지원
-              <br />- 누-플레이 서포터즈 활동 기획
+              - 리플레이 서비스 홍보 활동 수행
+              <br />- 뉴그레이 세대를 위한 활동 계획
             </span>
           </div>
           <div className="advertaisement-detail">
@@ -75,7 +75,7 @@ const AdvertisementSupporter = () => {
           </div>
           <div className="advertaisement-detail">
             <span className="detail-heading">문의처</span>
-            <span className="span">000대학교 0000팀 0000담당</span>
+            <span className="span"> 000000@000000(메일) </span>
           </div>
         </div>
       </div>
