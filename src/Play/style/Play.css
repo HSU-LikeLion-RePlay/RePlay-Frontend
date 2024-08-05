@@ -20,7 +20,7 @@
   background: linear-gradient(80deg, rgba(241, 118, 153, 0.40) -19.54%, rgba(243, 130, 144, 0.40) -10.02%, rgba(251, 177, 111, 0.40) 32.11%, rgba(255, 196, 99, 0.40) 52.5%, rgba(255, 163, 79, 0.40) 68.81%, rgba(255, 135, 61, 0.40) 87.83%, rgba(255, 118, 50, 0.40) 104.14%, rgba(255, 112, 47, 0.40) 116.37%);
 }
 
-.play-banner-ments{
+.play-banner-ments {
   margin-left: 2rem;
 }
 
@@ -31,15 +31,17 @@
   font-style: normal;
   font-weight: 700;
   line-height: 175%; /* 3.9375rem */
+  letter-spacing: -0.2rem;
 }
 
-.play-banner-comment span { 
+.play-banner-comment span {
   color: var(--primary-text, var(--kakao-logo, #F8611A));
   font-family: "Pretendard Variable";
   font-size: 2.25rem;
   font-style: normal;
   font-weight: 700;
   line-height: 175%;
+  letter-spacing: -0.2rem;
 }
 
 .play-banner-explain {
@@ -49,6 +51,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 175%; /* 2.625rem */
+  letter-spacing: -0.2rem;
 }
 
 .play-banner-logo {
@@ -93,6 +96,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  letter-spacing: -0.2rem;
   display: flex;
   width: 6.5rem;
   height: 3rem;
@@ -142,6 +146,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: 150%; /* 1.875rem */
+  letter-spacing: -0.2rem;
 }
 
 /* 미디어 쿼리 */
