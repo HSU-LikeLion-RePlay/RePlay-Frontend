@@ -6,7 +6,6 @@ const categories = [
   { ko: "외국어", en: "LANGUAGE" },
   { ko: "SNS", en: "SNS" },
   { ko: "요리", en: "COOKING" },
-  { ko: "독서", en: "BOOK" },
   { ko: "문화∙예술", en: "CULTURE" },
   { ko: "디지털", en: "DIGITAL" },
   { ko: "운동", en: "EXERCISE" },
@@ -30,7 +29,7 @@ const Category = ({ selectedCategory, setSelectedCategory }) => {
 
   return (
     <div>
-      <div className='header'>
+      <div className='category-header'>
         <span>카테고리</span>
         <p className='category-count'>{selectedCategory ? 1 : 0}/1</p>
       </div>

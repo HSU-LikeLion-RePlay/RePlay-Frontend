@@ -61,7 +61,7 @@ const SelectDate = ({ selectedDates, setSelectedDates }) => {
 
   return (
     <div>
-      <div className="header">
+      <div className="date-header">
         <span>날짜 선택</span>
         <button className="search-button" onClick={() => setShowDatePicker(!showDatePicker)}>
           <Glass className="glass"/>

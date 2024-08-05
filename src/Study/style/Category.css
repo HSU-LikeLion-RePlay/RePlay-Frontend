@@ -36,7 +36,7 @@ border: 2px solid var(--grey-text-3, #AEACAB);
   gap: 0.5rem;
   align-self: stretch;
   flex-wrap: wrap;
-  width: 19.5rem;
+  width: 20rem;
 }
 .select-category.selected {
   color: #FF7331;

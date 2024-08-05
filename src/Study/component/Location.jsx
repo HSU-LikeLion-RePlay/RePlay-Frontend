@@ -88,7 +88,7 @@ const Location = ({ selectedLocation, setSelectedLocation }) => {
 
     return (
         <>
-            <div className="header">
+            <div className="loc-header">
                 <span>지역 선택</span>
                 <button className="search-button" onClick={() => setIsLocationContainerVisible(!isLocationContainerVisible)}>
                     <img src={glass} alt="search" />

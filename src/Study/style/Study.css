@@ -1,0 +1,103 @@
+.study-container {
+  margin-top: 2rem;
+  margin-left: 12.75rem;
+  margin-right: 17.25rem;
+  width: 90rem;
+}
+
+.study-banner {
+  display: flex;
+  width: 90rem;
+  height: 18rem;
+  align-items: center;
+  gap: 27.5rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: linear-gradient(80deg, rgba(241, 118, 153, 0.40) -19.54%, rgba(243, 130, 144, 0.40) -10.02%, rgba(251, 177, 111, 0.40) 32.11%, rgba(255, 196, 99, 0.40) 52.5%, rgba(255, 163, 79, 0.40) 68.81%, rgba(255, 135, 61, 0.40) 87.83%, rgba(255, 118, 50, 0.40) 104.14%, rgba(255, 112, 47, 0.40) 116.37%);
+}
+
+.study-banner-ments {
+  margin-left: 6.25rem;
+}
+
+.study-banner-comment {
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 175%; /* 3.9375rem */
+}
+
+.study-banner-comment span { 
+  color: var(--primary-text, var(--kakao-logo, #F8611A));
+  font-family: "Pretendard Variable";
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 175%;
+}
+
+.study-banner-explain {
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 175%; /* 2.625rem */
+}
+
+.study-banner-logo {
+  display: flex;
+  width: 12.5rem;
+  height: 11.75rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+  margin-right: 6.25rem;
+}
+
+.study-content {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem; /* 좌측과 우측 컨테이너 사이의 간격 추가 */
+}
+
+.study-left-container {
+  width: 19rem;
+}
+
+.study-right-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 65.75rem;
+}
+
+.save-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.save-button {
+  margin-top: 3rem; /* 저장 버튼 위에 약간의 공간 추가 */
+  color: #FFF;
+  font-family: "Pretendard Variable";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  width: 6.5rem;
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  background: #FF7331;
+  border: none;
+  margin-right: 0.5rem;
+}
