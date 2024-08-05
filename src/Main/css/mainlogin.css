@@ -435,3 +435,15 @@ border: none;
 }
 
 
+.fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* 다른 요소들보다 위에 위치하게 합니다 */
+  background-color: #fff; /* 필요에 따라 배경색을 추가합니다 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 선택 사항: 헤더에 그림자 효과를 줍니다 */
+}
+
+.main-login-container {
+  margin-top: 10rem; /* 헤더 높이만큼 상단 마진을 줍니다 */
+}

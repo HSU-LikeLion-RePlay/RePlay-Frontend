@@ -3,27 +3,30 @@ import { useRecoilValue } from "recoil";
 import CardItem from "../../Information/components/CardItem";
 import "../../Information/css/information.css";
 import Header from "../../Header/components/Header";
-import MainSlider from "./MainSlider";
 import Footer from "../../Footer/components/Footer";
 import Block from "../components/Block"; // Block 컴포넌트 가져오기
 import { InformationRecoil } from "../../Recoil/InformationRecoil";
 import { StudyAndPlay as StudyAndPlayState } from "../../Recoil/StudyAndPlay";
 import "../css/mainlogin.css";
 import { Link, useNavigate } from "react-router-dom";
-
+import BigSlider from "./BigSlider";
+import "../css/mainlogin.css";
+import banner1 from "../image/banner1.png";
+import banner2 from "../image/banner2.png";
+import banner3 from "../image/banner3.png";
 const slides = [
   {
-    image: "gentleman.jpg",
+    image: banner1,
     name: "젠틀맨",
     description: "리플레이를 만나고 자신감이 생겼어요!",
   },
   {
-    image: "gentleman.jpg",
+    image: banner2,
     name: "Slide 2",
     description: "Description for Slide 2",
   },
   {
-    image: "gentleman.jpg",
+    image: banner3,
     name: "Slide 3",
     description: "Description for Slide 3",
   },
@@ -70,9 +73,9 @@ const Main = () => {
 
   return (
     <div>
-      <Header />
+      <Header className="fixed-header" />
       <div className="main-login-container">
-        <MainSlider className="main-login-slider" slides={slides} />
+        <BigSlider className="main-login-slider" slides={slides} />
         <div className="main-help-container">
           <div className="main-help-text-container">
             <div className="main-help-text-container-large">
