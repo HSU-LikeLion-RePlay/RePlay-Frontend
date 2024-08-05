@@ -9,9 +9,10 @@
   display: flex;
   width: 100%;
   max-width: 1200px;
+  flex-direction: column;
 }
 
-.playdetail-left {
+.playdetail-top {
   flex: 1;
   padding: 20px;
 }
@@ -22,8 +23,9 @@
 }
 
 .playdetail-image img {
-  width: 100%;
-  height: auto;
+ width: 30rem;
+ height: 30rem;
+
 }
 
 .playdetail-info {

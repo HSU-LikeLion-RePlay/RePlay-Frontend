@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import DatePicker, { registerLocale } from 'react-datepicker';
-import { getYear, getMonth, format } from 'date-fns';
-import ko from 'date-fns/locale/ko';
-import 'react-datepicker/dist/react-datepicker.css';
+//놀이터 작성
+import React, { useState, useEffect } from "react";
+import DatePicker, { registerLocale } from "react-datepicker";
+import { getYear, getMonth, format } from "date-fns";
+import ko from "date-fns/locale/ko";
+import "react-datepicker/dist/react-datepicker.css";
 import "../style/MakePlay.css"; // 일반 페이지 스타일을 적용할 CSS 파일
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-registerLocale('ko', ko); // 한국어 사용 등록
+registerLocale("ko", ko); // 한국어 사용 등록
 
 const categories = [
   { ko: "자기계발", en: "IMPROVEMENT" },
@@ -20,7 +21,7 @@ const categories = [
   { ko: "나들이", en: "PICNIC" },
   { ko: "맛집탐방", en: "RESTAURANT" },
   { ko: "오락", en: "ENTERTAINMENT" },
-  { ko: "기타", en: "ETC" }
+  { ko: "기타", en: "ETC" },
 ];
 
 const MakePlay = () => {
@@ -28,7 +29,7 @@ const MakePlay = () => {
     name: "",
     title: "",
     date: [],
-    time: { period: 'AM', hour: '12', minute: '00' },
+    time: { period: "AM", hour: "12", minute: "00" },
     location: "",
     latitude: null,
     longitude: null,
@@ -40,8 +41,8 @@ const MakePlay = () => {
   });
 
   const [step, setStep] = useState(1);
-  const [inputText, setInputText] = useState('');
-  const [place, setPlace] = useState('');
+  const [inputText, setInputText] = useState("");
+  const [place, setPlace] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -51,9 +52,9 @@ const MakePlay = () => {
   }, [step, place]);
 
   const initializeMap = () => {
-    const container = document.getElementById('map');
+    const container = document.getElementById("map");
     const options = {
-      center: new window.kakao.maps.LatLng(37.5665, 126.9780), // 서울 중심 좌표
+      center: new window.kakao.maps.LatLng(37.5665, 126.978), // 서울 중심 좌표
       level: 3,
     };
 
@@ -78,8 +79,12 @@ const MakePlay = () => {
         position: new window.kakao.maps.LatLng(place.y, place.x),
       });
 
-      window.kakao.maps.event.addListener(marker, 'click', function () {
-        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+      window.kakao.maps.event.addListener(marker, "click", function () {
+        infowindow.setContent(
+          '<div style="padding:5px;font-size:12px;">' +
+            place.place_name +
+            "</div>"
+        );
         infowindow.open(map, marker);
 
         setFormData((prevFormData) => ({
@@ -99,23 +104,23 @@ const MakePlay = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     setPlace(inputText);
-    setInputText('');
+    setInputText("");
   };
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
     setFormData({
       ...formData,
-      [name]: type === 'file' ? files[0] : value,
+      [name]: type === "file" ? files[0] : value,
     });
   };
 
   const handleDateChange = (date) => {
-    const dateStr = format(date, 'yyyy-MM-dd');
+    const dateStr = format(date, "yyyy-MM-dd");
     let newSelectedDates;
 
     if (formData.date.includes(dateStr)) {
-      newSelectedDates = formData.date.filter(d => d !== dateStr);
+      newSelectedDates = formData.date.filter((d) => d !== dateStr);
     } else {
       if (formData.date.length < 3) {
         newSelectedDates = [...formData.date, dateStr];
@@ -125,17 +130,17 @@ const MakePlay = () => {
     }
     setFormData({
       ...formData,
-      date: newSelectedDates
+      date: newSelectedDates,
     });
   };
 
   const isDateSelected = (date) => {
-    const dateStr = format(date, 'yyyy-MM-dd');
+    const dateStr = format(date, "yyyy-MM-dd");
     return formData.date.includes(dateStr);
   };
 
   const isDateDisabled = (date) => {
-    const dateStr = format(date, 'yyyy-MM-dd');
+    const dateStr = format(date, "yyyy-MM-dd");
     return formData.date.length >= 3 && !isDateSelected(date);
   };
 
@@ -148,11 +153,11 @@ const MakePlay = () => {
   }) => (
     <div className="custom-header">
       <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
-        {'<'}
+        {"<"}
       </button>
       <span>{`${getYear(date)}년 ${getMonth(date) + 1}월`}</span>
       <button onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
-        {'>'}
+        {">"}
       </button>
     </div>
   );
@@ -160,7 +165,7 @@ const MakePlay = () => {
   const handleRemoveDate = (dateStr) => {
     setFormData({
       ...formData,
-      date: formData.date.filter(d => d !== dateStr)
+      date: formData.date.filter((d) => d !== dateStr),
     });
   };
 
@@ -170,15 +175,15 @@ const MakePlay = () => {
       ...formData,
       time: {
         ...formData.time,
-        [name]: value
-      }
+        [name]: value,
+      },
     });
   };
 
   const handleCategoryChange = (category) => {
     setFormData({
       ...formData,
-      category
+      category,
     });
   };
 
@@ -192,58 +197,75 @@ const MakePlay = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
-    const dateStr = `${formData.date.join(', ')} ${formData.time.period} ${formData.time.hour}:${formData.time.minute}`;
-    const token = localStorage.getItem('token'); // 로컬 스토리지에서 토큰을 가져옵니다.
+
+    const dateStr = `${formData.date.join(", ")} ${formData.time.period} ${
+      formData.time.hour
+    }:${formData.time.minute}`;
+    const token = localStorage.getItem("token"); // 로컬 스토리지에서 토큰을 가져옵니다.
     console.log("Token: ", token); // 토큰 확인
-  
+
     // playingWriteRequestDTO 객체를 JSON 문자열로 변환하고 Blob으로 감쌉니다.
-    const playingWriteRequestDTO = new Blob([JSON.stringify({
-      introduce: formData.name || 'Hello, this is a test introduction.',
-      title: formData.title || 'Test Title',
-      date: dateStr || '2024년 8월 18일 오전 10시 30분',
-      locate: formData.location || '123 Test Street',
-      latitude: formData.latitude || '37.7749',
-      longitude: formData.longitude || '-122.4194',
-      state: 'SEOUL',
-      district: 'SEONGBUK',
-      category: formData.category || 'SNS',
-      content: formData.description || 'This is a test content for the play.',
-      totalCount: parseInt(formData.participants, 10) || 10,
-      cost: formData.fee || '100',
-      costDescription: 'Entry fee is 100 units.'
-    })], {
-      type: "application/json"
-    });
-  
+    const playingWriteRequestDTO = new Blob(
+      [
+        JSON.stringify({
+          introduce: formData.name || "Hello, this is a test introduction.",
+          title: formData.title || "Test Title",
+          date: dateStr || "2024년 8월 18일 오전 10시 30분",
+          locate: formData.location || "123 Test Street",
+          latitude: formData.latitude || "37.7749",
+          longitude: formData.longitude || "-122.4194",
+          state: "SEOUL",
+          district: "SEONGBUK",
+          category: formData.category || "SNS",
+          content:
+            formData.description || "This is a test content for the play.",
+          totalCount: parseInt(formData.participants, 10) || 10,
+          cost: formData.fee || "100",
+          costDescription: "Entry fee is 100 units.",
+        }),
+      ],
+      {
+        type: "application/json",
+      }
+    );
+
     const data = new FormData();
-    data.append('playingWriteRequestDTO', playingWriteRequestDTO);
-  
+    data.append("playingWriteRequestDTO", playingWriteRequestDTO);
+
     if (formData.photo) {
-      data.append('playingImage', formData.photo);
+      data.append("playingImage", formData.photo);
     }
-  
+
     console.log("FormData: ", Array.from(data.entries())); // FormData 확인
-  
+
     try {
-      const response = await axios.post('https://43.201.176.194.nip.io/api/playing/writePost', data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'multipart/form-data'
+      const response = await axios.post(
+        "https://43.201.176.194.nip.io/api/playing/writePost",
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
         }
-      });
-  
+      );
+
       console.log("Response: ", response); // 응답 확인
-  
+
       if (response.status === 200 || response.status === 201) {
         console.log("Success:", response.data);
         // 성공하면 웰컴 페이지로 이동
-        navigate('/welcomeMakePlay', { state: { nickname: formData.name, isEdited: false } });
+        navigate("/welcomeMakePlay", {
+          state: { nickname: formData.name, isEdited: false },
+        });
       } else {
         console.error("Error:", response.status, response.data);
       }
     } catch (error) {
-      console.error("Error:", error.response ? error.response.data : error.message);
+      console.error(
+        "Error:",
+        error.response ? error.response.data : error.message
+      );
     }
   };
 
@@ -251,25 +273,41 @@ const MakePlay = () => {
     <div className="make-play-container">
       <form onSubmit={handleSubmit} className="make-play-form">
         {step === 1 && (
-          <div>
-            <label>자기소개:</label>
-            <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+          <div className="make-play-introduce">
+            <label>놀이터를 만들기에 앞서 간단한 자기소개 부탁드려요! </label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
           </div>
         )}
         {step === 2 && (
           <div>
             <label>제목:</label>
-            <input type="text" name="title" value={formData.title} onChange={handleChange} required />
+            <input
+              type="text"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+              required
+            />
           </div>
         )}
         {step === 3 && (
           <div>
             <div className="selected-dates-container">
               <ul className="selected-dates-list">
-                {formData.date.map(date => (
+                {formData.date.map((date) => (
                   <li key={date}>
-                    <button onClick={() => handleRemoveDate(date)} className="date-button">
-                      {format(new Date(date), 'M.d')} <span className="remove-date">X</span>
+                    <button
+                      onClick={() => handleRemoveDate(date)}
+                      className="date-button"
+                    >
+                      {format(new Date(date), "M.d")}{" "}
+                      <span className="remove-date">X</span>
                     </button>
                   </li>
                 ))}
@@ -282,25 +320,41 @@ const MakePlay = () => {
                 onChange={handleDateChange}
                 locale="ko"
                 renderCustomHeader={renderCustomHeader}
-                dayClassName={date =>
-                  isDateSelected(date) ? 'selected-date' : undefined
+                dayClassName={(date) =>
+                  isDateSelected(date) ? "selected-date" : undefined
                 }
                 calendarClassName="custom-calendar"
-                filterDate={date => !isDateDisabled(date)}
+                filterDate={(date) => !isDateDisabled(date)}
               />
               <div className="time-select-container">
-                <select name="period" value={formData.time.period} onChange={handleTimeChange}>
+                <select
+                  name="period"
+                  value={formData.time.period}
+                  onChange={handleTimeChange}
+                >
                   <option value="AM">오전</option>
                   <option value="PM">오후</option>
                 </select>
-                <select name="hour" value={formData.time.hour} onChange={handleTimeChange}>
+                <select
+                  name="hour"
+                  value={formData.time.hour}
+                  onChange={handleTimeChange}
+                >
                   {Array.from({ length: 12 }, (_, i) => (
-                    <option key={i} value={String(i + 1).padStart(2, '0')}>{i + 1}</option>
+                    <option key={i} value={String(i + 1).padStart(2, "0")}>
+                      {i + 1}
+                    </option>
                   ))}
                 </select>
-                <select name="minute" value={formData.time.minute} onChange={handleTimeChange}>
+                <select
+                  name="minute"
+                  value={formData.time.minute}
+                  onChange={handleTimeChange}
+                >
                   {Array.from({ length: 6 }, (_, i) => (
-                    <option key={i} value={String(i * 10).padStart(2, '0')}>{i * 10}</option>
+                    <option key={i} value={String(i * 10).padStart(2, "0")}>
+                      {i * 10}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -310,7 +364,14 @@ const MakePlay = () => {
         {step === 4 && (
           <div>
             <label>위치:</label>
-            <input type="text" name="location" value={formData.location} onChange={handleChange} required readOnly />
+            <input
+              type="text"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              required
+              readOnly
+            />
             <div>
               <input
                 type="text"
@@ -320,21 +381,23 @@ const MakePlay = () => {
               />
               <button onClick={handleSearch}>검색</button>
             </div>
-            <div id="map" style={{ width: '500px', height: '500px' }}></div>
+            <div id="map" style={{ width: "500px", height: "500px" }}></div>
           </div>
         )}
         {step === 5 && (
           <div>
             <label>카테고리:</label>
             <div>
-              <div className='header'>
+              <div className="header">
                 <span>카테고리</span>
-                <p className='category-count'>{formData.category ? 1 : 0}/1</p>
+                <p className="category-count">{formData.category ? 1 : 0}/1</p>
               </div>
-              <div className='category-wrap'>
+              <div className="category-wrap">
                 {categories.map(({ ko, en }) => (
                   <button
-                    className={`select-category ${formData.category === en ? 'selected' : ''}`}
+                    className={`select-category ${
+                      formData.category === en ? "selected" : ""
+                    }`}
                     key={en}
                     onClick={() => handleCategoryChange(en)}
                     type="button"
@@ -349,7 +412,12 @@ const MakePlay = () => {
         {step === 6 && (
           <div>
             <label>설명:</label>
-            <textarea name="description" value={formData.description} onChange={handleChange} required />
+            <textarea
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              required
+            />
           </div>
         )}
         {step === 7 && (
@@ -361,18 +429,40 @@ const MakePlay = () => {
         {step === 8 && (
           <div>
             <label>모임 인원:</label>
-            <input type="number" name="participants" value={formData.participants} onChange={handleChange} min="1" required />
+            <input
+              type="number"
+              name="participants"
+              value={formData.participants}
+              onChange={handleChange}
+              min="1"
+              required
+            />
           </div>
         )}
         {step === 9 && (
           <div>
             <label>참가 비용:</label>
-            <input type="number" name="fee" value={formData.fee} onChange={handleChange} min="0" required />
+            <input
+              type="number"
+              name="fee"
+              value={formData.fee}
+              onChange={handleChange}
+              min="0"
+              required
+            />
           </div>
         )}
         <div className="form-buttons">
-          {step > 1 && <button type="button" onClick={handlePrevious}>뒤로</button>}
-          {step < 9 && <button type="button" onClick={handleNext}>다음</button>}
+          {step > 1 && (
+            <button type="button" onClick={handlePrevious}>
+              뒤로
+            </button>
+          )}
+          {step < 9 && (
+            <button type="button" onClick={handleNext}>
+              다음
+            </button>
+          )}
           {step === 9 && <button type="submit">완료</button>}
         </div>
       </form>
