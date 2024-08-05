@@ -290,29 +290,32 @@ align-self: stretch;
 
 .card-issue {
   color: var(--grey-text-1, #5D5854);
-  font-family: "Pretendard Variable";
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  width: 8.75rem;
-}
-
-.card-date {
-width: 8.75rem;
-color: var(--grey-text-1, #5D5854);
-text-align: right;
 font-family: "Pretendard Variable";
 font-size: 1rem;
 font-style: normal;
-font-weight: 500;
+font-weight: 600;
 line-height: normal;
 }
 
+.card-date {
+  color: var(--grey-text-1, #5D5854);
+  text-align: right;
+  font-family: "Pretendard Variable";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
 .card-title {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #333;
+  text-align: left; /* 제목을 왼쪽으로 정렬 */
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 2.25rem */
+  width: 25rem;
 }
 
 

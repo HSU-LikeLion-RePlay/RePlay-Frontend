@@ -1,143 +1,97 @@
+/* post.css */
+
 .post-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background-color: #fff;
-  min-height: 100vh;
-}
-
-.post-container-title {
-  width: 100%;
-  max-width: 54rem;
-  padding: 2rem;
-  background-color: #f9f8f7;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.post-container-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
+  display: block;
+  margin: 0 auto;
   width: 54rem;
 }
 
+.post-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 5.67rem; /* 헤더와 그 아래 사이의 간격 추가 */
+
+}
+
 .bookmark {
-  background: none;
-  border: none;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .bookmark img {
-  width: 24px;
-  height: 24px;
+  width: 1.875rem;
+  height: 2.5rem;
+
 }
 
-.bookmark-text {
-  font-size: 12px;
-  color: #000;
-  margin-top: 4px;
+.bookmark div {
+  font-size: 0.8em;
 }
 
-.issue-number {
+.post-issue-date {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.post-issue {
+  color: var(--grey-text-1, #5D5854);
+  font-family: "Pretendard Variable";
   font-size: 1.25rem;
-  font-weight: bold;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
-.issue-date {
-  font-size: 1rem;
-  color: #666;
-}
+.post-date {
+  color: var(--grey-text-1, #5D5854);
+  text-align: right;
+  font-family: "Pretendard Variable";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;}
 
-.main-content {
-  text-align: center;
-}
-
-.main-content-title {
+.post-title h1 {
   color: var(--kakao-logo, #000);
   font-family: "Pretendard Variable";
   font-size: 2.5rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  justify-content: start;
 }
 
-.slider {
-  margin-bottom: 1rem;
+.main-content {
+  margin-top: 20px;
+  min-height: 20rem; /* 본문이 없을 때에도 푸터와 일정한 간격을 유지 */
+  margin-bottom: 30rem; /* 본문과 푸터 사이의 간격 추가 */
 }
 
-.slide img {
+.slider .slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-placeholder {
+  width: 54rem;
   height: 30.375rem;
   align-self: stretch;
+  margin-bottom: 6rem;
 }
 
-.content {
-  font-size: 1.25rem;
-  line-height: 1.5;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-.post-footer {
-  border-top: 1px solid #ddd;
-  padding-top: 1rem;
-  margin-top: 1rem;
-  text-align: center;
-}
-
-.post-text-footer {
-  display: flex;
+.post-content {
   color: var(--kakao-logo, #000);
   font-family: "Pretendard Variable";
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 175%; /* 2.1875rem */
-  justify-content: start;
-}
+  line-height: 175%; /* 2.1875rem */}
 
-.slick-dots-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-}
 
-.slick-dot img {
-  width: 10px;
-  height: 10px;
-  margin: 0 5px;
-  border-radius: 50%;
-}
-
-.slick-dots .slick-active img {
-  width: 12px;
-  height: 12px;
-  opacity: 1;
-  border-radius: 50%;
-}
-
-.slick-dots li img {
-  opacity: 0.5;
-  border-radius: 50%;
-}
-
-.dots-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slick-dots li.slick-active img {
-  opacity: 1;
-  filter: brightness(0.7);
-  border-radius: 50%;
-}
