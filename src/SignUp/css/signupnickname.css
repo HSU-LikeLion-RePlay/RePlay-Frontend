@@ -27,7 +27,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: 150%; /* 3rem */
-  margin: 0;
+  margin-left: -5rem;
 }
 
 .signup-nickname-input-container {
@@ -43,23 +43,31 @@
   gap: 0.5rem;
 }
 
-.nickname-input {
+.signup-nickname-input {
   padding: 0.8125rem 1rem;
   border-radius: 1rem;
   border: 2px solid #777371;
   height: 3rem;
   flex-grow: 1;
+  color: var(--grey-text-3, #AEACAB);
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
-.nickname-input.valid {
-  border-color: #144fe5;
+.signup-nickname-input.valid {
+  border-color: #000;
+  
+
 }
 
-.nickname-input.invalid {
+.signup-nickname-input.invalid {
   border-color: #ce1a3b;
 }
 
-.nickname-input.duplicate {
+.signup-nickname-input.duplicate {
   border-color: #ce1a3b;
 }
 
@@ -93,6 +101,7 @@
 }
 
 .nickname-validation-message.success {
+  border-color: #144fe5;
   color: #144fe5;
 }
 
@@ -113,6 +122,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   cursor: pointer;
+  border: none;
 }
 
 .nickname-submit-button:disabled {
