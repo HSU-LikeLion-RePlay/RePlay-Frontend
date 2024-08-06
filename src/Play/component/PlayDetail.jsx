@@ -7,26 +7,13 @@ import { Map, MapMarker } from "react-kakao-maps-sdk";
 import Comment from "./Comment";
 import locimg from "../images/Loc.svg";
 import ConfirmModal from "./ConfirmModal";
-<<<<<<< HEAD
-
-=======
 import loc from '../images/Loc.svg';
 import peo from '../images/People.svg'
->>>>>>> 41e26eb (수정중)
 // 더미 데이터
 export const playInfoState = atom({
   key: "playInfoState",
   default: [
     {
-<<<<<<< HEAD
-      id: 1,
-      img: "https://via.placeholder.com/150",
-      category: "스포츠",
-      name: "축구 경기",
-      date: "2024-08-10",
-      time: "15:00",
-      loc: "중앙 공원",
-=======
       id: 0,
       img: "https://via.placeholder.com/150",
       category: "스포츠",
@@ -34,7 +21,6 @@ export const playInfoState = atom({
       date: "08-10",
       time: "오후 3시",
       loc: "서울특별시 양천구",
->>>>>>> 41e26eb (수정중)
       crnt: 10,
       max: 20,
       profilImg: "https://via.placeholder.com/50",
@@ -44,8 +30,6 @@ export const playInfoState = atom({
       longitude: 126.978,
       participants: [{ userId: 1, userName: "홍길동" }],
     },
-<<<<<<< HEAD
-=======
     {
       id:1,
       img: "https://via.placeholder.com/150",
@@ -65,7 +49,6 @@ export const playInfoState = atom({
       latitude: '37.497942',
       longitude: '127.027621'
     },
->>>>>>> 41e26eb (수정중)
   ],
 });
 
@@ -127,11 +110,7 @@ export default function PlayDetail() {
       const userParticipation = playInfo.participants.find(
         (participant) => participant.userId === user.id
       );
-<<<<<<< HEAD
-      setIsParticipating(!!userParticipation);
-=======
       setIsParticipating(!userParticipation);
->>>>>>> 41e26eb (수정중)
     }
   }, [user, playInfo]);
 
@@ -219,26 +198,6 @@ export default function PlayDetail() {
             <img src={playInfo.img} alt={playInfo.name} />
           </div>
           <div className="play-detail-info">
-<<<<<<< HEAD
-            <button>{playInfo.category}</button>
-            <button onClick={handleScrapClick}>
-              {isScrapped ? (
-                <img src={bookmarkIcon} alt="스크랩됨" />
-              ) : (
-                <img src={bookmarkIcon} alt="스크랩" />
-              )}
-            </button>
-            <h2>{playInfo.name}</h2>
-            <p>{playInfo.date}</p>
-            <p>{playInfo.time}</p>
-            <p>{playInfo.loc}</p>
-            <p>
-              {playInfo.crnt}/{playInfo.max}명
-            </p>
-          </div>
-        </div>
-
-=======
             <div className="play-detial-component-top">
               <button className="detail-category-btn">{playInfo.category}</button>
               <div className="detail-scrap-wrap">
@@ -263,7 +222,6 @@ export default function PlayDetail() {
 
 <div className="play-detail-bottom">
   <div className="play-detail-bottom-left">
->>>>>>> 41e26eb (수정중)
         <div className="play-detail-organizer">
           <img
             src={playInfo.profilImg}
@@ -292,10 +250,7 @@ export default function PlayDetail() {
         </div>
         <hr />
         <Comment />
-<<<<<<< HEAD
-=======
         </div>
->>>>>>> 41e26eb (수정중)
         <div className="play-detail-right">
           <Map
             center={{ lat: playInfo.latitude, lng: playInfo.longitude }}
@@ -314,32 +269,21 @@ export default function PlayDetail() {
                 : "주소 정보를 가져오는 중입니다..."}
             </p>
             <button onClick={handleDirectionsClick}>경로 보러가기</button>
+            <button className="join-button" onClick={handleJoinClick}>
+        {isParticipating ? "참가 취소하기" : "참가하기"}
+      </button>
           </div>
-<<<<<<< HEAD
         </div>
-      </div>
-      <button className="join-button" onClick={handleJoinClick}>
-        {isParticipating ? "참가 취소하기" : "참가하기"}
-      </button>
-=======
-          <button className="join-button" onClick={handleJoinClick}>
-        {isParticipating ? "참가 취소하기" : "참가하기"}
-      </button>
-        </div>
-        
+ 
       </div>
       
->>>>>>> 41e26eb (수정중)
       <ConfirmModal
         show={showConfirmModal}
         onClose={() => setShowConfirmModal(false)}
         onConfirm={handleCancelParticipation}
       />
-<<<<<<< HEAD
-=======
       </div>
       
->>>>>>> 41e26eb (수정중)
     </div>
   );
 }

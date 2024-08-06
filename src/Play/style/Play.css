@@ -2,7 +2,6 @@
   margin-top: 2rem;
   margin-left: 12.75rem;
   margin-right: 17.25rem;
-<<<<<<< HEAD
   width: 90rem;
 }
 
@@ -10,16 +9,6 @@
   margin-bottom: 0.5rem;
   display: flex;
   width: 90rem;
-=======
-  width: 80rem;
-}
-
-.play-banner {
-  margin-top: 3.06rem;
-  margin-bottom: 0.5rem;
-  display: flex;
-  width: 80rem;
->>>>>>> 41e26eb (수정중)
   height: 18rem;
   align-items: center;
   gap: 27.5rem;
@@ -102,17 +91,10 @@
   font-family: "Pretendard Variable";
   font-size: 1.25rem;
   font-style: normal;
-<<<<<<< HEAD
   font-weight: 600;
   line-height: normal;
   display: flex;
   width: 6.5rem;
-=======
-  font-weight: 500;
-  line-height: normal;
-  display: flex;
-  width: 7rem;
->>>>>>> 41e26eb (수정중)
   height: 3rem;
   padding: 0.5rem 1rem;
   justify-content: center;
@@ -122,19 +104,11 @@
   background: #FF7331;
   border: none;
   margin-right: 0.5rem;
-<<<<<<< HEAD
-=======
-  letter-spacing: -0.1rem;
->>>>>>> 41e26eb (수정중)
 }
 
 .play-button-container {
   display: flex;
-<<<<<<< HEAD
   width: 65.75rem;
-=======
-  width: 55rem;
->>>>>>> 41e26eb (수정중)
   height: 7.5rem;
   padding: 1.4375rem 1.5rem;
   flex-direction: column;
