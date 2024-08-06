@@ -314,121 +314,127 @@ const MakePlay = () => {
           </div>
         )}
         {step === 2 && (
-          <div className="make-play-introduce">
-            <div className="make-play-introduce-container">
-              <label>당신의 놀이를</label>
-              <br />
-              <label>한줄로 표현해주세요!</label>
-            </div>
-            <input
-              type="text"
-              name="title"
-              value={formData.title}
-              onChange={handleChange}
-              maxLength="30"
-              required
-              className="makeplay-title"
-            />
-            <div className="character-count">{formData.title.length}/30</div>
-            <div className="makeplay-form-buttons">
-              <button
-                type="button"
-                onClick={handlePrevious}
-                className="makeplay-back"
-              >
-                뒤로
-              </button>
-              <button
-                type="button"
-                onClick={handleNext}
-                className="makeplay-next"
-              >
-                다음
-              </button>
+          <div className="make-play-2">
+            <div className="make-play-introduce">
+              <div className="make-play-introduce-container">
+                <label>당신의 놀이를</label>
+                <br />
+                <label>한줄로 표현해주세요!</label>
+              </div>
+              <input
+                type="text"
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+                maxLength="30"
+                required
+                className="makeplay-title"
+              />
+              <div className="character-count">{formData.title.length}/30</div>
+              <div className="makeplay-form-buttons">
+                <button
+                  type="button"
+                  onClick={handlePrevious}
+                  className="makeplay-back"
+                >
+                  뒤로
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  className="makeplay-next"
+                >
+                  다음
+                </button>
+              </div>
             </div>
           </div>
         )}
         {step === 3 && (
           <div>
             <div className="selected-dates-container">
-              <ul className="selected-dates-list">
-                {formData.date.map((date) => (
-                  <li key={date}>
-                    <button
-                      onClick={() => handleRemoveDate(date)}
-                      className="date-button"
-                    >
-                      {format(new Date(date), "M.d")}{" "}
-                      <span className="remove-date">X</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="date-picker-container">
-              <DatePicker
-                inline
-                selected={null}
-                onChange={handleDateChange}
-                locale="ko"
-                renderCustomHeader={renderCustomHeader}
-                dayClassName={(date) =>
-                  isDateSelected(date) ? "selected-date" : undefined
-                }
-                calendarClassName="custom-calendar"
-                filterDate={(date) => !isDateDisabled(date)}
-              />
-              <div className="time-select-container">
-                <select
-                  name="period"
-                  value={formData.time.period}
-                  onChange={handleTimeChange}
-                >
-                  <option value="AM">오전</option>
-                  <option value="PM">오후</option>
-                </select>
-                <select
-                  name="hour"
-                  value={formData.time.hour}
-                  onChange={handleTimeChange}
-                >
-                  {Array.from({ length: 12 }, (_, i) => (
-                    <option key={i} value={String(i + 1).padStart(2, "0")}>
-                      {i + 1}
-                    </option>
+              <div className="make-play-3">
+                놀이의 일정을 선택해주세요!
+                <ul className="selected-dates-list">
+                  {formData.date.map((date) => (
+                    <li key={date}>
+                      <button
+                        onClick={() => handleRemoveDate(date)}
+                        className="date-button"
+                      >
+                        {format(new Date(date), "M.d")}{" "}
+                        <span className="remove-date">X</span>
+                      </button>
+                    </li>
                   ))}
-                </select>
-                <select
-                  name="minute"
-                  value={formData.time.minute}
-                  onChange={handleTimeChange}
-                >
-                  {Array.from({ length: 6 }, (_, i) => (
-                    <option key={i} value={String(i * 10).padStart(2, "0")}>
-                      {i * 10}
-                    </option>
-                  ))}
-                </select>
+                </ul>
               </div>
-            </div>
-            <div className="makeplay-form-buttons">
-              <button
-                type="button"
-                onClick={handlePrevious}
-                className="makeplay-back"
-              >
-                뒤로
-              </button>
-              <button
-                type="button"
-                onClick={handleNext}
-                className="makeplay-next"
-              >
-                다음
-              </button>
+              <div className="date-picker-container">
+                <DatePicker
+                  inline
+                  selected={null}
+                  onChange={handleDateChange}
+                  locale="ko"
+                  renderCustomHeader={renderCustomHeader}
+                  dayClassName={(date) =>
+                    isDateSelected(date) ? "selected-date" : undefined
+                  }
+                  calendarClassName="custom-calendar"
+                  filterDate={(date) => !isDateDisabled(date)}
+                />
+                <div className="time-select-container">
+                  <select
+                    name="period"
+                    value={formData.time.period}
+                    onChange={handleTimeChange}
+                  >
+                    <option value="AM">오전</option>
+                    <option value="PM">오후</option>
+                  </select>
+                  <select
+                    name="hour"
+                    value={formData.time.hour}
+                    onChange={handleTimeChange}
+                  >
+                    {Array.from({ length: 12 }, (_, i) => (
+                      <option key={i} value={String(i + 1).padStart(2, "0")}>
+                        {i + 1}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    name="minute"
+                    value={formData.time.minute}
+                    onChange={handleTimeChange}
+                  >
+                    {Array.from({ length: 6 }, (_, i) => (
+                      <option key={i} value={String(i * 10).padStart(2, "0")}>
+                        {i * 10}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              <div className="makeplay-form-buttons">
+                <button
+                  type="button"
+                  onClick={handlePrevious}
+                  className="makeplay-back-3"
+                >
+                  뒤로
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  className="makeplay-next-3"
+                >
+                  다음
+                </button>
+              </div>
             </div>
           </div>
         )}
+
         {step === 4 && (
           <div>
             <label>위치:</label>

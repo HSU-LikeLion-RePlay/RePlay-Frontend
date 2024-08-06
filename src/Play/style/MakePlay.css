@@ -3,18 +3,18 @@
   height: 33.875rem;
   position: relative;
   border-radius: 1.5rem;
-background: #FFF;
-display: inline-flex;
-padding: 2.5rem 2.5rem 1.5rem 2.5rem;
-flex-direction: column;
-align-items: center;
-gap: 5rem;
+  background: #FFF;
+  display: inline-flex;
+  padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
 
-/* 그림자 */
-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40);
+  /* 그림자 */
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40);
 }
 
-.make-play-container{
+.make-play-container {
   display: flex;  
   justify-content: center;
   align-items: center;
@@ -22,87 +22,79 @@ box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40);
   flex-direction: column;
   align-items: center;
   height: 100vh;
-
 }
-.make-play-introduce{
+
+.make-play-introduce {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 42rem;
 }
 
 .makeplay-form-buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  justify-content: center;
+  width: 40rem;
+  
+  padding: 0 40px;
+  gap: 1rem;
+  flex-direction: row;
 }
 
-.make-play-introduce label{
+
+.make-play-introduce label {
   width: 40rem;
   height: 6rem;
   color: var(--kakao-logo, #000);
-font-family: "Pretendard Variable";
-font-size: 2rem;
-font-style: normal;
-font-weight: 600;
-line-height: 150%; /* 3rem */
-line-height: -5rem;
+  font-family: "Pretendard Variable";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 3rem */
+  line-height: -5rem;
 }
 
-.make-play-introduce-container{
+.make-play-introduce-container {
   width: 40rem;
-
+  height: 6rem;
+  color: var(--kakao-logo, #000);
+  margin-left: 2rem;
+  
 }
 
-.makeplay-title{
+.makeplay-title {
   width: 42rem;
   height: 3.625rem;
   display: flex;
-align-items: center;
-gap: 0.5rem;
-margin-top: 5rem;
-align-self: stretch;
-border-radius: 1rem;
-border: 2px solid #777371;
-color: var(--grey-text-3, #AEACAB);
-font-family: "Pretendard Variable";
-font-size: 1.375rem;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-}
-
-.makeplay-pr{
-  display: flex;
-  width: 40rem;
-height: 7.0625rem;
-padding: 1rem;
-align-items: flex-start;
-gap: 0.5rem;
-align-self: stretch;
-border-radius: 1rem;
-border: 2px solid #777371;
-margin-bottom: 0.5rem;
-margin-top: 5rem;
-color: var(--grey-text-3, #AEACAB);
-font-family: "Pretendard Variable";
-font-size: 1.125rem;
-font-style: normal;
-font-weight: 500;
-}
-
-.makeplay-form-buttons{
-  display: flex;
-  justify-content: center;
-  width: 40rem;
-  padding: 0 40px;
-  gap:1rem;
-  margin-top:6.5rem;
   align-items: center;
-  flex-direction: row;
-
+  gap: 0.5rem;
+  margin-top: 5rem;
+  align-self: stretch;
+  border-radius: 1rem;
+  border: 2px solid #777371;
+  color: var(--grey-text-3, #AEACAB);
+  font-family: "Pretendard Variable";
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
-.makeplay-back{
+.makeplay-pr {
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 1.6875rem */
+}
+
+
+.makeplay-back {
   display: flex;
   width: 19.5rem;
   height: 5rem;
@@ -111,18 +103,17 @@ font-weight: 500;
   align-items: center;
   gap: 0.5rem;
   border-radius: 1rem;
-background: #FFD4C0;
-color: var(--primary-text, #F8611A);
-font-family: "Pretendard Variable";
-font-size: 1.5rem;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-border:none;
-
+  background: #FFD4C0;
+  color: var(--primary-text, #F8611A);
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
 }
 
-.makeplay-next{
+.makeplay-next {
   display: flex;
   width: 19.5rem;
   height: 5rem;
@@ -131,14 +122,14 @@ border:none;
   align-items: center;
   gap: 0.5rem;
   border-radius: 1rem;
-background: #CCCAC9;
-color: #FFF;
-font-family: "Pretendard Variable";
-font-size: 1.5rem;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-border:none;
+  background: #CCCAC9;
+  color: #FFF;
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
 }
 
 .makeplay-form-buttons button:hover {
@@ -161,9 +152,12 @@ border:none;
   position: absolute;
   width: 4rem;
   height: 4rem;
-  top:1rem;
+  top: 1rem;
   left: 45rem;
   border: none;
+  background-color: #fff;
+}
+
 .modal {
   display: flex;
   justify-content: center;
@@ -190,53 +184,111 @@ border:none;
   margin-top: 20px;
 }
 
-.make-play-introduce {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* 가운데 정렬 */
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  width: 100%; /* 필요한 너비로 설정 */
-  max-width: 400px; /* 최대 너비 설정 */
-  margin: 0 auto; /* 가운데 정렬을 위한 자동 마진 */
-}
+
 
 .make-play-introduce label {
   margin-bottom: 0.5rem;
-  font-size: 1rem;
-  font-weight: bold;
   text-align: center;
-}
+  font-family: "Pretendard Variable";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 3rem */
+  margin-left: -2rem;
+  
+  }
 
 .make-play-introduce input {
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  font-size: 1rem;
-}
-
-.makeplay-first-button{
   display: flex;
-width: 40rem;
-height: 5rem;
-padding: 1.375rem 6.25rem;
-justify-content: center;
-align-items: center;
-gap: 0.5rem;
-border-radius: 1rem;
-background: #CCCAC9;
-color: #FFF;
-font-family: "Pretendard Variable";
-font-size: 1.5rem;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-border: none;
-margin-bottom: 2;
-
+  width: 40rem;
+  height: 7.0625rem;
+  padding: 1rem;
+  align-items: flex-start;
+  gap: 0.5rem;
+  align-self: stretch;
+  border-radius: 1rem;
+  border: 2px solid #777371;
+  margin-top: 5rem;
+  
 }
 
+.makeplay-first-button {
+  display: flex;
+  width: 42rem;
+  height: 5rem;
+  padding: 1.375rem 6.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  background: #CCCAC9;
+  color: #FFF;
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  margin-bottom: 2;
+}
+
+
+.selected-dates-list{
+}
+
+.date-picker-container{
+  height: 22.4125rem;
+  width: 19.5rem;
+  margin-left: 13rem;
+  top:-8rem;
+  
+}
+
+.make-play-3{
+  width: 40rem;
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 3rem */
+  margin-top: 1rem;
+}
+
+.makeplay-back-3{
+  display: flex;
+  width: 19.5rem;
+  height: 5rem;
+  padding: 1.375rem 6.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  background: #FFD4C0;
+  color: var(--primary-text, #F8611A);
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+}
+
+.makeplay-next-3{
+  display: flex;
+  width: 19.5rem;
+  height: 5rem;
+  padding: 1.375rem 6.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  background: #CCCAC9;
+  color: #FFF;
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
 }
