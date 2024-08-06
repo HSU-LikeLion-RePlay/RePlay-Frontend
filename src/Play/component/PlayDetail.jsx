@@ -31,23 +31,23 @@ export const playInfoState = atom({
       participants: [{ userId: 1, userName: "홍길동" }],
     },
     {
-      id: 2,
+      id:1,
       img: "https://via.placeholder.com/150",
-      category: "자기계발",
-      date: "07.20",
-      time: "오전 11:00",
-      name: "자기계발 세미나",
-      loc: "서울특별시 강남구",
-      participants: [],
+      category: '자기계발',
+      date: '07.20',
+      time: '오전 11:00',
+      name:'자기계발 세미나',
+      loc: '서울특별시 강남구',
+      participants:[''],
       max: 10,
-      crnt: 4,
+      crnt:4,
       profilImg: "https://via.placeholder.com/50",
-      nickname: "김영희",
-      intro: "자기계발에 관심 있는 분들을 위한 세미나입니다.",
-      activity: "자기계발 관련 활동을 함께 합니다.",
-      fee: "0",
-      latitude: 37.497942,
-      longitude: 127.027621,
+      nickname: '김영희',
+      intro: '자기계발에 관심 있는 분들을 위한 세미나입니다.',
+      activity: '자기계발 관련 활동을 함께 합니다.',
+      fee:'0',
+      latitude: '37.497942',
+      longitude: '127.027621'
     },
   ],
 });
@@ -99,16 +99,18 @@ export default function PlayDetail() {
   const isScrapped = scraps.includes(playInfo?.id); // 해당 모임이 스크랩된 상태인지 확인
 
   useEffect(() => {
+    // 더미 데이터 사용으로 fetch 생략
     setPost(playInfo);
     setLoading(false);
   }, [playingId]);
 
   useEffect(() => {
+    // 사용자가 현재 모임에 참가 중인지 확인하는 로직 추가
     if (user && playInfo) {
       const userParticipation = playInfo.participants.find(
         (participant) => participant.userId === user.id
       );
-      setIsParticipating(!userParticipation);
+      setIsParticipating(!!userParticipation);
     }
   }, [user, playInfo]);
 
@@ -151,11 +153,14 @@ export default function PlayDetail() {
     if (isParticipating) {
       setShowConfirmModal(true); // 참가 취소 모달 표시
     } else {
+      // 참가하기 버튼 클릭 시 참가신청 페이지로 이동
       navigate("/PlayApply");
     }
   };
 
   const handleCancelParticipation = () => {
+    // 참가 취소 로직 추가
+    // 예: API 호출로 참가 취소 요청
     setIsParticipating(false);
     setShowConfirmModal(false);
     alert("참가가 취소되었습니다.");
@@ -167,9 +172,17 @@ export default function PlayDetail() {
       return;
     }
     if (isScrapped) {
-      setScraps((prevScraps) => prevScraps.filter((id) => id !== playInfo.id));
+      setScraps((prevScraps) => {
+        const newScraps = prevScraps.filter((id) => id !== playInfo.id);
+        console.log("Scrap removed:", newScraps);
+        return newScraps;
+      });
     } else {
-      setScraps((prevScraps) => [...prevScraps, playInfo.id]);
+      setScraps((prevScraps) => {
+        const newScraps = [...prevScraps, playInfo.id];
+        console.log("Scrap added:", newScraps);
+        return newScraps;
+      });
     }
   };
 
@@ -220,42 +233,20 @@ export default function PlayDetail() {
           </p>
           <p>{playInfo.intro}</p>
         </div>
-        <div className="detail-play-people">
-          <img src={peo} />
-          {playInfo.crnt}/{playInfo.max}명
-        </div>
-      </div>
 
-      <div className="play-detail-bottom">
-        <div className="play-detail-bottom-left">
-          <div className="play-detail-organizer">
-            <img
-              src={playInfo.profilImg}
-              alt={playInfo.nickname}
-              className="organizer-profile"
-            />
-            <p>
-              <strong>담당자:</strong> {playInfo.nickname}
-            </p>
-            <p>{playInfo.intro}</p>
-          </div>
-
-          <div className="play-detail-reviews">
-            <h3>후기</h3>
-            {playReviews && playReviews.reviews.length > 0 ? (
-              playReviews.reviews.map((review, i) => (
-                <div key={i} className="review">
-                  <p>
-                    <strong>{review.author}:</strong> {review.content}
-                  </p>
-                </div>
-              ))
-            ) : (
-              <p>후기가 없습니다.</p>
-            )}
-          </div>
-          <hr />
-          <Comment />
+        <div className="play-detail-reviews">
+          <h3>후기</h3>
+          {playReviews && playReviews.reviews.length > 0 ? (
+            playReviews.reviews.map((review, i) => (
+              <div key={i} className="review">
+                <p>
+                  <strong>{review.author}:</strong> {review.content}
+                </p>
+              </div>
+            ))
+          ) : (
+            <p>후기가 없습니다.</p>
+          )}
         </div>
         <hr />
         <Comment />
@@ -279,13 +270,11 @@ export default function PlayDetail() {
             </p>
             <button onClick={handleDirectionsClick}>경로 보러가기</button>
             <button className="join-button" onClick={handleJoinClick}>
-        {isParticipating ? "참가 취소하기" : "참가하기"}
+        {isParticipating ? "참가 취소하기" : "참가 하기"}
       </button>
           </div>
         </div>
- 
       </div>
-      
       <ConfirmModal
         show={showConfirmModal}
         onClose={() => setShowConfirmModal(false)}
