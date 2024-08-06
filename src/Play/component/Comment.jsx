@@ -81,7 +81,7 @@ export default function Comment() {
                   value={newReply}
                   onChange={(e) => setNewReply(e.target.value)}
                 />
-                <button onClick={() => handleAddReply(comment.id)}>답글 추가</button>
+                <button className="add-comment"onClick={() => handleAddReply(comment.id)}>답글 추가</button>
               </div>
             )}
           </div>
