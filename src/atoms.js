@@ -2,40 +2,94 @@ import { atom } from 'recoil';
 import testImg from './Image/test.png'; // 임의로 넣은 이미지
 
 export const userState = atom({
-  key: 'userState',
-  default: {
-    login: true,
-  },
-});
+  key: 'userSstate',
+  default:[
+    {login: true,
 
-export const studyInfoState = atom({
+    },
+  ]
+})
+export const studyInfoState = atom({ //배움터에 사용될 하나의 모임들 
   key: 'studyInfoState',
-  default: [
+  default:[
     {
       img: testImg,
       category: '독서모임',
       date: '07.20',
       time: '오전 11:00',
-      name: '헌책방 투어 ~^^',
-      loc: '서울특별시 성북구',
-      participants: [''],
+      name:'헌책방 투어 ~^^', //모임명 
+      loc: '서울특별시 성북구', //api로 어떻게 넘겨야 하는지 
+      participants:[''],
       max: '10',
-      crnt: '4',
-      profilImg: testImg,
+      crnt:'4',
+      profilImg: testImg, //담당자 프로필이미지 
       nickname: '담당자',
-      intro: '자기소개 내용',
+      intro: '자기소개 내용', //100자 이내의 소개글 
       activity: '활동에 대한 설명 ',
-      fee: '참가 비용',
-      latitude: '37.58833257313714',
-      longitude: '127.00831057785734',
-    },
-    // 다른 모임 정보 추가
-  ],
+      fee:'참가 비용',
+      latitude: '37.58833257313714', //위도
+      longitude: '127.00831057785734' //경도 
+  },
+  {
+    img: testImg,
+      category: '독서모임',
+      date: '07.20',
+      time: '오전 11:00',
+      name:'헌책방 투어 ~^^', //모임명 
+      loc: '서울특별시 성북구', //api로 어떻게 넘겨야 하는지 
+      participants:[''],
+      max: '10',
+      crnt:'4',
+      profilImg: testImg, //담당자 프로필이미지 
+      nickname: '담당자',
+      intro: '자기소개 내용', //100자 이내의 소개글 
+      activity: '활동에 대한 설명 ',
+      fee:'참가 비용',
+      latitude: '37.58833257313714', //위도
+      longitude: '127.00831057785734' //경도 
+},
+{
+  img: testImg,
+  category: '독서모임',
+  date: '07.20',
+  time: '오전 11:00',
+  name:'헌책방 투어 ~^^', //모임명 
+  loc: '서울특별시 성북구', //api로 어떻게 넘겨야 하는지 
+  participants:[''],
+  max: '10',
+  crnt:'4',
+  profilImg: testImg, //담당자 프로필이미지 
+  nickname: '담당자',
+  intro: '자기소개 내용', //100자 이내의 소개글 
+  activity: '활동에 대한 설명 ',
+  fee:'참가 비용',
+  latitude: '37.58833257313714', //위도
+  longitude: '127.00831057785734' //경도 
+},
+{
+  img: testImg,
+  category: '독서모임',
+  date: '07.20',
+  time: '오전 11:00',
+  name:'헌책방 투어 ~^^', //모임명 
+  loc: '서울특별시 성북구', //api로 어떻게 넘겨야 하는지 
+  participants:[''],
+  max: '10',
+  crnt:'4',
+  profilImg: testImg, //담당자 프로필이미지 
+  nickname: '담당자',
+  intro: '자기소개 내용', //100자 이내의 소개글 
+  activity: '활동에 대한 설명 ',
+  fee:'참가 비용',
+  latitude: '37.58833257313714', //위도
+  longitude: '127.00831057785734' //경도 
+},
+  ]
 });
 
-export const playInfoState = atom({
+export const playInfoState = atom({ //놀이터에 사용될 하나의 모임들 
   key: 'playInfoState',
-  default: [
+  default:[
     {
       img: testImg,
       category: '독서모임',
@@ -50,31 +104,48 @@ export const playInfoState = atom({
       nickname: '담당자',
       intro: '자기소개 내용',
       activity: '활동에 대한 설명 ',
-      fee: '참가 비용',
-      latitude: '37.58833257313714',
-      longitude: '127.00831057785734',
-    },
-    {
-      img: testImg,
-      category: '자기계발',
+      fee:'참가 비용',
+      latitude: '37.58833257313714', //위도
+      longitude: '127.00831057785734' //경도 
+  },
+  {
+    img: testImg,
+      category: '독서모임',
       date: '07.20',
       time: '오전 11:00',
-      name: '자기계발 세미나',
-      loc: '서울특별시 강남구',
-      participants: [''],
+      name:'헌책방 투어 ~^^', //모임명 
+      loc: '서울특별시 성북구', //api로 어떻게 넘겨야 하는지 
+      participants:[''],
       max: '10',
-      crnt: '4',
-      profilImg: testImg,
-      nickname: '홍길동',
-      intro: '자기계발에 관심 있는 분들을 위한 세미나입니다.',
-      activity: '자기계발 관련 활동을 함께 합니다.',
-      fee: '무료',
-      latitude: '37.497942',
-      longitude: '127.027621',
-    },
-    // 다른 모임 정보 추가
-  ],
+      crnt:'4',
+      profilImg: testImg, //담당자 프로필이미지 
+      nickname: '담당자',
+      intro: '자기소개 내용', //100자 이내의 소개글 
+      activity: '활동에 대한 설명 ',
+      fee:'참가 비용',
+      latitude: '37.58833257313714', //위도
+      longitude: '127.00831057785734' //경도 
+},
+
+  ]
 });
+
+// export const interviewState = atom({
+//   key: 'interState',
+//   default: [
+//     {people: '젠틀멘',
+//     comment: '리플레이를 만나고 자신감이 생겼어요!',
+//     },
+//     {people: '와인한잔',
+//     comment: '리플레이 덕분에 재취업도 문제 없어요!',
+//     },
+//      {people: '성북동 중절모',
+//     comment: '리플레이 추천하냐구요? 무조건 추천!',
+//     },
+//     ]
+
+// });
+
 
 export const reviewState = atom({
   key: 'reviewState',

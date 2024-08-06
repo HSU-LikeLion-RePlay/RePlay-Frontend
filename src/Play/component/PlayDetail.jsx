@@ -7,14 +7,14 @@ import { Map, MapMarker } from "react-kakao-maps-sdk";
 import Comment from "./Comment";
 import locimg from "../images/Loc.svg";
 import ConfirmModal from "./ConfirmModal";
-import loc from "../images/Loc.svg";
-import peo from "../images/People.svg";
-
+import loc from '../images/Loc.svg';
+import peo from '../images/People.svg'
+// 더미 데이터
 export const playInfoState = atom({
   key: "playInfoState",
   default: [
     {
-      id: 1,
+      id: 0,
       img: "https://via.placeholder.com/150",
       category: "스포츠",
       name: "배구 직관 같이 갈 사람 구해요~~~",
@@ -108,7 +108,7 @@ export default function PlayDetail() {
       const userParticipation = playInfo.participants.find(
         (participant) => participant.userId === user.id
       );
-      setIsParticipating(!!userParticipation);
+      setIsParticipating(!userParticipation);
     }
   }, [user, playInfo]);
 
@@ -185,39 +185,40 @@ export default function PlayDetail() {
             <img src={playInfo.img} alt={playInfo.name} />
           </div>
           <div className="play-detail-info">
-            <button>{playInfo.category}</button>
-            <button onClick={handleScrapClick}>
-              <img
-                src={bookmarkIcon}
-                alt={isScrapped ? "스크랩됨" : "스크랩"}
-              />
-            </button>
-            <h2>{playInfo.name}</h2>
-            <p>{playInfo.date}</p>
-            <p>{playInfo.time}</p>
-            <p>{playInfo.loc}</p>
-            <p>
+            <div className="play-detial-component-top">
+              <button className="detail-category-btn">{playInfo.category}</button>
+              <div className="detail-scrap-wrap">
+                <img className="detail-scrap-btn" onClick={handleScrapClick} src={bookmarkIcon}/>
+                <div className="dteail-scrap-text">스크랩</div>
+              </div>
+              
+            </div>
+            <div className="detail-play-name">{playInfo.name}</div>
+            <div className="detail-play-date">{playInfo.date}</div>
+            <div className="detail-play-time">{playInfo.time}</div>
+            <div className="detail-play-loc">
+              <img src={loc}/>
+              {playInfo.loc}</div>
+            <div className="detail-play-people">
+              <img src={peo}/>
               {playInfo.crnt}/{playInfo.max}명
-            </p>
+            </div>
           </div>
         </div>
-        <div className="play-detial-component-top">
-          <button className="detail-category-btn">{playInfo.category}</button>
-          <div className="detail-scrap-wrap">
-            <img
-              className="detail-scrap-btn"
-              onClick={handleScrapClick}
-              src={bookmarkIcon}
-            />
-            <div className="dteail-scrap-text">스크랩</div>
-          </div>
-        </div>
-        <div className="detail-play-name">{playInfo.name}</div>
-        <div className="detail-play-date">{playInfo.date}</div>
-        <div className="detail-play-time">{playInfo.time}</div>
-        <div className="detail-play-loc">
-          <img src={loc} />
-          {playInfo.loc}
+
+
+<div className="play-detail-bottom">
+  <div className="play-detail-bottom-left">
+        <div className="play-detail-organizer">
+          <img
+            src={playInfo.profilImg}
+            alt={playInfo.nickname}
+            className="organizer-profile"
+          />
+          <p>
+            <strong>담당자:</strong> {playInfo.nickname}
+          </p>
+          <p>{playInfo.intro}</p>
         </div>
         <div className="detail-play-people">
           <img src={peo} />
@@ -256,6 +257,9 @@ export default function PlayDetail() {
           <hr />
           <Comment />
         </div>
+        <hr />
+        <Comment />
+        </div>
         <div className="play-detail-right">
           <Map
             center={{ lat: playInfo.latitude, lng: playInfo.longitude }}
@@ -274,17 +278,21 @@ export default function PlayDetail() {
                 : "주소 정보를 가져오는 중입니다..."}
             </p>
             <button onClick={handleDirectionsClick}>경로 보러가기</button>
-          </div>
-        </div>
-      </div>
-      <button className="join-button" onClick={handleJoinClick}>
+            <button className="join-button" onClick={handleJoinClick}>
         {isParticipating ? "참가 취소하기" : "참가하기"}
       </button>
+          </div>
+        </div>
+ 
+      </div>
+      
       <ConfirmModal
         show={showConfirmModal}
         onClose={() => setShowConfirmModal(false)}
         onConfirm={handleCancelParticipation}
       />
+      </div>
+      
     </div>
   );
 }
