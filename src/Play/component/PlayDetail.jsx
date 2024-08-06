@@ -21,11 +21,13 @@ export const playInfoState = atom({
       date: "08-10",
       time: "오후 3시",
       loc: "김천실내체육관",
+      activity: "",
       crnt: 10,
       max: 20,
       profilImg: "https://via.placeholder.com/50",
       nickname: "홍길동",
       intro: "같이 직관 승리 가봅시다",
+      fee:'0',
       latitude: 37.5665,
       longitude: 126.978,
       participants: [{ userId: 1, userName: "홍길동" }],
@@ -38,6 +40,7 @@ export const playInfoState = atom({
       time: '오전 11:00',
       name:'자기계발 세미나',
       loc: '서울특별시 강남구',
+      activity: "",
       participants:[''],
       max: 10,
       crnt:4,
@@ -58,8 +61,8 @@ export const reviewState = atom({
     {
       playIndex: 1,
       reviews: [
-        { author: "김철수", content: "정말 즐거운 경기였어요!" },
-        { author: "이영희", content: "다음에도 꼭 참여하고 싶어요!" },
+        { author: "김철수", activity: "정말 즐거운 경기였어요!" },
+        { author: "이영희", activity: "다음에도 꼭 참여하고 싶어요!" },
       ],
     },
   ],
@@ -247,15 +250,24 @@ export default function PlayDetail() {
                 <p>
                   <div className="play-detail-review-writer">{review.author}
                     </div> 
-                    <div className="play-detail-review-content">{review.content}</div>
+                    <div className="play-detail-review-activity">{review.activity}</div>
                 </p>
               </div>
             ))
           ) : (
             <p>후기가 없습니다.</p>
           )}
+          <div className="play-detail-play-container">
+            <div className="play-detail-play-title">놀이내용</div>
+            <div className="play-detail-play-activity">{playInfo.activity}</div>
+          </div>
+          <div className="play-detail-fee-container">
+            <div className="play-detail-fee-title">참가비용</div>
+            <div className="play-detail-fee-content">{playInfo.fee}원</div>
+          </div>
         </div>
         <hr />
+        <div className="play-detail-comment-title"> 놀이장에게 질문하세요!</div>
         <Comment />
         </div>
         <div className="play-detail-right">
