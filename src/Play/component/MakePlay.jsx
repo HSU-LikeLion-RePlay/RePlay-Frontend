@@ -525,14 +525,20 @@ const MakePlay = () => {
           </div>
         )}
         {step === 6 && (
-          <div>
-            <label>설명:</label>
-            <textarea
+          <div className="make-play-6">
+            <div className="make-play-6-conttainer">
+              <label className="make-play-6-container-title">놀이를 설명해주세요!</label>
+              <div className="make-play-6-container-sub">활동 취지와 활동 목적, 활동 내용을 구체적으로 작성해주세요!</div>
+            </div>
+            
+            <input
+              type="text"
               name="description"
               value={formData.description}
               onChange={handleChange}
               maxLength="500"
               required
+              className="make-play-6-input"
             />
             <div className="character-count">
               {formData.description.length}/500
@@ -541,14 +547,14 @@ const MakePlay = () => {
               <button
                 type="button"
                 onClick={handlePrevious}
-                className="makeplay-back"
+                className="makeplay-back-6"
               >
                 뒤로
               </button>
               <button
                 type="button"
                 onClick={handleNext}
-                className="makeplay-next"
+                className="makeplay-next-6"
               >
                 다음
               </button>
@@ -557,20 +563,20 @@ const MakePlay = () => {
         )}
         {step === 7 && (
           <div>
-            <label>사진:</label>
+            <div className="makeplay-7-title">놀이를 대표할 수 있는 사진을 선택해주세요!</div>
             <input type="file" name="photo" onChange={handleChange} />
             <div className="makeplay-form-buttons">
               <button
                 type="button"
                 onClick={handlePrevious}
-                className="makeplay-back"
+                className="makeplay-back-7"
               >
                 뒤로
               </button>
               <button
                 type="button"
                 onClick={handleNext}
-                className="makeplay-next"
+                className="makeplay-next-7"
               >
                 다음
               </button>
@@ -579,27 +585,30 @@ const MakePlay = () => {
         )}
         {step === 8 && (
           <div>
-            <label>모임 인원:</label>
-            <input
-              type="number"
-              name="participants"
-              value={formData.participants}
-              onChange={handleChange}
-              min="1"
-              required
-            />
+            <div className="makeplay-8-title">모집 인원은 몇명인가요?</div>
+            <div className="makeplay-8-inline">
+              <input
+              className="makeplay-8-input"
+                type="text"
+                name="participants"
+                value={formData.participants}
+                onChange={handleChange}
+              />
+              <div className="makeplay-8-">명</div>
+            </div>
+            
             <div className="makeplay-form-buttons">
               <button
                 type="button"
                 onClick={handlePrevious}
-                className="makeplay-back"
+                className="makeplay-back-8"
               >
                 뒤로
               </button>
               <button
                 type="button"
                 onClick={handleNext}
-                className="makeplay-next"
+                className="makeplay-next-8"
               >
                 다음
               </button>
@@ -608,24 +617,30 @@ const MakePlay = () => {
         )}
         {step === 9 && (
           <div>
-            <label>참가 비용:</label>
+            <label className="makeplay-9-title">참가비용을 정하고, <br/>
+            참가비용에 포함된 항목들을 작성해주세요!</label>
+            <div className="makeplay-9-inline">
             <input
-              type="number"
-              name="fee"
+            className="makeplay-9-input"
+              type="text"
+              name="number"
               value={formData.fee}
               onChange={handleChange}
               min="0"
               required
             />
+            <div className="makeplay-9-">원</div>
+            </div>
+            
             <div className="makeplay-form-buttons">
               <button
                 type="button"
                 onClick={handlePrevious}
-                className="makeplay-back"
+                className="makeplay-back-9"
               >
                 뒤로
               </button>
-              <button type="submit" className="makeplay-submit">
+              <button type="submit" className="makeplay-next-9">
                 완료
               </button>
             </div>
