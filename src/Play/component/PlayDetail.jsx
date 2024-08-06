@@ -7,8 +7,8 @@ import { Map, MapMarker } from "react-kakao-maps-sdk";
 import Comment from "./Comment";
 import locimg from "../images/Loc.svg";
 import ConfirmModal from "./ConfirmModal";
-import loc from '../images/Loc.svg';
-import peo from '../images/People.svg'
+import loc from "../images/Loc.svg";
+import peo from "../images/People.svg";
 // 더미 데이터
 export const playInfoState = atom({
   key: "playInfoState",
@@ -31,23 +31,23 @@ export const playInfoState = atom({
       participants: [{ userId: 1, userName: "홍길동" }],
     },
     {
-      id:1,
+      id: 1,
       img: "data:image/jpeg;base64,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",
-      category: '자기계발',
-      date: '07.20',
-      time: '오전 11:00',
-      name:'자기계발 세미나',
-      loc: '서울특별시 강남구',
-      participants:[''],
+      category: "자기계발",
+      date: "07.20",
+      time: "오전 11:00",
+      name: "자기계발 세미나",
+      loc: "서울특별시 강남구",
+      participants: [""],
       max: 10,
-      crnt:4,
+      crnt: 4,
       profilImg: "https://via.placeholder.com/50",
-      nickname: '김영희',
-      intro: '자기계발에 관심 있는 분들을 위한 세미나입니다.',
-      activity: '자기계발 관련 활동을 함께 합니다.',
-      fee:'0',
-      latitude: '37.497942',
-      longitude: '127.027621'
+      nickname: "김영희",
+      intro: "자기계발에 관심 있는 분들을 위한 세미나입니다.",
+      activity: "자기계발 관련 활동을 함께 합니다.",
+      fee: "0",
+      latitude: "37.497942",
+      longitude: "127.027621",
     },
   ],
 });
@@ -199,96 +199,113 @@ export default function PlayDetail() {
           </div>
           <div className="play-detail-info">
             <div className="play-detial-component-top">
-              <button className="detail-category-btn">{playInfo.category}</button>
+              <button className="detail-category-btn">
+                {playInfo.category}
+              </button>
               <div className="detail-scrap-wrap">
-                <img className="detail-scrap-btn" onClick={handleScrapClick} src={bookmarkIcon}/>
+                <img
+                  className="detail-scrap-btn"
+                  onClick={handleScrapClick}
+                  src={bookmarkIcon}
+                />
                 <div className="dteail-scrap-text">스크랩</div>
               </div>
-              
             </div>
             <div className="detail-play-name">{playInfo.name}</div>
             <div className="detail-play-date">{playInfo.date}</div>
             <div className="detail-play-time">{playInfo.time}</div>
             <div className="detail-play-loc">
-              <img src={loc}/>
-              {playInfo.loc}</div>
+              <img src={loc} />
+              {playInfo.loc}
+            </div>
             <div className="detail-play-people">
-              <img src={peo}/>
+              <img src={peo} />
               {playInfo.crnt}/{playInfo.max}명
             </div>
           </div>
         </div>
 
-
-<div className="play-detail-bottom">
-  <div className="play-detail-bottom-left">
-        <div className="play-detail-organizer">
-          <div className="detail-profil-name">
-          <img 
-            src={playInfo.profilImg}
-            alt={playInfo.nickname}
-            className="organizer-profile"
-          />
-          <p>
-            <strong className="play-detail-nickname">담당자:</strong> {playInfo.nickname}
-          </p>
-          </div>
-          
-          <p>{playInfo.intro}</p>
-        </div>
-
-        <div className="play-detail-reviews">
-          <div className="play-detial-review-title">
-            <div> {playInfo.nickname}님에 대한 회원분들의 최근 후기에요!</div>
-          </div>
-          {playReviews && playReviews.reviews.length > 0 ? (
-            playReviews.reviews.map((review, i) => (
-              <div key={i} className="play-detail-review">
+        <div className="play-detail-bottom">
+          <div className="play-detail-bottom-left">
+            <div className="play-detail-organizer">
+              <div className="detail-profil-name">
+                <img
+                  src={playInfo.profilImg}
+                  alt={playInfo.nickname}
+                  className="organizer-profile"
+                />
                 <p>
-                  <div className="play-detail-review-writer">{review.author}
-                    </div> 
-                    <div className="play-detail-review-content">{review.content}</div>
+                  <strong className="play-detail-nickname">담당자:</strong>{" "}
+                  {playInfo.nickname}
                 </p>
               </div>
-            ))
-          ) : (
-            <p>후기가 없습니다.</p>
-          )}
-        </div>
-        <hr />
-        <Comment />
-        </div>
-        <div className="play-detail-right">
-          <Map
-            center={{ lat: playInfo.latitude, lng: playInfo.longitude }}
-            style={{ width: "100%", height: "400px" }}
-            level={3}
-          >
-            <MapMarker
-              position={{ lat: playInfo.latitude, lng: playInfo.longitude }}
-            />
-          </Map>
-          <div>
-            <p>
-              <img src={locimg} alt="locimg" />
-              {address
-                ? address.address_name
-                : "주소 정보를 가져오는 중입니다..."}
-            </p>
-            <button onClick={handleDirectionsClick}>경로 보러가기</button>
+
+              <p>{playInfo.intro}</p>
+            </div>
+
+            <div className="play-detail-reviews">
+              <div className="play-detial-review-title">
+                <div>
+                  {" "}
+                  {playInfo.nickname}님에 대한 회원분들의 최근 후기에요!
+                </div>
+              </div>
+              {playReviews && playReviews.reviews.length > 0 ? (
+                playReviews.reviews.map((review, i) => (
+                  <div key={i} className="play-detail-review">
+                    <p>
+                      <div className="play-detail-review-writer">
+                        {review.author}
+                      </div>
+                      <div className="play-detail-review-content">
+                        {review.content}
+                      </div>
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <p>후기가 없습니다.</p>
+              )}
+            </div>
+            <hr />
+            <Comment />
+          </div>
+          <div className="play-detail-right">
+            <Map
+              center={{ lat: playInfo.latitude, lng: playInfo.longitude }}
+              style={{ width: "100%", height: "360px" }}
+              level={3}
+            >
+              <MapMarker
+                position={{ lat: playInfo.latitude, lng: playInfo.longitude }}
+              />
+            </Map>
+            <div className="address-detail-container">
+              <img className="address-detail-img" src={locimg} alt="locimg" />
+              <div className="address-detail-info">
+                {address
+                  ? address.address_name
+                  : "주소 정보를 가져오는 중입니다..."}
+              </div>
+              <button
+                onClick={handleDirectionsClick}
+                className="address-detail-button"
+              >
+                경로 보러가기
+              </button>
+            </div>
+
             <button className="join-button" onClick={handleJoinClick}>
-        {isParticipating ? "참가 취소하기" : "참가 하기"}
-      </button>
+              {isParticipating ? "참가 취소하기" : "참가 하기"}
+            </button>
           </div>
         </div>
+        <ConfirmModal
+          show={showConfirmModal}
+          onClose={() => setShowConfirmModal(false)}
+          onConfirm={handleCancelParticipation}
+        />
       </div>
-      <ConfirmModal
-        show={showConfirmModal}
-        onClose={() => setShowConfirmModal(false)}
-        onConfirm={handleCancelParticipation}
-      />
-      </div>
-      
     </div>
   );
 }

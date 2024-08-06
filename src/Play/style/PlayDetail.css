@@ -4,10 +4,12 @@
 
 .play-detail-container {
   margin-top: 2.5rem;
+  width: 80rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  max-width: 1200px;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
@@ -19,6 +21,7 @@
   flex-direction: row;
 }
 .play-detail-top {
+  width: 80rem;
   display: flex;
   flex-direction: row;
   padding: 20px;
@@ -194,9 +197,77 @@
   border-radius: 1rem;
   background-color: #F9F9F9;
   padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  }
+.play-detail-review-writer{
+  color: var(--kakao-logo, #000);
+font-family: "Pretendard Variable";
+font-size: 1.125rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
 }
-.play-detail-review-write{
-  color:#000
+
+.play-detail-review-content{
+  width: 22.75rem;
+height: 2.625rem;
+color: var(--kakao-logo, #000);
+font-family: "Pretendard Variable";
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 700;
+line-height: 150%; /* 1.3125rem */
+margin-top: 0.5rem;
+}
+
+.address-detail-container{
+  display:flex;
+  flex-direction: row;
+ 
+  align-items: center;
+  gap: 1rem;
+  align-self: stretch;
+  border-radius: 1rem;
+  background: #F7F7F7;
+  height: 3.8125rem;
+  width: 30rem;
+  padding: 0rem 0.5rem 1rem 0rem;
+
+}
+
+.address-detail-img{
+  width: 0.79544rem;
+height: 1.25rem;
+flex-shrink: 0;
+fill: var(--grey-text-1, #5D5854);
+}
+
+.address-detail-info{
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%; /* 2rem */
+  flex-shrink: 0;
+}
+
+.address-detail-button{
+  display: flex;
+  padding: 0.75rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  background: #FF7331;
+  color: #FFF;
+  font-family: "Pretendard Variable";
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border:none;
+
 }
 
 .play-detail-map {
