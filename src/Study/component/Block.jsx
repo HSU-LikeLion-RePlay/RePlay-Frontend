@@ -23,7 +23,7 @@ export default function Block({img, category, date, time, name, loc, max, crnt})
             </div>
             <div className="participant-wrap">
                 <span className="participant-img"> <img src={people}/></span>
-                <span className="participant">{crnt +1}/{max}명</span>
+                <span className="participant">{crnt}/{max}명</span>
             </div>
         </div>
   )

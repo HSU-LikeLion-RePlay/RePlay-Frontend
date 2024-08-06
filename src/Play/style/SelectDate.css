@@ -34,7 +34,7 @@
 
 .date-header span {
   letter-spacing: -0.1rem;
-  width: 5.6rem;
+
   color: var(--kakao-logo, #000);
   text-align: center;
   font-family: "Pretendard Variable";
