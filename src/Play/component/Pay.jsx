@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -10,16 +9,15 @@ export default function Pay(){
     <button onclick={navigate('/applyComplete')}>결제하기</button></>
   )
 }
-=======
-import React from "react";
-import { useNavigate } from "react-router-dom";
+// import React from "react";
+// import { useNavigate } from "react-router-dom";
 
-export default function Pay() {
-  const navigate = useNavigate();
+// export default function Pay() {
+//   const navigate = useNavigate();
   
-  const handlePayment = () => {
-    navigate('/applyComplete');
-  };
+//   const handlePayment = () => {
+//     navigate('/applyComplete');
+//   };
 
   return (
     <>
@@ -28,4 +26,3 @@ export default function Pay() {
     </>
   );
 }
->>>>>>> 41e26eb (수정중)

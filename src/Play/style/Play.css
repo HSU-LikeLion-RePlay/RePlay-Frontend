@@ -2,30 +2,30 @@
   margin-top: 2rem;
   margin-left: 12.75rem;
   margin-right: 17.25rem;
-<<<<<<< HEAD
-  width: 90rem;
-}
-
-.play-banner {
-  margin-bottom: 0.5rem;
-  display: flex;
-  width: 90rem;
-=======
-  width: 80rem;
+  width: 80rem; /* 조정된 폭 */
 }
 
 .play-banner {
   margin-top: 3.06rem;
   margin-bottom: 0.5rem;
   display: flex;
-  width: 80rem;
->>>>>>> 41e26eb (수정중)
+  width: 80rem; /* 조정된 폭 */
   height: 18rem;
   align-items: center;
   gap: 27.5rem;
   flex-shrink: 0;
   border-radius: 1rem;
-  background: linear-gradient(80deg, rgba(241, 118, 153, 0.40) -19.54%, rgba(243, 130, 144, 0.40) -10.02%, rgba(251, 177, 111, 0.40) 32.11%, rgba(255, 196, 99, 0.40) 52.5%, rgba(255, 163, 79, 0.40) 68.81%, rgba(255, 135, 61, 0.40) 87.83%, rgba(255, 118, 50, 0.40) 104.14%, rgba(255, 112, 47, 0.40) 116.37%);
+  background: linear-gradient(
+    80deg,
+    rgba(241, 118, 153, 0.40) -19.54%,
+    rgba(243, 130, 144, 0.40) -10.02%,
+    rgba(251, 177, 111, 0.40) 32.11%,
+    rgba(255, 196, 99, 0.40) 52.5%,
+    rgba(255, 163, 79, 0.40) 68.81%,
+    rgba(255, 135, 61, 0.40) 87.83%,
+    rgba(255, 118, 50, 0.40) 104.14%,
+    rgba(255, 112, 47, 0.40) 116.37%
+  );
 }
 
 .play-banner-ments {
@@ -36,7 +36,6 @@
   color: var(--kakao-logo, #000);
   font-family: "Pretendard Variable";
   font-size: 2.25rem;
-  font-style: normal;
   font-weight: 700;
   line-height: 175%; /* 3.9375rem */
   letter-spacing: -0.1rem;
@@ -46,7 +45,6 @@
   color: var(--primary-text, var(--kakao-logo, #F8611A));
   font-family: "Pretendard Variable";
   font-size: 2.25rem;
-  font-style: normal;
   font-weight: 700;
   line-height: 175%;
   letter-spacing: -0.1rem;
@@ -56,7 +54,6 @@
   color: var(--kakao-logo, #000);
   font-family: "Pretendard Variable";
   font-size: 1.5rem;
-  font-style: normal;
   font-weight: 700;
   line-height: 175%; /* 2.625rem */
   letter-spacing: -0.1rem;
@@ -98,43 +95,27 @@
 
 .save-button {
   margin-top: 3rem; /* 저장 버튼 위에 약간의 공간 추가 */
-  color: #FFF;
+  color: #fff;
   font-family: "Pretendard Variable";
   font-size: 1.25rem;
-  font-style: normal;
-<<<<<<< HEAD
   font-weight: 600;
-  line-height: normal;
   display: flex;
   width: 6.5rem;
-=======
-  font-weight: 500;
-  line-height: normal;
-  display: flex;
-  width: 7rem;
->>>>>>> 41e26eb (수정중)
   height: 3rem;
   padding: 0.5rem 1rem;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
   border-radius: 0.5rem;
-  background: #FF7331;
+  background: #ff7331;
   border: none;
   margin-right: 0.5rem;
-<<<<<<< HEAD
-=======
   letter-spacing: -0.1rem;
->>>>>>> 41e26eb (수정중)
 }
 
 .play-button-container {
   display: flex;
-<<<<<<< HEAD
-  width: 65.75rem;
-=======
-  width: 55rem;
->>>>>>> 41e26eb (수정중)
+  width: 55rem; /* 조정된 폭 */
   height: 7.5rem;
   padding: 1.4375rem 1.5rem;
   flex-direction: column;
@@ -143,7 +124,7 @@
   gap: 0.5rem;
   flex-shrink: 0;
   border-radius: 1rem;
-  background: #FFF3E8;
+  background: #fff3e8;
 }
 
 .play-button-container button {
@@ -156,15 +137,13 @@
   gap: 0.5rem;
   flex-shrink: 0;
   border-radius: 1rem;
-  background: var(--primary, #FF7331);
+  background: var(--primary, #ff7331);
   border: none;
-  /* 그림자 */
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40);
-  color: #FFF;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40); /* 그림자 */
+  color: #fff;
   text-align: center;
   font-family: "Pretendard Variable";
   font-size: 1.25rem;
-  font-style: normal;
   font-weight: 600;
   line-height: 150%; /* 1.875rem */
 }

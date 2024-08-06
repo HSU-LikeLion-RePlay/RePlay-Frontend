@@ -1,66 +1,59 @@
-.select-category{
+.select-category {
   color: var(--grey-text-3, #AEACAB);
-text-align: center;
-font-family: "Pretendard Variable";
-font-size: 1.125rem;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-background-color: #fff;
-display: flex;
-height: 2.25rem;
-padding: 0.5rem 0.75rem;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 0.5rem;
-border-radius: 1.125rem;
-border: 2px solid var(--grey-text-3, #AEACAB);
+  text-align: center;
+  font-family: "Pretendard Variable";
+  font-size: 1.125rem;
+  font-weight: 700;
+  background-color: #fff;
+  display: flex;
+  height: 2.25rem;
+  padding: 0.5rem 0.75rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1.125rem;
+  border: 2px solid var(--grey-text-3, #AEACAB);
 }
-.category-header{
+
+.select-category.selected {
+  color: #FF7331;
+  border-color: #FF7331;
+}
+
+.category-header {
   width: 18.5rem;
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem 0 1rem;
 }
-.category-header span{
+
+.category-header span {
   letter-spacing: -0.1rem;
   width: 5.6rem;
   color: var(--kakao-logo, #000);
   text-align: center;
   font-family: "Pretendard Variable";
   font-size: 1.5rem;
-  font-style: normal;
-<<<<<<< HEAD
   font-weight: 600;
-=======
-  font-weight: 500;
->>>>>>> 41e26eb (수정중)
-  line-height: normal;
   margin-right: 1rem;
 }
-.category-count{
+
+.category-count {
   color: var(--grey-text-2, #7E7872);
-  text-align: right; /* 오른쪽 정렬 */
+  text-align: right;
   font-family: "Pretendard Variable";
   font-size: 1.25rem;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   margin-left: auto;
 }
-.category-wrap{
+
+.category-wrap {
   flex-direction: row;
   display: flex;
   align-items: center;
   align-content: center;
   gap: 0.5rem;
-  align-self: stretch;
   flex-wrap: wrap;
   width: 19.5rem;
-}
-.select-category.selected {
-  color: #FF7331;
-  border-color: #FF7331;
-  /* 필요에 따라 추가 스타일을 정의할 수 있습니다 */
 }
