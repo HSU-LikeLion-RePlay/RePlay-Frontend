@@ -292,7 +292,6 @@ const MakePlay = () => {
               <br />
               <label>간단한 자기소개 부탁드려요!</label>
             </div>
-
             <input
               type="text"
               name="name"
@@ -413,10 +412,18 @@ const MakePlay = () => {
               </div>
             </div>
             <div className="makeplay-form-buttons">
-              <button type="button" onClick={handlePrevious}>
+              <button
+                type="button"
+                onClick={handlePrevious}
+                className="makeplay-back"
+              >
                 뒤로
               </button>
-              <button type="button" onClick={handleNext}>
+              <button
+                type="button"
+                onClick={handleNext}
+                className="makeplay-next"
+              >
                 다음
               </button>
             </div>
@@ -451,7 +458,11 @@ const MakePlay = () => {
               >
                 뒤로
               </button>
-              <button type="button" onClick={handleNext}>
+              <button
+                type="button"
+                onClick={handleNext}
+                className="makeplay-next"
+              >
                 다음
               </button>
             </div>
@@ -481,10 +492,18 @@ const MakePlay = () => {
               </div>
             </div>
             <div className="makeplay-form-buttons">
-              <button type="button" onClick={handlePrevious}>
+              <button
+                type="button"
+                onClick={handlePrevious}
+                className="makeplay-back"
+              >
                 뒤로
               </button>
-              <button type="button" onClick={handleNext}>
+              <button
+                type="button"
+                onClick={handleNext}
+                className="makeplay-next"
+              >
                 다음
               </button>
             </div>
@@ -504,10 +523,18 @@ const MakePlay = () => {
               {formData.description.length}/500
             </div>
             <div className="makeplay-form-buttons">
-              <button type="button" onClick={handlePrevious}>
+              <button
+                type="button"
+                onClick={handlePrevious}
+                className="makeplay-back"
+              >
                 뒤로
               </button>
-              <button type="button" onClick={handleNext}>
+              <button
+                type="button"
+                onClick={handleNext}
+                className="makeplay-next"
+              >
                 다음
               </button>
             </div>
@@ -518,10 +545,18 @@ const MakePlay = () => {
             <label>사진:</label>
             <input type="file" name="photo" onChange={handleChange} />
             <div className="makeplay-form-buttons">
-              <button type="button" onClick={handlePrevious}>
+              <button
+                type="button"
+                onClick={handlePrevious}
+                className="makeplay-back"
+              >
                 뒤로
               </button>
-              <button type="button" onClick={handleNext}>
+              <button
+                type="button"
+                onClick={handleNext}
+                className="makeplay-next"
+              >
                 다음
               </button>
             </div>
@@ -539,10 +574,18 @@ const MakePlay = () => {
               required
             />
             <div className="makeplay-form-buttons">
-              <button type="button" onClick={handlePrevious}>
+              <button
+                type="button"
+                onClick={handlePrevious}
+                className="makeplay-back"
+              >
                 뒤로
               </button>
-              <button type="button" onClick={handleNext}>
+              <button
+                type="button"
+                onClick={handleNext}
+                className="makeplay-next"
+              >
                 다음
               </button>
             </div>
@@ -560,10 +603,16 @@ const MakePlay = () => {
               required
             />
             <div className="makeplay-form-buttons">
-              <button type="button" onClick={handlePrevious}>
+              <button
+                type="button"
+                onClick={handlePrevious}
+                className="makeplay-back"
+              >
                 뒤로
               </button>
-              <button type="makeplay-submit">완료</button>
+              <button type="submit" className="makeplay-submit">
+                완료
+              </button>
             </div>
           </div>
         )}

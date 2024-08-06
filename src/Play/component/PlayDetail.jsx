@@ -7,8 +7,9 @@ import { Map, MapMarker } from "react-kakao-maps-sdk";
 import Comment from "./Comment";
 import locimg from "../images/Loc.svg";
 import ConfirmModal from "./ConfirmModal";
+import loc from "../images/Loc.svg";
+import peo from "../images/People.svg";
 
-// 더미 데이터
 export const playInfoState = atom({
   key: "playInfoState",
   default: [
@@ -16,10 +17,10 @@ export const playInfoState = atom({
       id: 1,
       img: "https://via.placeholder.com/150",
       category: "스포츠",
-      name: "축구 경기",
-      date: "2024-08-10",
-      time: "15:00",
-      loc: "중앙 공원",
+      name: "배구 직관 같이 갈 사람 구해요~~~",
+      date: "08-10",
+      time: "오후 3시",
+      loc: "서울특별시 양천구",
       crnt: 10,
       max: 20,
       profilImg: "https://via.placeholder.com/50",
@@ -28,6 +29,25 @@ export const playInfoState = atom({
       latitude: 37.5665,
       longitude: 126.978,
       participants: [{ userId: 1, userName: "홍길동" }],
+    },
+    {
+      id: 2,
+      img: "https://via.placeholder.com/150",
+      category: "자기계발",
+      date: "07.20",
+      time: "오전 11:00",
+      name: "자기계발 세미나",
+      loc: "서울특별시 강남구",
+      participants: [],
+      max: 10,
+      crnt: 4,
+      profilImg: "https://via.placeholder.com/50",
+      nickname: "김영희",
+      intro: "자기계발에 관심 있는 분들을 위한 세미나입니다.",
+      activity: "자기계발 관련 활동을 함께 합니다.",
+      fee: "0",
+      latitude: 37.497942,
+      longitude: 127.027621,
     },
   ],
 });
@@ -79,13 +99,11 @@ export default function PlayDetail() {
   const isScrapped = scraps.includes(playInfo?.id); // 해당 모임이 스크랩된 상태인지 확인
 
   useEffect(() => {
-    // 더미 데이터 사용으로 fetch 생략
     setPost(playInfo);
     setLoading(false);
   }, [playingId]);
 
   useEffect(() => {
-    // 사용자가 현재 모임에 참가 중인지 확인하는 로직 추가
     if (user && playInfo) {
       const userParticipation = playInfo.participants.find(
         (participant) => participant.userId === user.id
@@ -133,14 +151,11 @@ export default function PlayDetail() {
     if (isParticipating) {
       setShowConfirmModal(true); // 참가 취소 모달 표시
     } else {
-      // 참가하기 버튼 클릭 시 참가신청 페이지로 이동
       navigate("/PlayApply");
     }
   };
 
   const handleCancelParticipation = () => {
-    // 참가 취소 로직 추가
-    // 예: API 호출로 참가 취소 요청
     setIsParticipating(false);
     setShowConfirmModal(false);
     alert("참가가 취소되었습니다.");
@@ -152,17 +167,9 @@ export default function PlayDetail() {
       return;
     }
     if (isScrapped) {
-      setScraps((prevScraps) => {
-        const newScraps = prevScraps.filter((id) => id !== playInfo.id);
-        console.log("Scrap removed:", newScraps);
-        return newScraps;
-      });
+      setScraps((prevScraps) => prevScraps.filter((id) => id !== playInfo.id));
     } else {
-      setScraps((prevScraps) => {
-        const newScraps = [...prevScraps, playInfo.id];
-        console.log("Scrap added:", newScraps);
-        return newScraps;
-      });
+      setScraps((prevScraps) => [...prevScraps, playInfo.id]);
     }
   };
 
@@ -180,11 +187,10 @@ export default function PlayDetail() {
           <div className="play-detail-info">
             <button>{playInfo.category}</button>
             <button onClick={handleScrapClick}>
-              {isScrapped ? (
-                <img src={bookmarkIcon} alt="스크랩됨" />
-              ) : (
-                <img src={bookmarkIcon} alt="스크랩" />
-              )}
+              <img
+                src={bookmarkIcon}
+                alt={isScrapped ? "스크랩됨" : "스크랩"}
+              />
             </button>
             <h2>{playInfo.name}</h2>
             <p>{playInfo.date}</p>
@@ -195,35 +201,61 @@ export default function PlayDetail() {
             </p>
           </div>
         </div>
-
-        <div className="play-detail-organizer">
-          <img
-            src={playInfo.profilImg}
-            alt={playInfo.nickname}
-            className="organizer-profile"
-          />
-          <p>
-            <strong>담당자:</strong> {playInfo.nickname}
-          </p>
-          <p>{playInfo.intro}</p>
+        <div className="play-detial-component-top">
+          <button className="detail-category-btn">{playInfo.category}</button>
+          <div className="detail-scrap-wrap">
+            <img
+              className="detail-scrap-btn"
+              onClick={handleScrapClick}
+              src={bookmarkIcon}
+            />
+            <div className="dteail-scrap-text">스크랩</div>
+          </div>
         </div>
-
-        <div className="play-detail-reviews">
-          <h3>후기</h3>
-          {playReviews && playReviews.reviews.length > 0 ? (
-            playReviews.reviews.map((review, i) => (
-              <div key={i} className="review">
-                <p>
-                  <strong>{review.author}:</strong> {review.content}
-                </p>
-              </div>
-            ))
-          ) : (
-            <p>후기가 없습니다.</p>
-          )}
+        <div className="detail-play-name">{playInfo.name}</div>
+        <div className="detail-play-date">{playInfo.date}</div>
+        <div className="detail-play-time">{playInfo.time}</div>
+        <div className="detail-play-loc">
+          <img src={loc} />
+          {playInfo.loc}
         </div>
-        <hr />
-        <Comment />
+        <div className="detail-play-people">
+          <img src={peo} />
+          {playInfo.crnt}/{playInfo.max}명
+        </div>
+      </div>
+
+      <div className="play-detail-bottom">
+        <div className="play-detail-bottom-left">
+          <div className="play-detail-organizer">
+            <img
+              src={playInfo.profilImg}
+              alt={playInfo.nickname}
+              className="organizer-profile"
+            />
+            <p>
+              <strong>담당자:</strong> {playInfo.nickname}
+            </p>
+            <p>{playInfo.intro}</p>
+          </div>
+
+          <div className="play-detail-reviews">
+            <h3>후기</h3>
+            {playReviews && playReviews.reviews.length > 0 ? (
+              playReviews.reviews.map((review, i) => (
+                <div key={i} className="review">
+                  <p>
+                    <strong>{review.author}:</strong> {review.content}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <p>후기가 없습니다.</p>
+            )}
+          </div>
+          <hr />
+          <Comment />
+        </div>
         <div className="play-detail-right">
           <Map
             center={{ lat: playInfo.latitude, lng: playInfo.longitude }}
