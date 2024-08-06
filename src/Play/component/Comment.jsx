@@ -56,13 +56,16 @@ export default function Comment() {
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
         />
-        <button onClick={handleAddComment}>등록</button>
+        <button  className="apply-button"onClick={handleAddComment}>등록</button>
       </div>
       <div className='comments'>
         {comments.slice(0, visibleCount).map(comment => (
           <div key={comment.id} className='comment'>
-            <p><strong>{comment.nickname}:</strong> {comment.content}</p>
-            <p className='comment-date'>{formatDisplayDate(comment.date)}</p>
+            <div className='comment-top'> 
+              <div className='comment-nickname'> {comment.nickname}:</div>
+              <div className='comment-date'>{formatDisplayDate(comment.date)}</div>
+            </div>
+            <div className='comment-content'>{comment.content}</div>
             <button onClick={() => setReplyingTo(comment.id)}>답글 달기</button>
             {comment.replies.length > 0 && (
               <div className='replies'>

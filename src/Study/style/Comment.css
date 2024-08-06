@@ -1,25 +1,63 @@
 .comment-section {
   margin-top: 20px;
+  margin-bottom: 20rem;
 }
 
-.comment-input,
+.comment-input {
+  width: 50rem;
+  height: 7.0625rem; /* 변경: 자동 높이 */
+  display: flex;
+  flex-direction: row;
+}
+
+textarea {
+  width: 42rem;
+  height: 5.0625rem; /* 입력창 높이 유지 */
+  padding: 1rem; /* 패딩 추가 */
+  box-sizing: border-box; /* 패딩과 보더를 포함하여 높이 계산 */
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  border-radius: 1rem 0rem 0rem 1rem;
+  line-height: 150%; /* 1.6875rem */
+
+  resize: none;
+}
+
+.apply-button {
+  display: flex;
+  width: 8rem;
+  height: 5.0625rem; /* 버튼 높이 유지 */
+  padding: 1rem; /* 패딩 추가 */
+  box-sizing: border-box; /* 패딩과 보더를 포함하여 높이 계산 */
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0rem 1rem 1rem 0rem;
+  border: 1px solid var(--grey-text-3, #AEACAB);
+  background: #F9F9F9;
+}
+
 .reply-input {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 }
 
-textarea {
-  resize: none;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-
 .comments {
-  margin-top: 20px;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5625rem;
+  align-self: stretch;
+  border-radius: 1rem;
+background: #FBFBFB;
+margin-top: 3rem;
+width: 48rem;
+height: 8.875rem;
 }
 
 .comment,
@@ -39,4 +77,29 @@ textarea {
 .replies {
   margin-left: 20px;
   margin-top: 10px;
+}
+
+.comment-top{
+  width: 46rem;
+  height: 1.3125rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.comment-nickname{
+  color: var(--kakao-logo, #000);
+font-family: "Pretendard Variable";
+font-size: 1.125rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+
+}
+.comment-date{
+  color: var(--grey-text-1, #5D5854);
+  font-family: "Pretendard Variable";
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
