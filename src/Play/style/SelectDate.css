@@ -40,7 +40,11 @@
   font-family: "Pretendard Variable";
   font-size: 1.5rem;
   font-style: normal;
+<<<<<<< HEAD
   font-weight: 600;
+=======
+  font-weight: 500;
+>>>>>>> 41e26eb (수정중)
   line-height: normal;
   margin-right: 1rem;
 }

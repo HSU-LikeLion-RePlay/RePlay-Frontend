@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+//놀이터 작성
+>>>>>>> 41e26eb (수정중)
 import React, { useState, useEffect } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import { getYear, getMonth, format } from "date-fns";
@@ -108,6 +112,7 @@ const MakePlay = () => {
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
+<<<<<<< HEAD
     if (type === "file") {
       setFormData({
         ...formData,
@@ -119,6 +124,12 @@ const MakePlay = () => {
         [name]: value,
       });
     }
+=======
+    setFormData({
+      ...formData,
+      [name]: type === "file" ? files[0] : value,
+    });
+>>>>>>> 41e26eb (수정중)
   };
 
   const handleDateChange = (date) => {
@@ -201,10 +212,13 @@ const MakePlay = () => {
     setStep(step - 1);
   };
 
+<<<<<<< HEAD
   const handleCancel = () => {
     navigate("/play");
   };
 
+=======
+>>>>>>> 41e26eb (수정중)
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -282,6 +296,7 @@ const MakePlay = () => {
   return (
     <div className="make-play-container">
       <form onSubmit={handleSubmit} className="make-play-form">
+<<<<<<< HEAD
         <button type="button" className="close-button" onClick={handleCancel}>
           X
         </button>
@@ -293,11 +308,17 @@ const MakePlay = () => {
               <label>간단한 자기소개 부탁드려요!</label>
             </div>
 
+=======
+        {step === 1 && (
+          <div className="make-play-introduce">
+            <label>놀이터를 만들기에 앞서 간단한 자기소개 부탁드려요! </label>
+>>>>>>> 41e26eb (수정중)
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
+<<<<<<< HEAD
               maxLength="100"
               required
             />
@@ -307,6 +328,10 @@ const MakePlay = () => {
                 다음
               </button>
             </div>
+=======
+              required
+            />
+>>>>>>> 41e26eb (수정중)
           </div>
         )}
         {step === 2 && (
@@ -317,6 +342,7 @@ const MakePlay = () => {
               name="title"
               value={formData.title}
               onChange={handleChange}
+<<<<<<< HEAD
               maxLength="30"
               required
             />
@@ -329,6 +355,10 @@ const MakePlay = () => {
                 다음
               </button>
             </div>
+=======
+              required
+            />
+>>>>>>> 41e26eb (수정중)
           </div>
         )}
         {step === 3 && (
@@ -394,6 +424,7 @@ const MakePlay = () => {
                 </select>
               </div>
             </div>
+<<<<<<< HEAD
             <div className="form-buttons">
               <button type="button" onClick={handlePrevious}>
                 뒤로
@@ -402,6 +433,8 @@ const MakePlay = () => {
                 다음
               </button>
             </div>
+=======
+>>>>>>> 41e26eb (수정중)
           </div>
         )}
         {step === 4 && (
@@ -425,6 +458,7 @@ const MakePlay = () => {
               <button onClick={handleSearch}>검색</button>
             </div>
             <div id="map" style={{ width: "500px", height: "500px" }}></div>
+<<<<<<< HEAD
             <div className="form-buttons">
               <button type="button" onClick={handlePrevious}>
                 뒤로
@@ -433,6 +467,8 @@ const MakePlay = () => {
                 다음
               </button>
             </div>
+=======
+>>>>>>> 41e26eb (수정중)
           </div>
         )}
         {step === 5 && (
@@ -458,6 +494,7 @@ const MakePlay = () => {
                 ))}
               </div>
             </div>
+<<<<<<< HEAD
             <div className="form-buttons">
               <button type="button" onClick={handlePrevious}>
                 뒤로
@@ -466,6 +503,8 @@ const MakePlay = () => {
                 다음
               </button>
             </div>
+=======
+>>>>>>> 41e26eb (수정중)
           </div>
         )}
         {step === 6 && (
@@ -475,6 +514,7 @@ const MakePlay = () => {
               name="description"
               value={formData.description}
               onChange={handleChange}
+<<<<<<< HEAD
               maxLength="500"
               required
             />
@@ -489,12 +529,17 @@ const MakePlay = () => {
                 다음
               </button>
             </div>
+=======
+              required
+            />
+>>>>>>> 41e26eb (수정중)
           </div>
         )}
         {step === 7 && (
           <div>
             <label>사진:</label>
             <input type="file" name="photo" onChange={handleChange} />
+<<<<<<< HEAD
             <div className="form-buttons">
               <button type="button" onClick={handlePrevious}>
                 뒤로
@@ -503,6 +548,8 @@ const MakePlay = () => {
                 다음
               </button>
             </div>
+=======
+>>>>>>> 41e26eb (수정중)
           </div>
         )}
         {step === 8 && (
@@ -516,6 +563,7 @@ const MakePlay = () => {
               min="1"
               required
             />
+<<<<<<< HEAD
             <div className="form-buttons">
               <button type="button" onClick={handlePrevious}>
                 뒤로
@@ -524,6 +572,8 @@ const MakePlay = () => {
                 다음
               </button>
             </div>
+=======
+>>>>>>> 41e26eb (수정중)
           </div>
         )}
         {step === 9 && (
@@ -537,6 +587,7 @@ const MakePlay = () => {
               min="0"
               required
             />
+<<<<<<< HEAD
             <div className="form-buttons">
               <button type="button" onClick={handlePrevious}>
                 뒤로
@@ -545,6 +596,23 @@ const MakePlay = () => {
             </div>
           </div>
         )}
+=======
+          </div>
+        )}
+        <div className="form-buttons">
+          {step > 1 && (
+            <button type="button" onClick={handlePrevious}>
+              뒤로
+            </button>
+          )}
+          {step < 9 && (
+            <button type="button" onClick={handleNext}>
+              다음
+            </button>
+          )}
+          {step === 9 && <button type="submit">완료</button>}
+        </div>
+>>>>>>> 41e26eb (수정중)
       </form>
     </div>
   );

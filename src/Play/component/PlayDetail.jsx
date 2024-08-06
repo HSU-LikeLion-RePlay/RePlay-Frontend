@@ -7,12 +7,18 @@ import { Map, MapMarker } from "react-kakao-maps-sdk";
 import Comment from "./Comment";
 import locimg from "../images/Loc.svg";
 import ConfirmModal from "./ConfirmModal";
+<<<<<<< HEAD
 
+=======
+import loc from '../images/Loc.svg';
+import peo from '../images/People.svg'
+>>>>>>> 41e26eb (수정중)
 // 더미 데이터
 export const playInfoState = atom({
   key: "playInfoState",
   default: [
     {
+<<<<<<< HEAD
       id: 1,
       img: "https://via.placeholder.com/150",
       category: "스포츠",
@@ -20,6 +26,15 @@ export const playInfoState = atom({
       date: "2024-08-10",
       time: "15:00",
       loc: "중앙 공원",
+=======
+      id: 0,
+      img: "https://via.placeholder.com/150",
+      category: "스포츠",
+      name: "배구 직관 같이 갈 사람 구해요~~~",
+      date: "08-10",
+      time: "오후 3시",
+      loc: "서울특별시 양천구",
+>>>>>>> 41e26eb (수정중)
       crnt: 10,
       max: 20,
       profilImg: "https://via.placeholder.com/50",
@@ -29,6 +44,28 @@ export const playInfoState = atom({
       longitude: 126.978,
       participants: [{ userId: 1, userName: "홍길동" }],
     },
+<<<<<<< HEAD
+=======
+    {
+      id:1,
+      img: "https://via.placeholder.com/150",
+      category: '자기계발',
+      date: '07.20',
+      time: '오전 11:00',
+      name:'자기계발 세미나',
+      loc: '서울특별시 강남구',
+      participants:[''],
+      max: 10,
+      crnt:4,
+      profilImg: "https://via.placeholder.com/50",
+      nickname: '김영희',
+      intro: '자기계발에 관심 있는 분들을 위한 세미나입니다.',
+      activity: '자기계발 관련 활동을 함께 합니다.',
+      fee:'0',
+      latitude: '37.497942',
+      longitude: '127.027621'
+    },
+>>>>>>> 41e26eb (수정중)
   ],
 });
 
@@ -90,7 +127,11 @@ export default function PlayDetail() {
       const userParticipation = playInfo.participants.find(
         (participant) => participant.userId === user.id
       );
+<<<<<<< HEAD
       setIsParticipating(!!userParticipation);
+=======
+      setIsParticipating(!userParticipation);
+>>>>>>> 41e26eb (수정중)
     }
   }, [user, playInfo]);
 
@@ -178,6 +219,7 @@ export default function PlayDetail() {
             <img src={playInfo.img} alt={playInfo.name} />
           </div>
           <div className="play-detail-info">
+<<<<<<< HEAD
             <button>{playInfo.category}</button>
             <button onClick={handleScrapClick}>
               {isScrapped ? (
@@ -196,6 +238,32 @@ export default function PlayDetail() {
           </div>
         </div>
 
+=======
+            <div className="play-detial-component-top">
+              <button className="detail-category-btn">{playInfo.category}</button>
+              <div className="detail-scrap-wrap">
+                <img className="detail-scrap-btn" onClick={handleScrapClick} src={bookmarkIcon}/>
+                <div className="dteail-scrap-text">스크랩</div>
+              </div>
+              
+            </div>
+            <div className="detail-play-name">{playInfo.name}</div>
+            <div className="detail-play-date">{playInfo.date}</div>
+            <div className="detail-play-time">{playInfo.time}</div>
+            <div className="detail-play-loc">
+              <img src={loc}/>
+              {playInfo.loc}</div>
+            <div className="detail-play-people">
+              <img src={peo}/>
+              {playInfo.crnt}/{playInfo.max}명
+            </div>
+          </div>
+        </div>
+
+
+<div className="play-detail-bottom">
+  <div className="play-detail-bottom-left">
+>>>>>>> 41e26eb (수정중)
         <div className="play-detail-organizer">
           <img
             src={playInfo.profilImg}
@@ -224,6 +292,10 @@ export default function PlayDetail() {
         </div>
         <hr />
         <Comment />
+<<<<<<< HEAD
+=======
+        </div>
+>>>>>>> 41e26eb (수정중)
         <div className="play-detail-right">
           <Map
             center={{ lat: playInfo.latitude, lng: playInfo.longitude }}
@@ -243,16 +315,31 @@ export default function PlayDetail() {
             </p>
             <button onClick={handleDirectionsClick}>경로 보러가기</button>
           </div>
+<<<<<<< HEAD
         </div>
       </div>
       <button className="join-button" onClick={handleJoinClick}>
         {isParticipating ? "참가 취소하기" : "참가하기"}
       </button>
+=======
+          <button className="join-button" onClick={handleJoinClick}>
+        {isParticipating ? "참가 취소하기" : "참가하기"}
+      </button>
+        </div>
+        
+      </div>
+      
+>>>>>>> 41e26eb (수정중)
       <ConfirmModal
         show={showConfirmModal}
         onClose={() => setShowConfirmModal(false)}
         onConfirm={handleCancelParticipation}
       />
+<<<<<<< HEAD
+=======
+      </div>
+      
+>>>>>>> 41e26eb (수정중)
     </div>
   );
 }
