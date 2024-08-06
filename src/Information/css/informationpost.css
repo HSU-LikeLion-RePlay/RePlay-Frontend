@@ -179,6 +179,7 @@
   white-space: nowrap;
   margin-top: 2.5rem;
   cursor: pointer;
+  border: none;
 }
 
 .information-submit-button:hover {
