@@ -56,7 +56,7 @@ export default function Comment() {
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
         />
-        <button onClick={handleAddComment}>댓글 추가</button>
+        <button onClick={handleAddComment}>등록</button>
       </div>
       <div className='comments'>
         {comments.slice(0, visibleCount).map(comment => (
