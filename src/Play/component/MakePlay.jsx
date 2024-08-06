@@ -384,6 +384,7 @@ const MakePlay = () => {
                 />
                 <div className="time-select-container">
                   <select
+                    className="time-select-ampm"
                     name="period"
                     value={formData.time.period}
                     onChange={handleTimeChange}
@@ -392,6 +393,7 @@ const MakePlay = () => {
                     <option value="PM">오후</option>
                   </select>
                   <select
+                    className="time-select-hour"
                     name="hour"
                     value={formData.time.hour}
                     onChange={handleTimeChange}
@@ -403,6 +405,7 @@ const MakePlay = () => {
                     ))}
                   </select>
                   <select
+                    className="time-select-min"
                     name="minute"
                     value={formData.time.minute}
                     onChange={handleTimeChange}
@@ -437,55 +440,61 @@ const MakePlay = () => {
 
         {step === 4 && (
           <div>
-            <label>위치:</label>
-            <input
-              type="text"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              required
-              readOnly
-            />
-            <div>
-              <input
-                type="text"
-                value={inputText}
-                onChange={handleKeywordChange}
-                placeholder="장소를 입력하세요"
-              />
-              <button onClick={handleSearch}>검색</button>
-            </div>
-            <div id="map" style={{ width: "500px", height: "500px" }}></div>
-            <div className="makeplay-form-buttons">
-              <button
-                type="button"
-                onClick={handlePrevious}
-                className="makeplay-back"
-              >
-                뒤로
-              </button>
-              <button
-                type="button"
-                onClick={handleNext}
-                className="makeplay-next"
-              >
-                다음
-              </button>
+            <div className="makeplay-location">
+              <div className="makeplay-location-title">
+                놀이터의 위치를 알려주세요!
+              </div>
+
+              <div className="makeplay-search-container">
+                <div className="search-location">
+                  <input
+                    type="text"
+                    className="play-search-input"
+                    value={inputText}
+                    onChange={handleKeywordChange}
+                    placeholder="장소를 입력하세요"
+                  />
+                  <button
+                    className="search-location-button"
+                    onClick={handleSearch}
+                  >
+                    검색
+                  </button>
+                </div>
+              </div>
+              <div id="map" style={{ width: "720px", height: "308px" }}></div>
+              <div className="makeplay-form-buttons">
+                <button
+                  type="button"
+                  onClick={handlePrevious}
+                  className="makeplay-back-4"
+                >
+                  뒤로
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  className="makeplay-next-4"
+                >
+                  다음
+                </button>
+              </div>
             </div>
           </div>
         )}
         {step === 5 && (
-          <div>
-            <label>카테고리:</label>
+          <div className="makeplay-category">
+            <div className="makeplay-category-title">
+              어떤 유형의 놀이인가요?
+            </div>
+            <div className="makeplay-category-subtitle">
+              한 가지의 유형만 선택해주세요.
+            </div>
             <div>
-              <div className="header">
-                <span>카테고리</span>
-                <p className="category-count">{formData.category ? 1 : 0}/1</p>
-              </div>
-              <div className="category-wrap">
+              <div className="makeplay-category-wrap">
                 {categories.map(({ ko, en }) => (
                   <button
-                    className={`select-category ${
+                    className={`makeplay-select-category ${
                       formData.category === en ? "selected" : ""
                     }`}
                     key={en}
@@ -501,14 +510,14 @@ const MakePlay = () => {
               <button
                 type="button"
                 onClick={handlePrevious}
-                className="makeplay-back"
+                className="makeplay-back-5"
               >
                 뒤로
               </button>
               <button
                 type="button"
                 onClick={handleNext}
-                className="makeplay-next"
+                className="makeplay-next-5"
               >
                 다음
               </button>

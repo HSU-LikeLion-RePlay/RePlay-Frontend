@@ -66,6 +66,11 @@
   
 }
 
+.date-picker-container{
+  margin-left: 13rem;
+}
+
+
 .makeplay-title {
   width: 42rem;
   height: 3.625rem;
@@ -92,7 +97,48 @@
   font-weight: 500;
   line-height: 150%; /* 1.6875rem */
 }
+.time-select-container{
+  display: flex;
+  flex-direction: row;
+  gap:0.75rem;
+}
+.time-select-ampm,
+.time-select-hour,
+.time-select-min
+{
+  display: flex;
+  width: 5rem;
+  height: 2.5rem;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 2px solid #777371;
+  color: var(--kakao-logo, #000);
+  text-align: center;
+  font-family: "Pretendard Variable";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
 
+.makeplay-select-category {
+  color: var(--grey-text-3, #AEACAB);
+  text-align: left; /* 텍스트를 왼쪽 정렬 */
+  font-family: "Pretendard Variable";
+  font-size: 1.125rem;
+  font-weight: 700;
+  background-color: #fff;
+  display: flex;
+  height: 2.25rem;
+  padding: 0.5rem 0.75rem;
+  flex-direction: column;
+  justify-content: flex-start; /* 세로 정렬을 위쪽으로 */
+  align-items: flex-start; /* 가로 정렬을 왼쪽으로 */
+  gap: 0.5rem;
+  border-radius: 1.125rem;
+  border: 2px solid var(--grey-text-3, #AEACAB);
+}
 
 .makeplay-back {
   display: flex;
@@ -111,6 +157,25 @@
   font-weight: 700;
   line-height: normal;
   border: none;
+}
+.makeplay-back-5{
+  display: flex;
+  width: 19.5rem;
+  height: 5rem;
+  padding: 1.375rem 6.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  background: #FFD4C0;
+  color: var(--primary-text, #F8611A);
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  margin-top:13.5rem;
 }
 
 .makeplay-next {
@@ -132,11 +197,64 @@
   border: none;
 }
 
+.makeplay-next-5 {
+  display: flex;
+  width: 19.5rem;
+  height: 5rem;
+  padding: 1.375rem 6.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  background: #CCCAC9;
+  color: #FFF;
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  margin-top: 13.5rem;
+}
+
 .makeplay-form-buttons button:hover {
   border-radius: 1rem;
   background: #FF7331;
 }
+#map{
+  display: flex;
+  flex-direction: row;
+  width: 40rem;
+height: 25.5rem;
+border-radius: 1rem;
+justify-content: center;
+align-items: center;
 
+
+}
+
+.makeplay-category{
+
+}
+
+.makeplay-category-title{
+  color: var(--kakao-logo, #000);
+font-family: "Pretendard Variable";
+font-size: 2rem;
+font-style: normal;
+font-weight: 600;
+line-height: 150%; /* 3rem */
+ margin-bottom: 5rem;
+}
+
+.makeplay-category-subtitle{
+  color: var(--grey-text-2, #7E7872);
+font-family: "Pretendard Variable";
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 600;
+line-height: 150%; /* 1.875rem */
+}
 .character-count {
   color: var(--grey-text-2, #7E7872);
   font-family: "Pretendard Variable";
@@ -197,7 +315,14 @@
   margin-left: -2rem;
   
   }
+.makeplay-category-wrap{
+  width: 40rem;
+  height: 5.5rem;
+  display: ruby;
+  flex-direction: row;
+  text-align: start;
 
+}
 .make-play-introduce input {
   display: flex;
   width: 40rem;
@@ -233,16 +358,11 @@
 }
 
 
+
+
 .selected-dates-list{
 }
 
-.date-picker-container{
-  height: 22.4125rem;
-  width: 19.5rem;
-  margin-left: 13rem;
-  top:-8rem;
-  
-}
 
 .make-play-3{
   width: 40rem;
@@ -253,6 +373,7 @@
   font-weight: 600;
   line-height: 150%; /* 3rem */
   margin-top: 1rem;
+  margin-bottom: -2rem;
 }
 
 .makeplay-back-3{
@@ -272,6 +393,26 @@
   font-weight: 700;
   line-height: normal;
   border: none;
+  margin-top: 2rem;
+}
+.makeplay-back-4{
+  display: flex;
+  width: 19.5rem;
+  height: 5rem;
+  padding: 1.375rem 6.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  background: #FFD4C0;
+  color: var(--primary-text, #F8611A);
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  margin-top: 2rem;
 }
 
 .makeplay-next-3{
@@ -291,4 +432,73 @@
   font-weight: 700;
   line-height: normal;
   border: none;
+  margin-top: 2rem;
+
+}
+
+.makeplay-next-4{
+  display: flex;
+  width: 19.5rem;
+  height: 5rem;
+  padding: 1.375rem 6.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  background: #CCCAC9;
+  color: #FFF;
+  font-family: "Pretendard Variable";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  margin-top: 2rem;
+
+}
+
+.makeplay-location{
+ 
+}
+
+.makeplay-location-title{
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 3rem */
+}
+.search-location-button{
+  display: flex;
+  height: 1rem;
+  width: 3rem;
+  padding: 0.75rem 1rem;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  color: #FFF;
+  background-color: #FFF;
+}
+
+.search-location{
+  display: flex;
+  flex-direction: row;
+}
+
+.play-search-input{
+  display: flex;
+  width: 15.25rem;
+  padding: 0.75rem 1rem;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  border: 2px solid #777371;
+  background: #FFF;
+  color: var(--kakao-logo, #000);
+  font-family: "Pretendard Variable";
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
