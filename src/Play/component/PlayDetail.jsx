@@ -302,5 +302,7 @@ export default function PlayDetail() {
       </div>
       
     </div>
+
+    
   );
 }
