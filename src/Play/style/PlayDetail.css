@@ -120,10 +120,12 @@
 .detail-play-date {
   margin-top: 1.56rem;
 }
-.dteail-scrap-text{
+
+.dteail-scrap-text {
   margin-left: -0.3rem;
   margin-top: 0.1rem;
 }
+
 .detail-play-loc img, .detail-play-people img {
   width: 1.5rem;
   height: 2rem;
@@ -153,6 +155,10 @@
 }
 
 .play-detail-organizer {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
   margin-bottom: 20px;
 }
 

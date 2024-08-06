@@ -1,3 +1,169 @@
+.make-play-form {
+  width: 45rem;
+  height: 33.875rem;
+  position: relative;
+  border-radius: 1.5rem;
+background: #FFF;
+display: inline-flex;
+padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+flex-direction: column;
+align-items: center;
+gap: 5rem;
+
+/* 그림자 */
+box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40);
+}
+
+.make-play-container{
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+
+}
+.make-play-introduce{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.makeplay-form-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.make-play-introduce label{
+  width: 40rem;
+  height: 6rem;
+  color: var(--kakao-logo, #000);
+font-family: "Pretendard Variable";
+font-size: 2rem;
+font-style: normal;
+font-weight: 600;
+line-height: 150%; /* 3rem */
+line-height: -5rem;
+}
+
+.make-play-introduce-container{
+  width: 40rem;
+
+}
+
+.makeplay-title{
+  width: 42rem;
+  height: 3.625rem;
+  display: flex;
+align-items: center;
+gap: 0.5rem;
+margin-top: 5rem;
+align-self: stretch;
+border-radius: 1rem;
+border: 2px solid #777371;
+color: var(--grey-text-3, #AEACAB);
+font-family: "Pretendard Variable";
+font-size: 1.375rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.makeplay-pr{
+  display: flex;
+  width: 40rem;
+height: 7.0625rem;
+padding: 1rem;
+align-items: flex-start;
+gap: 0.5rem;
+align-self: stretch;
+border-radius: 1rem;
+border: 2px solid #777371;
+margin-bottom: 0.5rem;
+margin-top: 5rem;
+color: var(--grey-text-3, #AEACAB);
+font-family: "Pretendard Variable";
+font-size: 1.125rem;
+font-style: normal;
+font-weight: 500;
+}
+
+.makeplay-form-buttons{
+  display: flex;
+  justify-content: center;
+  width: 40rem;
+  padding: 0 40px;
+  gap:1rem;
+  margin-top:6.5rem;
+  align-items: center;
+  flex-direction: row;
+
+}
+
+.makeplay-back{
+  display: flex;
+  width: 19.5rem;
+  height: 5rem;
+  padding: 1.375rem 6.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+background: #FFD4C0;
+color: var(--primary-text, #F8611A);
+font-family: "Pretendard Variable";
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+border:none;
+
+}
+
+.makeplay-next{
+  display: flex;
+  width: 19.5rem;
+  height: 5rem;
+  padding: 1.375rem 6.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+background: #CCCAC9;
+color: #FFF;
+font-family: "Pretendard Variable";
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+border:none;
+}
+
+.makeplay-form-buttons button:hover {
+  border-radius: 1rem;
+  background: #FF7331;
+}
+
+.character-count {
+  color: var(--grey-text-2, #7E7872);
+  font-family: "Pretendard Variable";
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-left: 39rem;
+  margin-top: 0.5rem;
+}
+
+.close-button {
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  top:1rem;
+  left: 45rem;
+  border: none;
 .modal {
   display: flex;
   justify-content: center;
@@ -50,4 +216,27 @@
   border: 1px solid #ccc;
   border-radius: 0.25rem;
   font-size: 1rem;
+}
+
+.makeplay-first-button{
+  display: flex;
+width: 40rem;
+height: 5rem;
+padding: 1.375rem 6.25rem;
+justify-content: center;
+align-items: center;
+gap: 0.5rem;
+border-radius: 1rem;
+background: #CCCAC9;
+color: #FFF;
+font-family: "Pretendard Variable";
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+border: none;
+margin-bottom: 2;
+
+}
+
 }
