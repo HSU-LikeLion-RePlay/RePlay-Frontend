@@ -21,11 +21,13 @@ export const playInfoState = atom({
       date: "08-10",
       time: "오후 3시",
       loc: "김천실내체육관",
+      activity: "",
       crnt: 10,
       max: 20,
       profilImg: "https://via.placeholder.com/50",
       nickname: "홍길동",
       intro: "같이 직관 승리 가봅시다",
+      fee: "0",
       latitude: 37.5665,
       longitude: 126.978,
       participants: [{ userId: 1, userName: "홍길동" }],
@@ -58,8 +60,8 @@ export const reviewState = atom({
     {
       playIndex: 1,
       reviews: [
-        { author: "김철수", content: "정말 즐거운 경기였어요!" },
-        { author: "이영희", content: "다음에도 꼭 참여하고 싶어요!" },
+        { author: "김철수", activity: "정말 즐거운 경기였어요!" },
+        { author: "이영희", activity: "다음에도 꼭 참여하고 싶어요!" },
       ],
     },
   ],
@@ -273,38 +275,32 @@ export default function PlayDetail() {
           <div className="play-detail-right">
             <Map
               center={{ lat: playInfo.latitude, lng: playInfo.longitude }}
-              style={{ width: "100%", height: "360px" }}
+              style={{ width: "100%", height: "400px" }}
               level={3}
             >
               <MapMarker
                 position={{ lat: playInfo.latitude, lng: playInfo.longitude }}
               />
             </Map>
-            <div className="address-detail-container">
-              <img className="address-detail-img" src={locimg} alt="locimg" />
-              <div className="address-detail-info">
+            <div>
+              <p>
+                <img src={locimg} alt="locimg" />
                 {address
                   ? address.address_name
                   : "주소 정보를 가져오는 중입니다..."}
-              </div>
-              <button
-                onClick={handleDirectionsClick}
-                className="address-detail-button"
-              >
-                경로 보러가기
+              </p>
+              <button onClick={handleDirectionsClick}>경로 보러가기</button>
+              <button className="join-button" onClick={handleJoinClick}>
+                {isParticipating ? "참가 취소하기" : "참가 하기"}
               </button>
             </div>
-
-            <button className="join-button" onClick={handleJoinClick}>
-              {isParticipating ? "참가 취소하기" : "참가 하기"}
-            </button>
           </div>
+          <ConfirmModal
+            show={showConfirmModal}
+            onClose={() => setShowConfirmModal(false)}
+            onConfirm={handleCancelParticipation}
+          />
         </div>
-        <ConfirmModal
-          show={showConfirmModal}
-          onClose={() => setShowConfirmModal(false)}
-          onConfirm={handleCancelParticipation}
-        />
       </div>
     </div>
   );
