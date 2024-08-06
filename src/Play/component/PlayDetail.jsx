@@ -5,10 +5,12 @@ import "../style/PlayDetail.css";
 import bookmarkIcon from "../images/bookmark.jpg";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import Comment from "./Comment";
-import locimg from "../images/Loc.svg";
+import locimg from "../images/Subtract.png";
 import ConfirmModal from "./ConfirmModal";
 import loc from '../images/Loc.svg';
 import peo from '../images/People.svg'
+import PlayHeader from "../../Header/components/PlayHeader";
+import Footer from "../../Footer/components/Footer";
 // 더미 데이터
 export const playInfoState = atom({
   key: "playInfoState",
@@ -195,6 +197,7 @@ export default function PlayDetail() {
 
   return (
     <div className="play-detail-page">
+      <PlayHeader/>
       <div className="play-detail-container">
         <div className="play-detail-top">
           <div className="play-detail-image">
@@ -271,6 +274,8 @@ export default function PlayDetail() {
         <Comment />
         </div>
         <div className="play-detail-right">
+          
+          <div className="play-detail-map-info">
           <Map
             center={{ lat: playInfo.latitude, lng: playInfo.longitude }}
             style={{ width: "100%", height: "400px" }}
@@ -280,19 +285,24 @@ export default function PlayDetail() {
               position={{ lat: playInfo.latitude, lng: playInfo.longitude }}
             />
           </Map>
-          <div>
-            <p>
-              <img src={locimg} alt="locimg" />
-              {address
-                ? address.address_name
-                : "주소 정보를 가져오는 중입니다..."}
-            </p>
-            <button onClick={handleDirectionsClick}>경로 보러가기</button>
-            <button className="join-button" onClick={handleJoinClick}>
-        {isParticipating ? "참가 취소하기" : "참가 하기"}
-      </button>
+          <div className="play-detail-loc-info">
+              <img className="play-detail-loc-img" src={locimg} alt="locimg" />
+              <p className="play-detail-loc">
+              
+                {address
+                  ? address.address_name
+                  : "주소 정보를 가져오는 중입니다..."}
+                </p>
+            <button className="play-detail-location-btn" onClick={handleDirectionsClick}>경로 보러가기</button>
+
+
           </div>
-        </div>
+            
+          </div>
+        
+          <button className="play-join-button" onClick={handleJoinClick}>
+        {isParticipating ? "참가 취소하기" : "참가 하기"}
+      </button></div>
       </div>
       <ConfirmModal
         show={showConfirmModal}
@@ -300,7 +310,7 @@ export default function PlayDetail() {
         onConfirm={handleCancelParticipation}
       />
       </div>
-      
+      <Footer/>
     </div>
 
     

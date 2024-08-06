@@ -2,7 +2,10 @@
   margin-top: 20px;
 }
 
-.comment-input,
+.comment-input{
+  width: 48rem;
+  height: 7.0625rem;
+}
 .reply-input {
   display: flex;
   flex-direction: column;
