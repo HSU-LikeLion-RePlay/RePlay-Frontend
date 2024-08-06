@@ -2,11 +2,28 @@ import React from "react";
 import "../css/advertisementsupporter.css";
 import LoginHeader from "../../Header/components/LoginHeader";
 import Footer from "../../Footer/components/Footer";
+import backgroundImage from "../image/biglogo.png"; // 배경 이미지 경로를 맞춰주세요
+
 const AdvertisementSupporter = () => {
+  const handleApplyClick = () => {
+    window.location.href = "https://forms.gle/YzAGYRDRtNnGHCpc7"; // 이동할 외부 URL로 변경하세요
+  };
+
   return (
     <div>
       <LoginHeader />
       <div className="Advertisement-supporter-container">
+        <img
+          src={backgroundImage}
+          alt="Background"
+          className="background-image"
+        />
+        <button
+          className="advertisement-apply-button"
+          onClick={handleApplyClick}
+        >
+          서포터즈 지원하기
+        </button>
         <div className="Advertisement-supporter-header">
           <div className="Advertisement-supporter-title">
             <div>2025</div>
