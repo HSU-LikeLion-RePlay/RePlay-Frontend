@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import Modal from "../components/Modal";
 import "../css/informationpost.css";
 import uploadImage from "../image/upload.jpg"; // 이미지 경로를 맞춰주세요
 import Footer from "../../Footer/components/Footer";
 import InformationHeader from "../../Header/components/InformationHeader";
+
 const InformationPost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -35,41 +35,9 @@ const InformationPost = () => {
     fileInputRef.current.click();
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault(); // 폼 제출 기본 동작 방지
-
-    const formData = new FormData();
-    formData.append(
-      "infoSubmitRequest",
-      new Blob([JSON.stringify({ title, content })], {
-        type: "application/json",
-      })
-    );
-
-    images.forEach((image) => {
-      formData.append("images", image);
-    });
-
-    try {
-      const response = await axios.post(
-        "https://43.201.176.194:8080/api/info/submitInfo",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-
-      console.log("Response status:", response.status);
-      console.log("Response data:", response.data);
-
-      if (response.status === 200) {
-        setIsModalOpen(true);
-      }
-    } catch (error) {
-      console.error("Error submitting post:", error);
-    }
+    setIsModalOpen(true); // 모달 창 열기
   };
 
   const closeModal = () => {

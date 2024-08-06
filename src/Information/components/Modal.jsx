@@ -1,5 +1,4 @@
-
-//모달창 
+//모달창
 import React from "react";
 import "../css/modal.css";
 
